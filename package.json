@@ -14,5 +14,8 @@
     "morgan": "~1.7.0",
     "openlayers": "^4.0.0",
     "serve-favicon": "~2.3.2"
+  },
+  "devDependencies": {
+    "grunt-contrib-uglify": "^2.1.0"
   }
 }
