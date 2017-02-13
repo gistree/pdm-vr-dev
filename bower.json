@@ -1,0 +1,17 @@
+{
+  "name": "pdm-vr-dev",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Gistree"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/gistree/pdm-vr-dev",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
