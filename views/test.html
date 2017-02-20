@@ -1,0 +1,40 @@
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="jquery-ui.min.js"></script>
+    <script src="fancytree/jquery.fancytree-all.min.js"></script>
+    <script src="fancytree/skin-win8/ui.fancytree.min.css"></script>
+    <script>
+        $(function() {
+            $("#tree").fancytree({
+                onActivate: function(node) { // A DynaTreeNode object is passed to the activation handler // Note: we also get this event, if persistence is on, and the // age is reloaded. alert("You activated " + node.data.title);
+                },
+                source: [ // Pass an array of nodes. 
+                    {
+                        title: "Item 1"
+                    }, {
+                        title: "Folder 2",
+                        isFolder: true,
+                        children: [{
+                            title: "Sub-item 2.1"
+                        }, {
+                            title: "Sub-item 2.2"
+                        }]
+                    }, {
+                        title: "Item 3"
+                    }
+                ]
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="tree">
+    </div>
+</body>
+
+</html>
