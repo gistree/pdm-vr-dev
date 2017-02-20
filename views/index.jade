@@ -86,7 +86,7 @@ html(lang='en' ng-app)
                                             p Ajuda
         #bottom-row.row.h-85
             #leftmenu-col.container-fluid.col-2.bg-faded
-                ul.panel
+                .panel
                     ul.nav.nav-tabs(role='tablist')
                         li.nav-item
                             a.nav-link.active(data-toggle='tab', href='#layers', role='tab') Layers
@@ -97,7 +97,7 @@ html(lang='en' ng-app)
                     .tab-content.btn-group.active(role="group")
                         #layers.tab-pane.active(role='tabpanel')
                             #tree.panel-body.fancytree-plain.fancytree-colorize-selected.fancytree-fade-expander
-                            .panel-footer
+                            .panel-footer.fixed-bottom(style='display: inline')
                                 button#btnExpandAll.btn.btn-sm.btn-primary Expand all
                                 button#btnCollapseAll.btn.btn-sm.btn-warning Collapse all
                                 button#btnDeselectAll.btn.btn-sm.btn-danger Deselect all
