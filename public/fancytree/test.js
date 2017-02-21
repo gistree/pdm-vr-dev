@@ -21,7 +21,7 @@ $(function() {
             checkbox: true,
             glyph: glyph_opts,
             clickFolderMode: 3,
-            selectMode: 2,
+            selectMode: 3,
             source: [ // Pass an array of nodes.
                 {
                     title: "Item 1",
@@ -201,20 +201,29 @@ $(function() {
                 });
                 $("#echo").text(selKeys.join(", "));
                 /*
-                                var remove = 1;
-                                if (selNodes.length == 0) {
-                                    map.removeLayer(stamenLayer);
-                                } else {
-                                    selNodes.forEach(function(node) {
-                                        if (node.title == 'Item 1' && map.getLayers().array_.length == 1) {
-                                            map.addLayer(stamenLayer);
-                                            remove = 0;
-                                        }
-                                        if (remove == 1 && ) {
-                                            map.removeLayer(stamenLayer);
-                                        }
-                                    }, this);
-                                }*/
+                                selNodes.forEach(function(node) {
+                                    if (node.folder) {
+                                        node.children.forEach(function(node) {
+                                            node.setSelected(true);
+                                        })
+                                    }
+                                });
+
+                                
+                                                var remove = 1;
+                                                if (selNodes.length == 0) {
+                                                    map.removeLayer(stamenLayer);
+                                                } else {
+                                                    selNodes.forEach(function(node) {
+                                                        if (node.title == 'Item 1' && map.getLayers().array_.length == 1) {
+                                                            map.addLayer(stamenLayer);
+                                                            remove = 0;
+                                                        }
+                                                        if (remove == 1 && ) {
+                                                            map.removeLayer(stamenLayer);
+                                                        }
+                                                    }, this);
+                                                }*/
             },
             click: function(event, data) {
                 // We should not toggle, if target was "checkbox", because this
@@ -240,5 +249,27 @@ $(function() {
                 node.setSelected(false);
             });
         });
-    })
+
+        $("#hide_left_menu").click(function() {
+            $('#leftmenu-col').hide();
+            $("#map-col").removeClass();
+            $("#map-col").addClass("col-12");
+            if (!$('#sidebar-show-btn').length) {
+                $("<button class='btn btn-inverse' type='button' data-placement='bottom' title='Mostrar painel' id='show_left_menu' onclick='show_left_menu();'><span class='fa fa-arrow-circle-o-right'></span></button>").insertBefore("#firstButton");
+            }
+            map.updateSize();
+        });
+
+        $("#btnSortAll").click(function() {
+            $("#tree").fancytree("getRootNode").sortChildren(null, true);
+        })
+
+        window.show_left_menu = function() {
+            $('#leftmenu-col').show();
+            $("#map-col").removeClass();
+            $("#map-col").addClass("col-9");
+            $("#show_left_menu").remove();
+            map.updateSize();
+        };
+    });
 });
