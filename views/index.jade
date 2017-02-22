@@ -98,24 +98,27 @@ html(lang='en')
                 #tabcontent.tab-content
                     #layers.tab-pane.active(role='tabpanel')
                         #tree.panel-body.fancytree-plain.fancytree-colorize-selected.fancytree-fade-expander 
-                        #bottombar.fixed-bottom(role="group")
-                                button#btnExpandAll.btn.btn-primary.fa.fa-expand
-                                button#btnCollapseAll.btn.btn-warning.fa.fa-compress
-                                button#btnDeselectAll.btn.btn-danger.fa.fa-minus-square
-                                button#btnSortAll.btn.btn-success.fa.fa-sort
+                        #bottombar.fixed-bottom.btn-group(role="group")
+                            button#btnExpandAll.btn.btn-primary.fa.fa-expand
+                            button#btnCollapseAll.btn.btn-warning.fa.fa-compress
+                            button#btnDeselectAll.btn.btn-danger.fa.fa-minus-square
+                            button#btnSortAll.btn.btn-success.fa.fa-sort
+                            button#btnInfo.btn.btn-primary.fa.fa-info
                     #legenda.tab-pane(role='tabpanel')
                     #opcoes.tab-pane(role='tabpanel')
             #map-col.container.col-9.bg-faded
                 #map.map
-                #toolbar.btn-group(role="group")
+                #toolbar.btn-toolbar(role="group")
                     button#firstButton.btn.bg-danger(type='button') 1
                     button.btn.bg-warning(type='button') 2
                     button.btn.bg-danger(type='button') 3
                     button.btn.bg-warning(type='button') 4
                     button.btn.bg-danger(type='button') 5
                     button.btn.bg-warning(type='button') 6
+        
+                    button.btn.btn-default(type='button', data-dismiss='modal') Close 
     // jQuery first, then Tether, then Bootstrap JS.
-    //script(src='https://code.jquery.com/jquery-3.1.1.slim.min.js', integrity='sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n', crossorigin='anonymous')
+    script(src='https://code.jquery.com/jquery-3.1.1.slim.min.js', integrity='sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n', crossorigin='anonymous')
     script(src='jquery.js')
     script(src='jquery-ui.js')
     script(src='fancytree/jquery.fancytree-all.js')

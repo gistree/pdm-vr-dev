@@ -19,6 +19,7 @@ $(function() {
         $("#tree").fancytree({
             extensions: ["edit", "glyph", "wide"],
             checkbox: true,
+            quicksearch: true,
             glyph: glyph_opts,
             clickFolderMode: 3,
             selectMode: 3,
@@ -200,36 +201,13 @@ $(function() {
                     return "[" + node.key + "]: '" + node.title + "'";
                 });
                 $("#echo").text(selKeys.join(", "));
-                /*
-                                selNodes.forEach(function(node) {
-                                    if (node.folder) {
-                                        node.children.forEach(function(node) {
-                                            node.setSelected(true);
-                                        })
-                                    }
-                                });
-
-                                
-                                                var remove = 1;
-                                                if (selNodes.length == 0) {
-                                                    map.removeLayer(stamenLayer);
-                                                } else {
-                                                    selNodes.forEach(function(node) {
-                                                        if (node.title == 'Item 1' && map.getLayers().array_.length == 1) {
-                                                            map.addLayer(stamenLayer);
-                                                            remove = 0;
-                                                        }
-                                                        if (remove == 1 && ) {
-                                                            map.removeLayer(stamenLayer);
-                                                        }
-                                                    }, this);
-                                                }*/
             },
             click: function(event, data) {
                 // We should not toggle, if target was "checkbox", because this
                 // would result in double-toggle (i.e. no toggle)
                 if ($.ui.fancytree.getEventTargetType(event) === "title") {
                     data.node.toggleSelected();
+                    console.log('ola');
                 }
             },
         });
@@ -271,5 +249,38 @@ $(function() {
             $("#show_left_menu").remove();
             map.updateSize();
         };
+
+        $("#btnInfo").click(function(e) {
+            modalNodes = $("#tree").fancytree("getTree").getSelectedNodes();
+            console.log(modalNodes);
+            if (modalNodes.length > 0) {
+                console.log('titulo' + ($("#tree").fancytree("getTree").getSelectedNodes())[0].title)
+                html = '<div id="infoModal" class="modal fade" role="dialog" aria-labelledby="confirm-modal" aria-hidden="true">';
+                html += '<div class="modal-dialog modal-lg">';
+                html += '<div class="modal-content">';
+                html += '<div class="modal-header">';
+                html += '<h4 class="modal-title">' + modalNodes[0].title + '</h4>'
+                html += '<button type="button" class="close" data-dismiss="modal">×</button>';
+                html += '</div>';
+                html += '<div class="modal-body">';
+                html += 'formContent';
+                html += '</div>';
+                html += '<div class="modal-footer">';
+                html += '<button class="btn btn-default" data-dismiss="modal">Close</button>';
+                html += '</div>'; // content
+                html += '</div>'; // dialog
+                html += '</div>'; // footer
+                html += '</div>'; // modalWindow
+                $('body').append(html);
+                modalNodes.clear;
+                $("#infoModal").modal();
+                $("#infoModal").on('hidden.bs.modal', function() {
+                    console.log('MALDITOS');
+                    $(this).remove();
+                });
+            }
+        });
+
+
     });
 });
