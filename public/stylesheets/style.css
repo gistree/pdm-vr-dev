@@ -76,8 +76,9 @@ ul.fancytree-container {
 
 .navbar-inverse .navbar-nav .nav-link.active {
     color: #464a4c;
-    background: #ddd;
-    border-color: #ddd;
+    background: #f7f7f7;
+    border-color: #f7f7f7;
+    border-radius: 0;
 }
 
 .nav-tabs {
@@ -85,13 +86,39 @@ ul.fancytree-container {
     margin-bottom: 1px;
 }
 
+#navtabsmain {
+    border-bottom: 4px solid #f7f7f7;
+}
+
 .btn-custom-1 {
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    margin-right: 3px;
+    /*margin-right: 2px;*/
     color: #464a4c;
     border: 0;
-    background: #ddd;
+    background: #f7f7f7;
+}
+
+#ferramentas .btn:focus,
+#ferramentas .btn-primary:focus {
+    webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+#pesquisar .btn:focus,
+#pesquisar .btn-success:focus {
+    webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+#imprimir .btn:focus,
+#imprimir .btn-danger:focus {
+    webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+#ajuda .btn:focus,
+#ajuda .btn-warning:focus {
+    webkit-box-shadow: none;
+    box-shadow: none;
 }
 
 .nav-tabs>li {
@@ -151,4 +178,34 @@ a {
 
 #tree {
     margin-bottom: 50px;
+}
+
+#toolbar {
+    border: solid 1px gray;
+}
+
+#toolbar button {
+    background-color: #f7f7f7;
+    border: solid 1px gray;
+    border-radius: 0;
+}
+
+#ferramentas button {
+    border-radius: 0;
+    margin-top: -1px;
+}
+
+#pesquisar button {
+    border-radius: 0;
+    margin-top: -1px;
+}
+
+#imprimir button {
+    border-radius: 0;
+    margin-top: -1px;
+}
+
+#ajuda button {
+    border-radius: 0;
+    margin-top: -1px;
 }

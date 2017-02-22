@@ -15,14 +15,14 @@ html(lang='en')
   body.bg-primary
     #index-container.container-fluid.bg-inverse.h-100
         #top-row.row.h-15
-                nav.navbar.navbar-inverse.bg-inverse.navbar-toggleable-md
+                nav#navbarmain.navbar.navbar-inverse.bg-inverse.navbar-toggleable-md
                     button.navbar-toggler.navbar-toggler-right(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
                         span.navbar-toggler-icon
                     a.navbar-brand(href='#') PDM
                     #navbarSupportedContent.collapse.navbar-collapse 
                         ul.nav.navbar-nav <!--.nav-fill -->
                             .container
-                                ul.nav.nav-tabs(role='tablist')
+                                ul#navtabsmain.nav.nav-tabs(role='tablist')
                                     li.nav-item
                                         a.nav-link.active(data-toggle='tab', href='#ferramentas', role='tab') Ferramentas
                                     li.nav-item
@@ -108,15 +108,29 @@ html(lang='en')
                     #opcoes.tab-pane(role='tabpanel')
             #map-col.container.col-9.bg-faded
                 #map.map
-                #toolbar.btn-toolbar(role="group")
-                    button#firstButton.btn.bg-danger(type='button') 1
-                    button.btn.bg-warning(type='button') 2
-                    button.btn.bg-danger(type='button') 3
-                    button.btn.bg-warning(type='button') 4
-                    button.btn.bg-danger(type='button') 5
-                    button.btn.bg-warning(type='button') 6
-        
-                    button.btn.btn-default(type='button', data-dismiss='modal') Close 
+                #toolbar.btn-group(role="group")
+                    button#firstButton.btn.btn-faded.fa.fa-globe(type='button', data-toggle='tooltip', data-placement="bottom", title='Vista inicial')
+                    button.btn.btn-faded.fa.fa-hand-pointer-o(type='button', data-toggle='tooltip', data-placement="bottom", title='Mover mapa')
+                    button.btn.btn-faded.fa.fa-search-plus(type='button', data-toggle='tooltip', data-placement="bottom", title='Aproximar mapa')
+                    button.btn.btn-faded.fa.fa-search-minus(type='button', data-toggle='tooltip', data-placement="bottom", title='Afastar mapa')
+                    button.btn.btn-faded.fa.fa-print(type='button', data-toggle='tooltip', data-placement="bottom", title='Imprimir planta')
+                    .btn-group(role="group", data-toggle='tooltip', data-placement="bottom", title='Alterar escala')
+                        button#btnGroupDrop1.btn.btn-faded.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Escala
+                        .dropdown-menu(aria-labelledby='btnGroupDrop1')
+                            a.dropdown-item(href='#') 1:100000
+                            a.dropdown-item(href='#') 1:80000
+                            a.dropdown-item(href='#') 1:50000
+                            a.dropdown-item(href='#') 1:30000
+                            a.dropdown-item(href='#') 1:25000
+                            a.dropdown-item(href='#') 1:20000
+                            a.dropdown-item(href='#') 1:15000
+                            a.dropdown-item(href='#') 1:10000
+                            a.dropdown-item(href='#') 1:5000
+                            a.dropdown-item(href='#') 1:3500
+                            a.dropdown-item(href='#') 1:2000
+                            a.dropdown-item(href='#') 1:1000
+                            a.dropdown-item(href='#') 1:500
+                            a.dropdown-item(href='#') 1:100          
     // jQuery first, then Tether, then Bootstrap JS.
     script(src='https://code.jquery.com/jquery-3.1.1.slim.min.js', integrity='sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n', crossorigin='anonymous')
     script(src='jquery.js')
