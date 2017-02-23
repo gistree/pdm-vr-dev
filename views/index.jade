@@ -1,5 +1,5 @@
 doctype html
-html(lang='en')
+html(lang='en' ng-app='gestreeApp')
   head
     title Map Prototype
     // Required meta tags
@@ -86,9 +86,11 @@ html(lang='en')
                                             p Ajuda
         #bottom-row.row.h-85
             #leftmenu-col.container-fluid.col-3.bg-faded
-                #leftmenu-col-inner
-                    ul#lefttopmenutabs.nav.nav-tabs(style='margin-top: 8px;')
-                        li#leftmenutab.nav-item
+                //- START[*JoKord] 
+                ges-tabs
+            //- .panel
+                    ul.nav.nav-tabs(role='tablist')
+                        li.nav-item
                             a.nav-link.active(data-toggle='tab', href='#layers', role='tab') Layers
                         li#leftmenutab.nav-item
                             a.nav-link(data-toggle='tab', href='#legenda', role='tab') Legenda
@@ -106,8 +108,9 @@ html(lang='en')
                                 button#btnSortAll.btn.btn-sm.fa.fa-sort
                                 button#btnInfo.btn.btn-sm.fa.fa-info
                         #legenda.tab-pane(role='tabpanel')
-                        #opcoes.tab-pane(role='tabpanel')
-            #map-col.container.col-9.bg-faded
+                        #opcoes.tab-pane(role='tabpanel')                                    
+            //- END[*JoKord]              
+            #map-col.container.col-9.bg-faded.text-center
                 #map.map
                 #toolbar.btn-group(role="group")
                     button#firstButton.btn.btn-faded.fa.fa-globe(type='button', data-toggle='tooltip', data-placement="bottom", title='Vista inicial')
@@ -142,10 +145,21 @@ html(lang='en')
     script(src='fancytree/src/jquery.fancytree.glyph.js')
     script(src='fancytree/src/jquery.fancytree.table.js')
     script(src='fancytree/src/jquery.fancytree.wide.js')
+    // START[*JoKord]
+    script(src='ol-debug.js')
+    script(src='app/lib/angular.js')
+    script(src='app/app.js')
+    script(src='app/services/map-service.js')
+    script(src='app/factories/layers-factory.js')
+    script(src='app/directives/tabs-directive.js')
+    
+    // END[*JoKOrd]
     script(src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js', integrity='sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb', crossorigin='anonymous')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js', integrity='sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn', crossorigin='anonymous')
     script(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
     // Initialize the tree when page is loaded
-    script(src='fancytree/test.js')
-    script(src='ol-debug.js')
-    script(src='map_test.js')
+    //script(src='fancytree/test.js')
+    //script(src='ol-debug.js')
+    //script(src='map_test.js')  
+    //script(src='app/sandbox/testeWFS.js')
+
