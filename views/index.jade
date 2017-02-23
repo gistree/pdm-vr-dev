@@ -86,26 +86,27 @@ html(lang='en')
                                             p Ajuda
         #bottom-row.row.h-85
             #leftmenu-col.container-fluid.col-3.bg-faded
-                ul#lefttopmenutabs.nav.nav-tabs(style='margin-top: 8px;')
-                    li#leftmenutab.nav-item
-                        a.nav-link.active(data-toggle='tab', href='#layers', role='tab') Layers
-                    li#leftmenutab.nav-item
-                        a.nav-link(data-toggle='tab', href='#legenda', role='tab') Legenda
-                    li#leftmenutab.nav-item
-                        a.nav-link(data-toggle='tab', href='#opcoes', role='tab') Opções
-                    button#hide_left_menu.btn.pull-right.ml-auto.p-2.btn-inverse(type='button', title='Hide Panel', onclick="this.blur();")
-                        span.fa.fa-arrow-circle-o-left
-                #tabcontent.tab-content
-                    #layers.tab-pane.active(role='tabpanel')
-                        #tree.panel-body.fancytree-plain.fancytree-colorize-selected.fancytree-fade-expander 
-                        #bottombar.fixed-bottom.btn-group(role="group")
-                            button#btnExpandAll.btn.btn-primary.fa.fa-expand
-                            button#btnCollapseAll.btn.btn-warning.fa.fa-compress
-                            button#btnDeselectAll.btn.btn-danger.fa.fa-minus-square
-                            button#btnSortAll.btn.btn-success.fa.fa-sort
-                            button#btnInfo.btn.btn-primary.fa.fa-info
-                    #legenda.tab-pane(role='tabpanel')
-                    #opcoes.tab-pane(role='tabpanel')
+                #leftmenu-col-inner
+                    ul#lefttopmenutabs.nav.nav-tabs(style='margin-top: 8px;')
+                        li#leftmenutab.nav-item
+                            a.nav-link.active(data-toggle='tab', href='#layers', role='tab') Layers
+                        li#leftmenutab.nav-item
+                            a.nav-link(data-toggle='tab', href='#legenda', role='tab') Legenda
+                        li#leftmenutab.nav-item
+                            a.nav-link(data-toggle='tab', href='#opcoes', role='tab') Opções
+                        button#hide_left_menu.btn.pull-right.ml-auto.p-2(type='button', title='Hide Panel', onclick="this.blur();")
+                            span.fa.fa-arrow-left
+                    #tabcontent.tab-content
+                        #layers.tab-pane.active(role='tabpanel')
+                            #tree.panel-body.fancytree-plain.fancytree-colorize-selected.fancytree-fade-expander 
+                            #bottombar.fixed-bottom.btn-group.col-3
+                                button#btnExpandAll.btn.btn-sm.fa.fa-expand
+                                button#btnCollapseAll.btn.btn-sm.fa.fa-compress
+                                button#btnDeselectAll.btn.btn-sm.fa.fa-minus-square
+                                button#btnSortAll.btn.btn-sm.fa.fa-sort
+                                button#btnInfo.btn.btn-sm.fa.fa-info
+                        #legenda.tab-pane(role='tabpanel')
+                        #opcoes.tab-pane(role='tabpanel')
             #map-col.container.col-9.bg-faded
                 #map.map
                 #toolbar.btn-group(role="group")
@@ -148,5 +149,3 @@ html(lang='en')
     script(src='fancytree/test.js')
     script(src='ol-debug.js')
     script(src='map_test.js')
-    
-        
