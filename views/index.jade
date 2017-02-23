@@ -1,5 +1,5 @@
 doctype html
-html(lang='en' ng-app)
+html(lang='en' ng-app='gestreeApp')
   head
     title Map Prototype
     // Required meta tags
@@ -85,8 +85,10 @@ html(lang='en' ng-app)
                                         button.btn.btn-warning.btn-custom-1(type='button', title='Obter Coordenadas no mapa')
                                             p Ajuda
         #bottom-row.row.h-85
-            #leftmenu-col.container-fluid.col-2.bg-faded
-                .panel
+            #leftmenu-col.container-fluid.col-3.bg-faded
+                //- START[*JoKord] 
+                ges-tabs
+            //- .panel
                     ul.nav.nav-tabs(role='tablist')
                         li.nav-item
                             a.nav-link.active(data-toggle='tab', href='#layers', role='tab') Layers
@@ -102,10 +104,10 @@ html(lang='en' ng-app)
                                 button#btnCollapseAll.btn.btn-sm.btn-warning Collapse all
                                 button#btnDeselectAll.btn.btn-sm.btn-danger Deselect all
                         #legenda.tab-pane(role='tabpanel')
-                        #opcoes.tab-pane(role='tabpanel')
-                                    
+                        #opcoes.tab-pane(role='tabpanel')                                    
+            //- END[*JoKord]
                     
-            #map-col.container.col-10.bg-faded.text-center
+            #map-col.container.col-9.bg-faded.text-center
                 #map.map
 
     // jQuery first, then Tether, then Bootstrap JS.
@@ -119,15 +121,19 @@ html(lang='en' ng-app)
     script(src='fancytree/src/jquery.fancytree.table.js')
     script(src='fancytree/src/jquery.fancytree.wide.js')
     // START[*JoKord]
+    script(src='ol-debug.js')
     script(src='app/lib/angular.js')
     script(src='app/app.js')
+    script(src='app/services/map-service.js')
+    script(src='app/factories/layers-factory.js')
+    script(src='app/directives/tabs-directive.js')
+    
     // END[*JoKOrd]
     script(src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js', integrity='sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb', crossorigin='anonymous')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js', integrity='sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn', crossorigin='anonymous')
     script(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
     // Initialize the tree when page is loaded
-    script(src='fancytree/test.js')
-    script(src='ol-debug.js')
-    script(src='map_test.js')
-    
-        
+    //script(src='fancytree/test.js')
+    //script(src='ol-debug.js')
+    //script(src='map_test.js')  
+    //script(src='app/sandbox/testeWFS.js')

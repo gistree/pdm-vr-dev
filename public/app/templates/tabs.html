@@ -1,0 +1,31 @@
+<div class="panel">
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" role="tab" href="#layers">
+                Layers
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" role="tab" href="#legenda">
+                Legenda
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" role="tab" href="#opcoes">
+                Opções
+            </a>
+        </li>
+    </ul>
+    <div class="tab-content active" role="group">
+        <div id="layers" class="tab-pane active">
+            <div id="tree" class="panel-body fancytree-plain fancytree-colorize-selected fancytree-fade-expander"></div>    
+            <div class="panel-footer fixed-bottom">
+                <button id="btnExpandAll" class="btn btn-sm btn-primary">Expand All</button>
+                <button id="btnCollapseAll" class="btn btn-sm btn-warning">Collapse All</button>
+                <button id="btnDeselectAll" class="btn btn-sm btn-danger">Deselect All</button>
+            </div>
+        </div>
+        <div id="legenda" class="tab-pane"></div>
+        <div id="opcoes" class="tab-pane"></div>
+    </div>
+</div>

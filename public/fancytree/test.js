@@ -21,7 +21,7 @@ $(function() {
             checkbox: true,
             glyph: glyph_opts,
             clickFolderMode: 3,
-            selectMode: 2,
+            selectMode: 3,
             source: [ // Pass an array of nodes.
                 {
                     title: "Item 1",
