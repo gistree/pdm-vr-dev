@@ -107,25 +107,25 @@ ul.fancytree-container {
 
 #ferramentas .btn:focus,
 #ferramentas .btn-primary:focus {
-    webkit-box-shadow: none;
+    -webkit-box-shadow: none;
     box-shadow: none;
 }
 
 #pesquisar .btn:focus,
 #pesquisar .btn-success:focus {
-    webkit-box-shadow: none;
+    -webkit-box-shadow: none;
     box-shadow: none;
 }
 
 #imprimir .btn:focus,
 #imprimir .btn-danger:focus {
-    webkit-box-shadow: none;
+    -webkit-box-shadow: none;
     box-shadow: none;
 }
 
 #ajuda .btn:focus,
 #ajuda .btn-warning:focus {
-    webkit-box-shadow: none;
+    -webkit-box-shadow: none;
     box-shadow: none;
 }
 
