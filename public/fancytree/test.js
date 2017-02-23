@@ -326,9 +326,9 @@ $(function() {
                         var centerPage = parseInt(document.getElementById('page' + j).parentNode.parentNode.children[2].children[0].text);
                         var leftPage = centerPage + 1;
                         var rightPage = centerPage + 2;
-                        document.getElementById('page' + leftPage).parentNode.parentNode.children[2].replaceWith(pagesHTML[0][0]);
-                        document.getElementById('page' + centerPage).parentNode.parentNode.children[3].replaceWith(pagesHTML[1][0]);
-                        document.getElementById('page' + rightPage).parentNode.parentNode.children[4].replaceWith(pagesHTML[2][0]);
+                        document.getElementById('page' + leftPage).parentNode.parentNode.children[2].replaceWith(pagesHTML[j - 1][0]);
+                        document.getElementById('page' + centerPage).parentNode.parentNode.children[3].replaceWith(pagesHTML[j][0]);
+                        document.getElementById('page' + rightPage).parentNode.parentNode.children[4].replaceWith(pagesHTML[j + 1][0]);
                     };
                 }
 
