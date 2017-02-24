@@ -2,22 +2,23 @@
     'use strict';
 
     angular
-        .module('Module')
-        .directive('Directive', Directive);
+        .module('Toolbar')
+        .directive('mapToolbar', MapToolbar);
 
-    Directive.$inject = ['dependency1'];
+    MapToolbar.$inject = ['mapService'];
 
-    function Directive(dependency1) {
+    function MapToolbar(mapService) {
         // Usage:
         //
         // Creates:
         //
         var directive = {
+            templateUrl: "app/templates/toolbar.html",
             bindToController: true,
             controller: ControllerController,
             controllerAs: 'vm',
             link: link,
-            restrict: 'A',
+            restrict: 'E',
             scope: {}
         };
         return directive;
@@ -25,7 +26,10 @@
         function link(scope, element, attrs) {}
     }
     /* @ngInject */
-    function ControllerController() {
-
+    function ControllerController($scope, mapService) {
+        $scope.scales = ['1:100000', '1:80000', '1:50000', '1:30000', '1:25000', '1:20000',
+            '1:15000', '1:10000', '1:5000', '1:3500', '1:2000', '1:1000', '1:500', '1:100'
+        ];
+        console.log(mapService);
     }
 })();

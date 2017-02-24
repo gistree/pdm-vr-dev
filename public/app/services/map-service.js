@@ -1,7 +1,7 @@
-(function () {
+(function() {
     'use strict';
     angular
-        .module('gestreeApp')
+        .module('Map')
         .factory('mapService', mapService)
 
     function mapService() {
@@ -13,14 +13,13 @@
                 target: 'map',
                 center: [-7.699871063232422, 41.21637029336946],
             };
-        var ms = {
+        return {
             map: map, // ol.Map
             init: init,
             setLayer: setLayer,
             removeLayer: removeLayer,
             setOtherLayer: setOtherLayer
         };
-        return ms;
 
         function init(config) {
             var config = angular.extend(defaults, config);
@@ -45,7 +44,7 @@
             //http://gistree.espigueiro.pt/geoserver/wfs?service=WFS&version=1.1.1&request=GetFeature&typeName=PDM-VilaReal:AER%C3%93DROMO&outputFormat=application/json
             var layerWFS = new ol.layer.Vector({
                 source: new ol.source.Vector({
-                    loader: function (extent) {
+                    loader: function(extent) {
                         $.ajax('http://gistree.espigueiro.pt/geoserver/wfs', {
                             type: 'GET',
                             data: {
@@ -57,7 +56,7 @@
                                 outputFormat: 'application/json',
                                 //bbox: extent.join(',') + ',EPSG:3857'
                             }
-                        }).done(function (response) {
+                        }).done(function(response) {
                             console.log(response);
                             console.log("IN RESPONSE");
                             /*layerWFS

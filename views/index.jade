@@ -114,29 +114,7 @@ html(lang='en' ng-app='gestreeApp')
             //- END[*JoKord]              
             #map-col.container.col-9.bg-faded.text-center
                 #map.map
-                #toolbar.btn-group(role="group")
-                    button#firstButton.btn.btn-faded.fa.fa-globe(type='button', data-toggle='tooltip', data-placement="bottom", title='Vista inicial')
-                    button.btn.btn-faded.fa.fa-hand-pointer-o(type='button', data-toggle='tooltip', data-placement="bottom", title='Mover mapa')
-                    button.btn.btn-faded.fa.fa-search-plus(type='button', data-toggle='tooltip', data-placement="bottom", title='Aproximar mapa')
-                    button.btn.btn-faded.fa.fa-search-minus(type='button', data-toggle='tooltip', data-placement="bottom", title='Afastar mapa')
-                    button.btn.btn-faded.fa.fa-print(type='button', data-toggle='tooltip', data-placement="bottom", title='Imprimir planta')
-                    .btn-group(role="group", data-toggle='tooltip', data-placement="bottom", title='Alterar escala')
-                        button#btnGroupDrop1.btn.btn-faded.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Escala
-                        .dropdown-menu(aria-labelledby='btnGroupDrop1')
-                            a.dropdown-item(href='#') 1:100000
-                            a.dropdown-item(href='#') 1:80000
-                            a.dropdown-item(href='#') 1:50000
-                            a.dropdown-item(href='#') 1:30000
-                            a.dropdown-item(href='#') 1:25000
-                            a.dropdown-item(href='#') 1:20000
-                            a.dropdown-item(href='#') 1:15000
-                            a.dropdown-item(href='#') 1:10000
-                            a.dropdown-item(href='#') 1:5000
-                            a.dropdown-item(href='#') 1:3500
-                            a.dropdown-item(href='#') 1:2000
-                            a.dropdown-item(href='#') 1:1000
-                            a.dropdown-item(href='#') 1:500
-                            a.dropdown-item(href='#') 1:100          
+                map-toolbar        
     // jQuery first, then Tether, then Bootstrap JS.
     script(src='https://code.jquery.com/jquery-3.1.1.slim.min.js', integrity='sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n', crossorigin='anonymous')
     script(src='jquery.min.js')
@@ -154,6 +132,7 @@ html(lang='en' ng-app='gestreeApp')
     script(src='app/services/map-service.js')
     script(src='app/factories/layers-factory.js')
     script(src='app/directives/tabs-directive.js')
+    script(src='app/directives/toolbar-directive.js')
     
     // END[*JoKOrd]
     script(src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js', integrity='sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb', crossorigin='anonymous')
