@@ -43,17 +43,12 @@
             });
             tree.fancytree({
                 select: function (event, data) {
-                    /*console.log("IN_SELECT");
-                    mapService.setOtherLayer();*/
-                    // WORKING CODE
-
                     if (data.node.isFolder()) {
                         var children = data.node.children;
                         if (data.node.isSelected()) {
                             children.forEach(function (el) {
-                                console.log(el);
                                 el.data.key = el.key;
-                                mapService.setLayer(el.data);
+                                mapService.addLayer(el.data);
                             });
                         } else {
                             children.forEach(function (el) {
@@ -64,7 +59,7 @@
                     } else {
                         if (data.node.isSelected()) {
                             data.node.data.key = data.node.key;
-                            mapService.setLayer(data.node.data);
+                            mapService.addLayer(data.node.data);
                         } else {
                             data.node.data.key = data.node.key;
                             mapService.removeLayer(data.node.data);
