@@ -14,7 +14,7 @@
                 center: [-7.699871063232422, 41.21637029336946],
             };
         var ms = {
-            //map: map, // ol.Map
+            map: map, // ol.Map
             init: init,
             addLayer: addLayer,
             removeLayer: removeLayer,
