@@ -36,13 +36,9 @@
                     zoom: config.zoom
                 })
             });
-            console.log("MAP CONFIG FINISH");
-            window.map = map;
         };
 
         function setOtherLayer(layerData) {
-            console.log("SetOtherLayer");
-            //http://gistree.espigueiro.pt/geoserver/wfs?service=WFS&version=1.1.1&request=GetFeature&typeName=PDM-VilaReal:AER%C3%93DROMO&outputFormat=application/json
             var layerWFS = new ol.layer.Vector({
                 source: new ol.source.Vector({
                     loader: function (extent) {
