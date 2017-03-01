@@ -80,7 +80,7 @@
                     })
                 });
                 _layers[layerData.key] = wfsLayer;
-                map.addLayer(layerWFS);
+                map.addLayer(wfsLayer);
                 _layers[layerData.key].visible = true;
             }else{
                 if (!_layers[layerData.key].visible) {

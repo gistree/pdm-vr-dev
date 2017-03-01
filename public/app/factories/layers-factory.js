@@ -64,11 +64,21 @@
                             }
                         },
                         {
-                            title: "Zona Aeródromo",
+                            title: "Zona Aeródromo Raster",
                             data: {
                                 workspace: "PDM-VilaReal-Database",
                                 name: "aerodromo",
                                 type: "Raster",
+                                extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
+                                opacity: 0.9
+                            }
+                        },
+                        {
+                            title: "Zona Aeródromo Vector",
+                            data: {
+                                workspace: "PDM-VilaReal",
+                                name: "AERODROMO",
+                                type: "Vector",
                                 extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
                                 opacity: 0.9
                             }
