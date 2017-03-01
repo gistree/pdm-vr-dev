@@ -2,12 +2,12 @@
     'use strict';
     angular
         .module('gestreeApp')
-        .directive('gesTabs', Directive);
+        .directive('gesTabs', Directi
+    Directive.$inject = ['LayersFactory', 'MapService'];
 
-    Directive.$inject = ['treeData', 'MapService'];
-
-    function Directive(treeData, MapService) {
+    function Directive(LayersFactory, MapService) {
         MapService.init();
+      
         var directive = {
             bindToController: true,
             controller: tabsController,
@@ -24,10 +24,10 @@
             tree.fancytree({
                 extensions: ["edit", "glyph", "wide"],
                 checkbox: true,
-                glyph: treeData.glyph_opts,
+                glyph: LayersFactory.glyph_opts,
                 clickFolderMode: 3,
                 selectMode: 3,
-                source: treeData.source,
+                source: LayersFactory.source,
                 toggleEffect: {
                     effect: "drop",
                     options: {
