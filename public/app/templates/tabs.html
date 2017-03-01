@@ -16,9 +16,10 @@
                 <button id="btnInfo" class="btn btn-sm fa fa-info"></button>
             </div>
         </div>
-        <div id="legenda" role="tabpanel" class="tab-pane">
-            <ul class="list-group legends-list" ng-controller="LegendsController as lgsCtrl">
-                <li class="list-group-item legends-item" ng-repeat="layer in layers">
+        <div id="legenda" role="tabpanel" class="tab-pane" ng-controller="LegendsController as lgsCtrl">
+            <ul class="list-group legends-list" ng-repeat="group in groups">
+                <b>{{group.title}}</b>
+                <li class="list-group-item legends-item" ng-repeat="layer in group.children">
                     <img ng-src="http://gistree.espigueiro.pt/geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.1.1&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER={{layer.data.workspace}}:{{layer.data.name}}">
                     <span>&nbsp; - &nbsp;{{layer.title}}</span>
                 </li>

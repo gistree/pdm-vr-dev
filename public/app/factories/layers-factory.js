@@ -49,25 +49,32 @@
                     ]
                 },
                 {
-                    title: "Rede Rodoviária",
-                    data: {
-                        workspace: "PDM-VilaReal",
-                        name: "REDE_RODOVIÁRIA",
-                        type: "Raster",
-                        extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
-                        opacity: 0.7
-                    }
-                },
-                {
-                    title: "Zona Aeródromo",
-                    data: {
-                        workspace: "PDM-VilaReal-Database",
-                        name: "aerodromo",
-                        type: "Raster",
-                        extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
-                        opacity: 0.9
-                    }
-                },
+                    title: "Outras",
+                    folder: true,
+                    expanded: true,
+                    children: [{
+
+                            title: "Rede Rodoviária",
+                            data: {
+                                workspace: "PDM-VilaReal",
+                                name: "REDE_RODOVIÁRIA",
+                                type: "Raster",
+                                extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
+                                opacity: 0.7
+                            }
+                        },
+                        {
+                            title: "Zona Aeródromo",
+                            data: {
+                                workspace: "PDM-VilaReal-Database",
+                                name: "aerodromo",
+                                type: "Raster",
+                                extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
+                                opacity: 0.9
+                            }
+                        }
+                    ]
+                }
             ]
         }
     };
