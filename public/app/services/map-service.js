@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module('gestreeApp')
-        .factory('mapService', mapService)
+        .factory('MapService', mapService)
 
     function mapService() {
         var _layers = {};

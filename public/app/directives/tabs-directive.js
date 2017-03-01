@@ -4,10 +4,10 @@
         .module('gestreeApp')
         .directive('gesTabs', Directive);
 
-    Directive.$inject = ['treeData', 'mapService'];
+    Directive.$inject = ['treeData', 'MapService'];
 
-    function Directive(treeData, mapService) {
-        mapService.init();
+    function Directive(treeData, MapService) {
+        MapService.init();
         var directive = {
             bindToController: true,
             controller: tabsController,
@@ -36,9 +36,9 @@
                     duration: 400
                 },
                 wide: {
-                    iconWidth: "1em", // Adjust this if @fancy-icon-width != "16px"
-                    iconSpacing: "0.5em", // Adjust this if @fancy-icon-spacing != "3px"
-                    levelOfs: "1.5em" // Adjust this if ul padding != "16px"
+                    iconWidth: "1em", 
+                    iconSpacing: "0.5em", 
+                    levelOfs: "1.5em"
                 }
             });
             tree.fancytree({
@@ -48,21 +48,21 @@
                         if (data.node.isSelected()) {
                             children.forEach(function (el) {
                                 el.data.key = el.key;
-                                mapService.addLayer(el.data);
+                                MapService.addLayer(el.data);
                             });
                         } else {
                             children.forEach(function (el) {
                                 el.data.key = el.key;
-                                mapService.removeLayer(el.data);
+                                MapService.removeLayer(el.data);
                             });
                         }
                     } else {
                         if (data.node.isSelected()) {
                             data.node.data.key = data.node.key;
-                            mapService.addLayer(data.node.data);
+                            MapService.addLayer(data.node.data);
                         } else {
                             data.node.data.key = data.node.key;
-                            mapService.removeLayer(data.node.data);
+                            MapService.removeLayer(data.node.data);
                         }
                     }
                 }
