@@ -2,9 +2,9 @@
     'use strict';
     angular
         .module('gestreeApp')
-        .factory('treeData', treeData)
+        .factory('LayersFactory', LayersFactory)
 
-    function treeData() {
+    function LayersFactory() {
         return {
             glyph_opts: {
                 map: {

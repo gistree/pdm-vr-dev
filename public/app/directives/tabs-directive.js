@@ -4,9 +4,9 @@
         .module('gestreeApp')
         .directive('gesTabs', Directive);
 
-    Directive.$inject = ['treeData', 'mapService'];
+    Directive.$inject = ['LayersFactory', 'mapService'];
 
-    function Directive(treeData, mapService) {
+    function Directive(LayersFactory, mapService) {
         mapService.init();
         var directive = {
             bindToController: true,
@@ -24,10 +24,10 @@
             tree.fancytree({
                 extensions: ["edit", "glyph", "wide"],
                 checkbox: true,
-                glyph: treeData.glyph_opts,
+                glyph: LayersFactory.glyph_opts,
                 clickFolderMode: 3,
                 selectMode: 3,
-                source: treeData.source,
+                source: LayersFactory.source,
                 toggleEffect: {
                     effect: "drop",
                     options: {

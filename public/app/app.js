@@ -1,1 +1,1 @@
-angular.module('gestreeApp', []);
+angular.module('gestreeApp', ['LegendModule']);
