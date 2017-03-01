@@ -2,12 +2,12 @@
     'use strict';
     angular
         .module('gestreeApp')
-        .directive('gesTabs', Directive);
+        .directive('gesTabs', Directi
+    Directive.$inject = ['LayersFactory', 'MapService'];
 
-    Directive.$inject = ['LayersFactory', 'mapService'];
-
-    function Directive(LayersFactory, mapService) {
-        mapService.init();
+    function Directive(LayersFactory, MapService) {
+        MapService.init();
+      
         var directive = {
             bindToController: true,
             controller: tabsController,
@@ -36,38 +36,33 @@
                     duration: 400
                 },
                 wide: {
-                    iconWidth: "1em", // Adjust this if @fancy-icon-width != "16px"
-                    iconSpacing: "0.5em", // Adjust this if @fancy-icon-spacing != "3px"
-                    levelOfs: "1.5em" // Adjust this if ul padding != "16px"
+                    iconWidth: "1em", 
+                    iconSpacing: "0.5em", 
+                    levelOfs: "1.5em"
                 }
             });
             tree.fancytree({
                 select: function (event, data) {
-                    /*console.log("IN_SELECT");
-                    mapService.setOtherLayer();*/
-                    // WORKING CODE
-
                     if (data.node.isFolder()) {
                         var children = data.node.children;
                         if (data.node.isSelected()) {
                             children.forEach(function (el) {
-                                console.log(el);
                                 el.data.key = el.key;
-                                mapService.setLayer(el.data);
+                                MapService.addLayer(el.data);
                             });
                         } else {
                             children.forEach(function (el) {
                                 el.data.key = el.key;
-                                mapService.removeLayer(el.data);
+                                MapService.removeLayer(el.data);
                             });
                         }
                     } else {
                         if (data.node.isSelected()) {
                             data.node.data.key = data.node.key;
-                            mapService.setLayer(data.node.data);
+                            MapService.addLayer(data.node.data);
                         } else {
                             data.node.data.key = data.node.key;
-                            mapService.removeLayer(data.node.data);
+                            MapService.removeLayer(data.node.data);
                         }
                     }
                 }
