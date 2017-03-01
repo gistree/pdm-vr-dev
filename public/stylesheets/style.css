@@ -245,10 +245,15 @@ a {
 }
 .legends-list{
     margin-top: 0.2em; 
+    font-size: 0.8em;
+}
+.legends-list > b {
+    padding-left: 0.5em;
+    text-decoration: underline; 
 }
 .legends-item{
     height: 1.5em;
-    font-size: 0.8em;
+    font-size: 0.9em;
 }
 
 /* JOKORD.legendsModule[End] */
