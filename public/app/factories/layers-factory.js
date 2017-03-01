@@ -31,7 +31,7 @@
                             data: {
                                 workspace: "PDM-VilaReal",
                                 name: "RESERVA_AGRICOLA_NACIONAL",
-                                type: "Vector",
+                                type: "Raster",
                                 extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
                                 opacity: 1
                             }
@@ -41,7 +41,7 @@
                             data: {
                                 workspace: "PDM-VilaReal",
                                 name: "RESERVA_ECOLÓGICA_NACIONAL",
-                                type: "Vector",
+                                type: "Raster",
                                 extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
                                 opacity: 0.7
                             }
@@ -53,7 +53,7 @@
                     data: {
                         workspace: "PDM-VilaReal",
                         name: "REDE_RODOVIÁRIA",
-                        type: "Vector",
+                        type: "Raster",
                         extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
                         opacity: 0.7
                     }
@@ -63,7 +63,7 @@
                     data: {
                         workspace: "PDM-VilaReal-Database",
                         name: "aerodromo",
-                        type: "Vector",
+                        type: "Raster",
                         extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
                         opacity: 0.9
                     }
