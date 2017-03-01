@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module('gestreeApp')
-        .directive('gesTabs', Directi
+        .directive('gesTabs', Directive);
     Directive.$inject = ['LayersFactory', 'MapService'];
 
     function Directive(LayersFactory, MapService) {
