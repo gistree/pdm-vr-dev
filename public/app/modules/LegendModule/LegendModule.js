@@ -1,13 +1,6 @@
 (function () {
     'use strict';
 
-    angular.module('LegendModule', []);
-
-})();
-
-(function () {
-    'use strict';
-
     angular
         .module('LegendModule')
         .controller('LegendsController', LegendsController);
