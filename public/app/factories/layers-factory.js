@@ -77,10 +77,15 @@
                             title: "Zona Aeródromo Vector",
                             data: {
                                 workspace: "PDM-VilaReal",
-                                name: "AERODROMO",
+                                name: "AERÓDROMO",
                                 type: "Vector",
+                                style: {
+                                    fill: new ol.style.Fill({
+                                        color: '#dd0000'
+                                    })
+                                },
                                 extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
-                                opacity: 0.9
+                                opacity: 0.8
                             }
                         }
                     ]

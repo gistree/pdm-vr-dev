@@ -41,10 +41,10 @@
             });
         };
 
-        function addLayer(layerData){
-            if(layerData.type === 'Raster'){
+        function addLayer(layerData) {
+            if (layerData.type === 'Raster') {
                 addWMSLayer(layerData);
-            }else{
+            } else {
                 addWFSLayer(layerData);
             }
         }
@@ -60,7 +60,7 @@
                                     service: 'WFS',
                                     version: '1.1.1',
                                     request: 'GetFeature',
-                                    typename: 'PDM-VilaReal-Database:rede_ferroviaria',
+                                    typename: layerData.workspace + ":" + layerData.name,
                                     srsname: 'EPSG:27493',
                                     outputFormat: 'application/json',
                                     bbox: ol.proj.transformExtent(extent, 'EPSG:3857', ol.proj.get('EPSG:27493')).join(',') + ',' + ol.proj.get('EPSG:27493').getCode()
@@ -80,9 +80,13 @@
                     })
                 });
                 _layers[layerData.key] = wfsLayer;
+                if (layerData.style) {
+                    wfsLayer.setStyle(new ol.style.Style(layerData.style));
+                    wfsLayer.setOpacity(layerData.opacity);
+                }
                 map.addLayer(wfsLayer);
                 _layers[layerData.key].visible = true;
-            }else{
+            } else {
                 if (!_layers[layerData.key].visible) {
                     map.addLayer(_layers[layerData.key]);
                     _layers[layerData.key].visible = true;
