@@ -6,8 +6,6 @@
     Directive.$inject = ['LayersFactory', 'MapService'];
 
     function Directive(LayersFactory, MapService) {
-        MapService.init();
-      
         var directive = {
             bindToController: true,
             controller: tabsController,
@@ -20,8 +18,7 @@
         return directive;
 
         function link(scope, element, attrs) {
-            var tree = element.find("#tree");
-            tree.fancytree({
+            var tree = element.find("#tree").fancytree({
                 extensions: ["edit", "glyph", "wide"],
                 checkbox: true,
                 glyph: LayersFactory.glyph_opts,
@@ -36,8 +33,8 @@
                     duration: 400
                 },
                 wide: {
-                    iconWidth: "1em", 
-                    iconSpacing: "0.5em", 
+                    iconWidth: "1em",
+                    iconSpacing: "0.5em",
                     levelOfs: "1.5em"
                 }
             });
@@ -67,11 +64,30 @@
                     }
                 }
             });
+            scope.tree = element.find("#tree").fancytree("getTree");
         }
     }
 
     /* @ngInject */
     function tabsController($scope) {
-
+        var tc = this;
+        tc.expandTree = function () {
+            $scope.tree.visit(function (node) {
+                node.setExpanded(true);
+            });
+        };
+        tc.collapseTree = function () {
+            $scope.tree.visit(function (node) {
+                node.setExpanded(false);
+            });
+        };
+        tc.deselectAll = function () {
+            $scope.tree.visit(function(node) {
+                node.setSelected(false);
+            });
+        };
+        tc.help = function(){
+            alert(" Em Desenvolvimento... ");
+        }
     }
 })();

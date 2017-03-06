@@ -1,29 +1,37 @@
 <div class="panel">
-    <ul id="lefttopmenutabs" role="tablist" class="nav nav-tabs">
-        <li id="leftmenutab" class="nav-item"><a data-toggle="tab" href="#layers" role="tab" class="nav-link active">Layers</a></li>
-        <li id="leftmenutab" class="nav-item"><a data-toggle="tab" href="#legenda" role="tab" class="nav-link">Legenda</a></li>
-        <li id="leftmenutab" class="nav-item"><a data-toggle="tab" href="#opcoes" role="tab" class="nav-link">Opções</a></li>
-        <button id="hide_left_menu" type="button" title="Hide Panel" onclick="this.blur();" class="btn pull-right ml-auto p-2"><span class="fa fa-arrow-left"></span></button>
-    </ul>
-    <div id="tabcontent" class="tab-content wd-95">
-        <div id="layers" role="tabpanel" class="tab-pane active">
-            <div id="tree" class="panel-body fancytree-plain fancytree-colorize-selected fancytree-fade-expander"> </div>
-            <div id="bottombar" class="fixed-bottom btn-group col-3">
-                <button id="btnExpandAll" class="btn btn-sm fa fa-expand"></button>
-                <button id="btnCollapseAll" class="btn btn-sm fa fa-compress"></button>
-                <button id="btnDeselectAll" class="btn btn-sm fa fa-minus-square"></button>
-                <button id="btnSortAll" class="btn btn-sm fa fa-sort"></button>
-                <button id="btnInfo" class="btn btn-sm fa fa-info"></button>
+    <div class="tabbable-line">
+        <ul id="lefttopmenutabs" role="tablist" class="nav nav-tabs">
+            <a data-toggle="tab" href="#layers" role="tab" class="nav-item nav-link active">Camadas</a>
+            <a data-toggle="tab" href="#legenda" role="tab" class="nav-item nav-link">Legenda</a>
+            <button id="hide_left_menu" type="button" title="Hide Panel" onclick="this.blur();" class="btn pull-right ml-auto p-2"><span class="fa fa-arrow-left"></span></button>
+        </ul>
+        <div id="tabcontent" class="tab-content">
+            <div id="layers" role="tabpanel" class="tab-pane active">
+                <div id="tree" class="panel-body fancytree-plain fancytree-colorize-selected fancytree-fade-expander"> </div>
+                <div class="bottom-tree-commands">
+                    <button data-tooltip="Expandir" ng-click="tc.expandTree()" class="btn btn-secondary btn-circle">
+                        <i class="fa fa-expand"></i>
+                    </button>
+                    <button data-tooltip="Colapsar" ng-click="tc.collapseTree()" class="btn btn-secondary btn-circle">
+                        <i class="fa fa-compress"></i>
+                    </button>
+                    <button data-tooltip="Limpar" ng-click="tc.deselectAll()" class="btn btn-secondary btn-circle">
+                        <i class="fa fa-minus-square"></i>
+                    </button>
+                    <button data-tooltip="Ajuda" ng-click="tc.help()" class="btn btn-secondary btn-circle">
+                        <i class="fa fa-question"></i>
+                    </button>
+                </div>
             </div>
-        </div>
-        <div id="legenda" role="tabpanel" class="tab-pane" ng-controller="LegendsController as lgsCtrl">
-            <ul class="list-group legends-list" ng-repeat="group in groups">
-                <b>{{group.title}}</b>
-                <li class="list-group-item legends-item" ng-repeat="layer in group.children">
-                    <img ng-src="http://gistree.espigueiro.pt/geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.1.1&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER={{layer.data.workspace}}:{{layer.data.name}}">
-                    <span>&nbsp; - &nbsp;{{layer.title}}</span>
-                </li>
-            </ul>
+            <div id="legenda" role="tabpanel" class="tab-pane" ng-controller="LegendsController as lgsCtrl">
+                <ul class="list-group legends-list" ng-repeat="group in groups">
+                    <b>{{group.title}}</b>
+                    <li class="list-group-item legends-item" ng-repeat="layer in group.children">
+                        <img ng-src="http://gistree.espigueiro.pt/geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.1.1&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER={{layer.data.workspace}}:{{layer.data.name}}">
+                        <span>&nbsp; - &nbsp;{{layer.title}}</span>
+                    </li>
+                </ul>
+            </div>
         </div>
         <div id="opcoes" role="tabpanel" class="tab-pane"> </div>
     </div>

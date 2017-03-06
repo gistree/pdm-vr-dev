@@ -1,13 +1,25 @@
 <div id="toolbar" role="group" class="btn-group">
-    <button id="firstButton" type="button" data-toggle="tooltip" data-placement="bottom" title="Vista inicial" class="btn btn-faded fa fa-globe"></button>
-    <button type="button" data-toggle="tooltip" data-placement="bottom" title="Mover mapa" class="btn btn-faded fa fa-hand-pointer-o"></button>
-    <button type="button" data-toggle="tooltip" data-placement="bottom" title="Aproximar mapa" class="btn btn-faded fa fa-search-plus"></button>
-    <button type="button" data-toggle="tooltip" data-placement="bottom" title="Afastar mapa" class="btn btn-faded fa fa-search-minus"></button>
-    <button type="button" data-toggle="tooltip" data-placement="bottom" title="Imprimir planta" class="btn btn-faded fa fa-print"></button>
-    <div role="group" data-toggle="tooltip" data-placement="bottom" title="Alterar escala" class="btn-group">
-        <button id="btnGroupDrop1" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-faded dropdown-toggle">Escala</button>
-        <div aria-labelledby="btnGroupDrop1" class="dropdown-menu">
-            <a href="#" class="dropdown-item" ng-repeat="scale in scaleArray">{{scale}}</a>
-        </div>
-    </div>
+    <button ng-click="setDefaultView()" type="button"
+        class="btn btn-secondary">
+        <i class="fa fa-globe"></i>
+    </button>
+    <button ng-click="setInteraction('DragPan')" ng-class="{active: InteractionsCtrl.isActive('DragPan')}" type="button"
+        class="btn btn-secondary tooltip-bottom" data-tooltip="Mover">
+        <i class="fa fa-hand-paper-o"></i>
+    </button>
+    <button ng-click="setInteraction('ZoomIn')" ng-class="{active: InteractionsCtrl.isActive('ZoomIn')}" type="button"
+        class="btn btn-secondary tooltip-bottom" data-tooltip="Aproximar">
+        <i class="fa fa-search-plus"></i>
+    </button>
+    <button ng-click="setInteraction('ZoomOut')" ng-class="{active: InteractionsCtrl.isActive('ZoomOut')}" type="button"
+        class="btn btn-secondary tooltip-bottom" data-tooltip="Afastar">
+        <i class="fa fa-search-minus"></i>
+    </button>
+    <button ng-click="setInteraction('ZoomBox')" ng-class="{active: InteractionsCtrl.isActive('ZoomBox')}" type="button"
+        class="btn btn-secondary tooltip-bottom" data-tooltip="Zoom Caixa">
+            <i class="fa fa-search"></i>
+    </button>
 </div>
+<section>
+    <div class="bottom-bar">Acção Selecionada: {{currentInteraction}}</div>
+</section>

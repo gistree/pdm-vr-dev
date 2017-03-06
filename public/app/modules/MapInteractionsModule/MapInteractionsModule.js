@@ -11,7 +11,7 @@
         var directive = {
             bindToController: true,
             controller: InteractionsController,
-            controllerAs: 'tc',
+            controllerAs: 'InteractionsCtrl',
             link: link,
             restrict: 'E',
             scope: {},
@@ -27,11 +27,50 @@
     InteractionsController.$inject = ['$scope', 'MapService'];
 
     function InteractionsController($scope, MapService) {
-        var vm = this;
-        activate();
-
-        $scope.scaleArray = ['1:100000', '1:80000', '1:50000', '1:30000', '1:25000', '1:20000', '1:15000', '1:10000', '1:5000', '1:3500', '1:2000', '1:1000', '1:500', '1:100']
-
-        function activate() {}
+        this.active = 'DragPan';
+        this.isActive = function (active) {
+            return this.active == active;
+        }
+        $scope.currentInteraction = 'Mover Mapa';
+        $scope.setDefaultView = function (a) {
+            MapService.setDefaultView();
+        };
+        $scope.setInteraction = function (interaction) {
+            MapService.map.getInteractions().pop();
+            switch (interaction) {
+                case 'DragPan':
+                    $scope.currentInteraction = 'Mover Mapa';
+                    MapService.map.addInteraction(new ol.interaction.DragPan());
+                    break;
+                case 'ZoomIn':
+                    $scope.currentInteraction = 'Aproximar Mapa';
+                    MapService.map.addInteraction(new ol.interaction.Pointer({
+                        handleDownEvent: function (e) {
+                            var view = MapService.map.getView();
+                            view.setCenter(e.coordinate);
+                            view.setZoom(view.getZoom() + 1);
+                        }
+                    }));
+                    break;
+                case 'ZoomOut':
+                    $scope.currentInteraction = 'Afastar Mapa';
+                    MapService.map.addInteraction(new ol.interaction.Pointer({
+                        handleDownEvent: function (e) {
+                            var view = MapService.map.getView();
+                            view.setCenter(e.coordinate);
+                            view.setZoom(view.getZoom() - 1);
+                        }
+                    }));
+                    break;
+                case 'ZoomBox':
+                    $scope.currentInteraction = 'Fazer Zoom de Caixa';
+                    MapService.map.addInteraction(new ol.interaction.DragZoom({
+                        condition: ol.events.condition.always,
+                        className: 'drag_zoom_box'
+                    }));
+                    break;
+            }
+            this.active = interaction;
+        }.bind(this);
     }
 })();

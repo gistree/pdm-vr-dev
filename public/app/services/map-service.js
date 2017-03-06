@@ -8,16 +8,23 @@
         var _layers = {};
         if (!ol) return {};
         var map = {},
-            defaults = {
+            defaultMapConfig = {
                 zoom: 11,
                 target: 'map',
                 center: [-7.699871063232422, 41.21637029336946],
-            };
+                interactions: [new ol.interaction.MouseWheelZoom(), new ol.interaction.DragPan()],
+                controls: []
+            },
+            mapConfig = {};
+        if (angular.equals(map, {})) {
+            init();
+        }
         var ms = {
             map: map, // ol.Map
             init: init,
             addLayer: addLayer,
             removeLayer: removeLayer,
+            setDefaultView: setDefaultView
         };
         return ms;
 
@@ -26,17 +33,19 @@
             var extent = [-127101.82, -300782.39, 160592.41, 278542.12];
             var projection = ol.proj.get('EPSG:27493');
             projection.setExtent(extent);
-            var config = angular.extend(defaults, config);
+            mapConfig = angular.extend(defaultMapConfig, config);
             map = new ol.Map({
-                target: config.target,
+                target: mapConfig.target,
                 layers: [
                     new ol.layer.Tile({
                         source: new ol.source.OSM()
                     })
                 ],
+                interactions: mapConfig.interactions,
+                controls: mapConfig.controls,
                 view: new ol.View({
-                    center: ol.proj.transform(config.center, 'EPSG:4326', 'EPSG:3857'),
-                    zoom: config.zoom
+                    center: ol.proj.transform(mapConfig.center, 'EPSG:4326', 'EPSG:3857'),
+                    zoom: mapConfig.zoom
                 })
             });
         };
@@ -122,6 +131,13 @@
                 map.removeLayer(_layers[layerData.key]);
                 _layers[layerData.key].visible = false;
             }
+        }
+
+        function setDefaultView() {
+            map.setView(new ol.View({
+                center: ol.proj.transform(mapConfig.center, 'EPSG:4326', 'EPSG:3857'),
+                zoom: mapConfig.zoom
+            }));
         }
 
         function _checkLayer(layer_key) {
