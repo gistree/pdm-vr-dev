@@ -13,7 +13,7 @@
                 target: 'map',
                 center: [-7.699871063232422, 41.21637029336946],
                 interactions: [new ol.interaction.MouseWheelZoom(), new ol.interaction.DragPan()],
-                controls: []
+                controls: [new ol.control.ScaleLine()]
             },
             mapConfig = {};
         if (angular.equals(map, {})) {
