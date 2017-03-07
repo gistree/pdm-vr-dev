@@ -1,8 +1,35 @@
-$(function() {
-    $(document).ready(function() {
+$(function () {
+    $(document).ready(function () {
 
+        // GET_SCALE_FROM_RESOLUTION
+        INCHES_PER_UNIT = {
+            'inches': 1.0,
+            'ft': 12.0,
+            'mi': 63360.0,
+            'm': 39.37,
+            'km': 39370,
+            'dd': 4374754,
+            'yd': 36
+        };
+        var DOTS_PER_INCH = 72;
+        function getScaleFromResolution(resolution, units) {
+            if (units == null) {
+                units = "m";
+            }
+            var scale = resolution * INCHES_PER_UNIT[units] * DOTS_PER_INCH;
+            return scale;
+        }
+
+        function getResolutionFromScale(scale, units) {
+            var normScale = (scale > 1.0) ? (1.0 / scale) : scale;
+            if (units == null) {
+                units = "m";
+            }
+            var resolution = 1 / (normScale * INCHES_PER_UNIT[units] * DOTS_PER_INCH);
+            return resolution;
+        }
         //MODAL CONFIG 
-        $("#btnInfo").click(function(e) {
+        $("#btnInfo").click(function (e) {
             modalNodes = $("#tree").fancytree("getTree").getSelectedNodes();
 
             var modalHeader = '<div id="infoModal" class="modal fade" role="dialog" aria-labelledby="confirm-modal" aria-hidden="true">';
@@ -26,7 +53,7 @@ $(function() {
                 $('body').append(html);
                 modalNodes.clear;
                 $("#infoModal").modal();
-                $("#infoModal").on('hidden.bs.modal', function() {
+                $("#infoModal").on('hidden.bs.modal', function () {
                     $(this).remove();
                 });
             }
@@ -35,7 +62,7 @@ $(function() {
                 var modalTitles = [];
                 var itemNodes = [];
                 var modalNodes = $("#tree").fancytree("getTree").getSelectedNodes();
-                modalNodes.forEach(function(node) {
+                modalNodes.forEach(function (node) {
                     if (!node.folder) {
                         itemNodes.push(node);
                     };
@@ -58,7 +85,7 @@ $(function() {
                     }
                 };
                 var pagesHTML = [];
-                pages.forEach(function(page) {
+                pages.forEach(function (page) {
                     pagesHTML.push($.parseHTML(page));
                 });
 
@@ -70,7 +97,7 @@ $(function() {
                 $('#jaestouaficarfarto').append(pagesHTML[2]);
 
                 function generateClickHandler(j) {
-                    return function(event) {
+                    return function (event) {
                         document.getElementById('page' + j).parentNode.setAttribute('class', 'page-item');
                         document.getElementById('modaltitle').innerText = itemNodes[j - 1].title;
                         var centerPage = parseInt(document.getElementById('page' + j).parentNode.parentNode.children[2].children[0].text);
@@ -90,7 +117,7 @@ $(function() {
                     $('#page' + i).click(generateClickHandler(i));
                 }
 
-                $("#infoModal").on('hidden.bs.modal', function() {
+                $("#infoModal").on('hidden.bs.modal', function () {
                     $(this).remove();
                 });
             };
