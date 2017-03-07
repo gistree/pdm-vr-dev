@@ -101,6 +101,12 @@ ul.fancytree-container {
     border: 1px solid #eee;
 }
 
+.btn-hide {
+    position: absolute !important;
+    top: 0.5rem;
+    right: 0.5rem;
+}
+
 .tabbable-line>.nav-tabs {
     border: none;
     margin: 0px;
@@ -306,8 +312,8 @@ ul.fancytree-container {
 
 #toolbar {
     position: absolute;
-    top: 10px;
-    left: 10px;
+    top: 1.2rem;
+    left: 1.2rem;
 }
 
 #toolbar button {

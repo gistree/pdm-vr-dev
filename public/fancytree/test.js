@@ -1,22 +1,5 @@
 $(function() {
     $(document).ready(function() {
-        $("#hide_left_menu").click(function() {
-            $('#leftmenu-col').hide();
-            $("#map-col").removeClass();
-            $("#map-col").addClass("col-12");
-            if (!$('#sidebar-show-btn').length) {
-                $("<button class='btn btn-inverse' type='button' data-placement='bottom' title='Mostrar painel' id='show_left_menu' onclick='show_left_menu();'><span class='fa fa-arrow-right'></span></button>").insertBefore("#firstButton");
-            }
-            map.updateSize();
-        });
-
-        window.show_left_menu = function() {
-            $('#leftmenu-col').show();
-            $("#map-col").removeClass();
-            $("#map-col").addClass("col-9");
-            $("#show_left_menu").remove();
-            map.updateSize();
-        };
 
         //MODAL CONFIG 
         $("#btnInfo").click(function(e) {

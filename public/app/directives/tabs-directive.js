@@ -7,12 +7,14 @@
 
     function Directive(LayersFactory, MapService) {
         var directive = {
-            bindToController: true,
+            //bindToController: true,
             controller: tabsController,
             controllerAs: 'tc',
             link: link,
             restrict: 'E',
-            scope: {},
+            scope: {
+                menuIsHidden: "="
+            },
             templateUrl: 'app/templates/tabs.html'
         };
         return directive;
@@ -82,11 +84,14 @@
             });
         };
         tc.deselectAll = function () {
-            $scope.tree.visit(function(node) {
+            $scope.tree.visit(function (node) {
                 node.setSelected(false);
             });
-        };
-        tc.help = function(){
+        };      
+        tc.hideMenu = function () {
+            $scope.$parent.menuIsHidden = true;
+        }
+        tc.help = function () {
             alert(" Em Desenvolvimento... ");
         }
     }

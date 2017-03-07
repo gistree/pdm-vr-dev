@@ -11,39 +11,39 @@
         var directive = {
             bindToController: true,
             controller: InteractionsController,
-            controllerAs: 'InteractionsCtrl',
+            controllerAs: 'itCtrl',
             link: link,
             restrict: 'E',
-            scope: {},
+            scope: {
+                menuIsHidden: "="
+            },
             templateUrl: 'app/modules/MapInteractionsModule/template.html'
         };
         return directive;
 
-        function link(scope, element, attrs) {
-
-        }
+        function link(scope, element, attrs) {}
     }
 
-    InteractionsController.$inject = ['$scope', 'MapService'];
+    InteractionsController.$inject = ['$scope', '$timeout', 'MapService'];
 
-    function InteractionsController($scope, MapService) {
+    function InteractionsController($scope, $timeout, MapService) {
         this.active = 'DragPan';
         this.isActive = function (active) {
             return this.active == active;
         }
-        $scope.currentInteraction = 'Mover Mapa';
-        $scope.setDefaultView = function (a) {
+        this.currentInteraction = 'Mover Mapa';
+        this.setDefaultView = function (a) {
             MapService.setDefaultView();
         };
-        $scope.setInteraction = function (interaction) {
+        this.setInteraction = function (interaction) {
             MapService.map.getInteractions().pop();
             switch (interaction) {
                 case 'DragPan':
-                    $scope.currentInteraction = 'Mover Mapa';
+                    this.currentInteraction = 'Mover Mapa';
                     MapService.map.addInteraction(new ol.interaction.DragPan());
                     break;
                 case 'ZoomIn':
-                    $scope.currentInteraction = 'Aproximar Mapa';
+                    this.currentInteraction = 'Aproximar Mapa';
                     MapService.map.addInteraction(new ol.interaction.Pointer({
                         handleDownEvent: function (e) {
                             var view = MapService.map.getView();
@@ -53,7 +53,7 @@
                     }));
                     break;
                 case 'ZoomOut':
-                    $scope.currentInteraction = 'Afastar Mapa';
+                    this.currentInteraction = 'Afastar Mapa';
                     MapService.map.addInteraction(new ol.interaction.Pointer({
                         handleDownEvent: function (e) {
                             var view = MapService.map.getView();
@@ -63,7 +63,7 @@
                     }));
                     break;
                 case 'ZoomBox':
-                    $scope.currentInteraction = 'Fazer Zoom de Caixa';
+                    this.currentInteraction = 'Fazer Zoom de Caixa';
                     MapService.map.addInteraction(new ol.interaction.DragZoom({
                         condition: ol.events.condition.always,
                         className: 'drag_zoom_box'
@@ -71,6 +71,14 @@
                     break;
             }
             this.active = interaction;
-        }.bind(this);
+        };
+        this.showMenu = function () {
+            this.menuIsHidden = false;
+        }
+        $scope.$watch('itCtrl.menuIsHidden', function () {
+            $timeout(function () {
+                MapService.map.updateSize();
+            }, 10);
+        });
     }
 })();
