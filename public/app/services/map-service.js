@@ -47,7 +47,7 @@
                     center: ol.proj.transform(mapConfig.center, 'EPSG:4326', 'EPSG:3857'),
                     zoom: mapConfig.zoom
                 })
-            });
+            });          
         };
 
         function addLayer(layerData) {

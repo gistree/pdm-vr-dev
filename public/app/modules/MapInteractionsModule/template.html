@@ -1,7 +1,5 @@
 <div id="toolbar" role="group" class="btn-group">
-    <button ng-show="itCtrl.menuIsHidden" ng-click="itCtrl.showMenu()" type="button" 
-    class="btn btn-primary tooltip-bottom"
-        data-tooltip="Mostrar">
+    <button ng-show="itCtrl.menuIsHidden" ng-click="itCtrl.showMenu()" type="button" class="btn btn-primary tooltip-bottom" data-tooltip="Mostrar">
         <i class="fa fa-arrow-right"></i>
     </button>
     <button ng-click="itCtrl.setDefaultView()" type="button" class="btn btn-secondary" style="cursor: pointer">
@@ -24,6 +22,24 @@
             <i class="fa fa-search"></i>
     </button>
 </div>
-<section>
-    <div class="bottom-bar">Acção Selecionada: {{itCtrl.currentInteraction}}</div>
+<section class="bottom-bar-left">
+    <div class="box">Acção Selecionada: {{itCtrl.currentInteraction}}</div>
+</section>
+<section class="bottom-bar-right">
+    <div class="card" style="width: 12rem;">
+        <div class="card-header">
+            WGS 84
+        </div>
+        <div class="card-block">
+            <div class="card-text" id="coordinate4326"></div>
+        </div>
+    </div>
+     <div class="card" style="width: 12rem;">
+        <div class="card-header">
+            Datum 73 / Portuguese Grid
+        </div>
+        <div class="card-block">
+            <div class="card-text" id="coordinate27493"></div>
+        </div>
+    </div>
 </section>
