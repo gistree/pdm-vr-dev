@@ -1,3 +1,3 @@
-angular.module('LegendModule', []);
+angular.module('LegendsModule', []);
 angular.module('MapInteractionsModule', []);
-angular.module('gestreeApp', ['LegendModule', 'MapInteractionsModule']);
+angular.module('gestreeApp', ['LegendsModule', 'MapInteractionsModule']);
