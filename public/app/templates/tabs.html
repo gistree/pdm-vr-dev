@@ -9,7 +9,7 @@
         </ul>
         <div id="tabcontent" class="tab-content">
             <div id="layers" role="tabpanel" class="tab-pane active">
-                <div id="tree" class="panel-body fancytree-plain fancytree-colorize-selected fancytree-fade-expander"> </div>
+                <div id="tree" class="panel-body fancytree-plain fancytree-colorize-selected fancytree-fade-expander"></div>
                 <div class="bottom-tree-commands">
                     <button data-tooltip="Expandir" ng-click="tc.expandTree()" class="btn btn-secondary btn-circle">
                         <i class="fa fa-expand"></i>
@@ -28,9 +28,9 @@
             <div id="legenda" role="tabpanel" class="tab-pane" ng-controller="LegendsController as lgsCtrl">
                 <ul class="list-group legends-list" ng-repeat="group in groups">
                     <b>{{group.title}}</b>
-                    <li class="list-group-item legends-item" ng-repeat="layer in group.children">
-                        <img ng-src="http://gistree.espigueiro.pt/geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.1.1&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER={{layer.data.workspace}}:{{layer.data.name}}">
-                        <span>&nbsp; - &nbsp;{{layer.title}}</span>
+                    <li class="list-group-item legends-item" ng-repeat="legend in group.data">
+                        <img ng-src="http://gistree.espigueiro.pt/geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.1.1&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER={{legend.workspace}}:{{legend.name}}">
+                        <span>&nbsp; - &nbsp;{{legend.title}}</span>
                     </li>
                 </ul>
             </div>

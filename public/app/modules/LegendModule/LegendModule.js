@@ -5,10 +5,11 @@
         .module('LegendModule')
         .controller('LegendsController', LegendsController);
 
-    LegendsController.$inject = ['$scope', 'LayersFactory'];
+    LegendsController.$inject = ['$scope'];
 
-    function LegendsController($scope, LayersFac) {
-        $scope.groups = LayersFac.source;
+    function LegendsController($scope) {
+        // WORKING CODE
+        //$scope.groups = LayersFac.source;
     }
 
 })();
