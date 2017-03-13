@@ -282,9 +282,9 @@
                 type: "WMS",
                 format: "image/png",
                 layers: ["pdmteste:reserva"],
-                baseURL: "http://gistree.espigueiro.pt:8080/geoserver/wms",
+                baseURL: "http://gistree.espigueiro.pt/geoserver/wms",
                 customParams: {
-                    "Param":"No Param"
+
                 }
             }],
             pages: [{
@@ -298,34 +298,7 @@
                 proprietario: 'Gistree',
                 freguesia: 'Folhadela',
                 local: 'Folhadela'
-            }],
-            /*"legends": [{
-                "name": "Reservas",
-                "classes": [{
-                        "name": "",
-                        "iconAfterName": false,
-                        "icons": "http://gistree.espigueiro.pt/geoserver/wms?version=1.1.1%26SERVICE=WMS%26REQUEST=GetLegendGraphic%26WIDTH=20%26HEIGHT=20%26LAYER=PDM_VilaReal:RESERVA_ECOLOGICA_NACIONAL%26FORMAT=image/png%26LEGEND_OPTIONS=forceLabels:on;"
-                    },
-                    {
-                        "name": "",
-                        "iconAfterName": false,
-                        "icon": "http://gistree.espigueiro.pt/geoserver/wms?version=1.1.1%26SERVICE=WMS%26REQUEST=GetLegendGraphic%26WIDTH=20%26HEIGHT=20%26LAYER=PDM_VilaReal:RESERVA_ECOLOGICA_NACIONAL%26FORMAT=image/png%26LEGEND_OPTIONS=forceLabels:on;"
-                    },
-                ]
-            }, {
-                "name": "Reservas 2",
-                "classes": [{
-                        "name": "",
-                        "iconAfterName": false,
-                        "icon": "http://gistree.espigueiro.pt/geoserver/wms?version=1.1.1%26SERVICE=WMS%26REQUEST=GetLegendGraphic%26WIDTH=20%26HEIGHT=20%26LAYER=PDM_VilaReal:RESERVA_ECOLOGICA_NACIONAL%26FORMAT=image/png%26LEGEND_OPTIONS=forceLabels:on;"
-                    },
-                    {
-                        "name": "",
-                        "iconAfterName": false,
-                        "icon": "http://gistree.espigueiro.pt/geoserver/wms?version=1.1.1%26SERVICE=WMS%26REQUEST=GetLegendGraphic%26WIDTH=20%26HEIGHT=20%26LAYER=PDM_VilaReal:RESERVA_ECOLOGICA_NACIONAL%26FORMAT=image/png%26LEGEND_OPTIONS=forceLabels:on;"
-                    },
-                ]
-            }]*/
+            }]
         }
 
 
