@@ -281,12 +281,10 @@
             layers: [{
                 type: "WMS",
                 format: "image/png",
-                layers: ["sig:carta_3"],
-                baseURL: "http://sig.cm-albergaria.pt/geoserver/wms",
-                styles: [""],
+                layers: ["pdmteste:reserva"],
+                baseURL: "http://gistree.espigueiro.pt/geoserver/wms",
                 customParams: {
-                    BUFFER: 0,
-                    TRANSPARENT: true
+
                 }
             }],
             pages: [{
