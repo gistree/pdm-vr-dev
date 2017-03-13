@@ -208,7 +208,6 @@
                 local: 'Folhadela'
             }]
         };
- 
         tc.print = function () {
 
         }
