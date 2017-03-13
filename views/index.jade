@@ -8,133 +8,22 @@ html(lang='en' ng-app='gestreeApp')
     // Bootstrap CSS
     link(href='fancytree/skin-bootstrap/ui.fancytree.css' rel="stylesheet")
     link(rel='stylesheet', href='bootstrap/css/bootstrap.css')
-    link(rel='stylesheet', href="stylesheets/style.css")
-    link(rel='stylesheet', href='stylesheets/font-awesome/css/font-awesome.css')
     link(rel='stylesheet', href='ol.css', type='text/css')
+    link(rel='stylesheet', href='stylesheets/font-awesome/css/font-awesome.css')
+    link(rel='stylesheet', href="stylesheets/style.css")
 
-  body.bg-primary
-    #index-container.container-fluid.bg-inverse.h-100
-        #top-row.row.h-15
-                nav#navbarmain.navbar.navbar-inverse.bg-inverse.navbar-toggleable-md
-                    button.navbar-toggler.navbar-toggler-right(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
-                        span.navbar-toggler-icon
-                    a.navbar-brand(href='#') PDM
-                    #navbarSupportedContent.collapse.navbar-collapse 
-                        ul.nav.navbar-nav <!--.nav-fill -->
-                            .container
-                                ul#navtabsmain.nav.nav-tabs(role='tablist')
-                                    li.nav-item
-                                        a.nav-link.active(data-toggle='tab', href='#ferramentas', role='tab') Ferramentas
-                                    li.nav-item
-                                        a.nav-link(data-toggle='tab', href='#pesquisar', role='tab') Pesquisar
-                                    li.nav-item
-                                        a.nav-link(data-toggle='tab', href='#imprimir', role='tab') Imprimir
-                                    li.nav-item
-                                        a.nav-link(data-toggle='tab', href='#ajuda', role='tab') Ajuda
-                                .tab-content.active(role="group")
-                                    #ferramentas.tab-pane.active(role='tabpanel')
-                                        button.btn.btn-primary.btn-custom-1(type='button', title='Obter Coordenadas no mapa')
-                                            p Obter
-                                        button.btn.btn-primary.btn-custom-1(type='button', title='Obter Coordenadas no mapa')
-                                            p Obter
-                                        button.btn.btn-primary.btn-custom-1(type='button', title='Obter Coordenadas no mapa')
-                                            p Obter
-                                        button.btn.btn-primary.btn-custom-1(type='button', title='Obter Coordenadas no mapa')
-                                            p Obter
-                                        button.btn.btn-primary.btn-custom-1(type='button', title='Obter Coordenadas no mapa')
-                                            p Obter
-                                        button.btn.btn-primary.btn-custom-1(type='button', title='Obter Coordenadas no mapa')
-                                            p Obter
-                                    #pesquisar.tab-pane(role='tabpanel')
-                                        button.btn.btn-success.btn-custom-1(type='button', title='Obter Coordenadas no mapa')
-                                            p Pesquisar
-                                        button.btn.btn-success.btn-custom-1(type='button', title='Obter Coordenadas no mapa')
-                                            p Pesquisar
-                                        button.btn.btn-success.btn-custom-1(type='button', title='Obter Coordenadas no mapa')
-                                            p Pesquisar
-                                        button.btn.btn-success.btn-custom-1(type='button', title='Obter Coordenadas no mapa')
-                                            p Pesquisar
-                                        button.btn.btn-success.btn-custom-1(type='button', title='Obter Coordenadas no mapa')
-                                            p Pesquisar
-                                        button.btn.btn-success.btn-custom-1(type='button', title='Obter Coordenadas no mapa')
-                                            p Pesquisar
-                                    #imprimir.tab-pane(role='tabpanel')
-                                        button.btn.btn-danger.btn-custom-1(type='button', title='Obter Coordenadas no mapa')
-                                            p Imprimir
-                                        button.btn.btn-danger.btn-custom-1(type='button', title='Obter Coordenadas no mapa')
-                                            p Imprimir
-                                        button.btn.btn-danger.btn-custom-1(type='button', title='Obter Coordenadas no mapa')
-                                            p Imprimir
-                                        button.btn.btn-danger.btn-custom-1(type='button', title='Obter Coordenadas no mapa')
-                                            p Imprimir
-                                        button.btn.btn-danger.btn-custom-1(type='button', title='Obter Coordenadas no mapa')
-                                            p Imprimir
-                                        button.btn.btn-danger.btn-custom-1(type='button', title='Obter Coordenadas no mapa')
-                                            p Imprimir
-                                    #ajuda.tab-pane(role='tabpanel')
-                                        button.btn.btn-warning.btn-custom-1(type='button', title='Obter Coordenadas no mapa')
-                                            p Ajuda
-                                        button.btn.btn-warning.btn-custom-1(type='button', title='Obter Coordenadas no mapa')
-                                            p Ajuda
-                                        button.btn.btn-warning.btn-custom-1(type='button', title='Obter Coordenadas no mapa')
-                                            p Ajuda
-                                        button.btn.btn-warning.btn-custom-1(type='button', title='Obter Coordenadas no mapa')
-                                            p Ajuda
-                                        button.btn.btn-warning.btn-custom-1(type='button', title='Obter Coordenadas no mapa')
-                                            p Ajuda
-                                        button.btn.btn-warning.btn-custom-1(type='button', title='Obter Coordenadas no mapa')
-                                            p Ajuda
-        #bottom-row.row.h-85
-            #leftmenu-col.container-fluid.col-3.bg-faded
+  body
+    nav.navbar.navbar-toggleable-md.fixed-top
+        a.navbar-brand(href='#') Plano Director Municipal do Munícipio de Vila Real
+        span.navbar-text
+    .container-fluid.no-padding.full_height
+        .row.no-gutters.full_height
+            #menu-container.col-3.full_height(ng-hide="menuIsHidden")
                 //- START[*JoKord] 
-                ges-tabs 
-            //- .panel
-                    ul.nav.nav-tabs(role='tablist')
-                        li.nav-item
-                            a.nav-link.active(data-toggle='tab', href='#layers', role='tab') Layers
-                        li#leftmenutab.nav-item
-                            a.nav-link(data-toggle='tab', href='#legenda', role='tab') Legenda
-                        li#leftmenutab.nav-item
-                            a.nav-link(data-toggle='tab', href='#opcoes', role='tab') Opções
-                        button#hide_left_menu.btn.pull-right.ml-auto.p-2(type='button', title='Hide Panel', onclick="this.blur();")
-                            span.fa.fa-arrow-left
-                    #tabcontent.tab-content
-                        #layers.tab-pane.active(role='tabpanel')
-                            #tree.panel-body.fancytree-plain.fancytree-colorize-selected.fancytree-fade-expander 
-                            #bottombar.fixed-bottom.btn-group.col-3
-                                button#btnExpandAll.btn.btn-sm.fa.fa-expand
-                                button#btnCollapseAll.btn.btn-sm.fa.fa-compress
-                                button#btnDeselectAll.btn.btn-sm.fa.fa-minus-square
-                                button#btnSortAll.btn.btn-sm.fa.fa-sort
-                                button#btnInfo.btn.btn-sm.fa.fa-info
-                        #legenda.tab-pane(role='tabpanel')
-                        #opcoes.tab-pane(role='tabpanel')                                    
-            //- END[*JoKord]              
-            #map-col.container.col-9.bg-faded.text-center
-                #map.map
-                #toolbar.btn-group(role="group")
-                    button#firstButton.btn.btn-faded.fa.fa-globe(type='button', data-toggle='tooltip', data-placement="bottom", title='Vista inicial')
-                    button.btn.btn-faded.fa.fa-hand-pointer-o(type='button', data-toggle='tooltip', data-placement="bottom", title='Mover mapa')
-                    button.btn.btn-faded.fa.fa-search-plus(type='button', data-toggle='tooltip', data-placement="bottom", title='Aproximar mapa')
-                    button.btn.btn-faded.fa.fa-search-minus(type='button', data-toggle='tooltip', data-placement="bottom", title='Afastar mapa')
-                    button.btn.btn-faded.fa.fa-print(type='button', data-toggle='tooltip', data-placement="bottom", title='Imprimir planta')
-                    .btn-group(role="group", data-toggle='tooltip', data-placement="bottom", title='Alterar escala')
-                        button#btnGroupDrop1.btn.btn-faded.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Escala
-                        .dropdown-menu(aria-labelledby='btnGroupDrop1')
-                            a.dropdown-item(href='#') 1:100000
-                            a.dropdown-item(href='#') 1:80000
-                            a.dropdown-item(href='#') 1:50000
-                            a.dropdown-item(href='#') 1:30000
-                            a.dropdown-item(href='#') 1:25000
-                            a.dropdown-item(href='#') 1:20000
-                            a.dropdown-item(href='#') 1:15000
-                            a.dropdown-item(href='#') 1:10000
-                            a.dropdown-item(href='#') 1:5000
-                            a.dropdown-item(href='#') 1:3500
-                            a.dropdown-item(href='#') 1:2000
-                            a.dropdown-item(href='#') 1:1000
-                            a.dropdown-item(href='#') 1:500
-                            a.dropdown-item(href='#') 1:100          
+                ges-tabs
+            #map-container.full_height.col-9(ng-class="{'col-12': menuIsHidden}")
+                #map.map.full_height
+                map-interactions(menu-is-hidden="menuIsHidden")   
     // jQuery first, then Tether, then Bootstrap JS.
 
     //script(src='https://code.jquery.com/jquery-3.1.1.slim.min.js', integrity='sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n', crossorigin='anonymous')
@@ -149,20 +38,21 @@ html(lang='en' ng-app='gestreeApp')
     script(src='fancytree/src/jquery.fancytree.wide.js')
     // START[*JoKord]
 
-    script(src='ol.js')
+    script(src='ol-debug.js')
     script(src="app/lib/proj4.js")
     script(src='app/lib/angular.js')
-    script(src='app/modules/LegendModule.js')
     
     script(src='app/app.js')
+    script(src='app/modules/LegendModule/LegendsModule.js')
+    script(src='app/modules/MapInteractionsModule/MapInteractionsModule.js')
     script(src='app/services/map-service.js')
     script(src='app/factories/layers-factory.js')
     script(src='app/directives/tabs-directive.js')
 
+
     // END[*JoKOrd]
     script(src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js', integrity='sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb', crossorigin='anonymous')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js', integrity='sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn', crossorigin='anonymous')
-    script(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
     // Initialize the tree when page is loaded
     //script(src='fancytree/test.js')
     //script(src='ol-debug.js')
