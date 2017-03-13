@@ -281,8 +281,8 @@
             layers: [{
                 type: "WMS",
                 format: "image/png",
-                layers: ["pdmteste:RESERVA_ECOLOGICA_NACIONAL"],
-                baseURL: "http://gistree.espigueiro.pt/geoserver/wms",
+                layers: ["pdmteste:reserva"],
+                baseURL: "http://gistree.espigueiro.pt:8080/geoserver/wms",
                 customParams: {
                     "Param":"No Param"
                 }
