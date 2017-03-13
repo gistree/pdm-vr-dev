@@ -282,7 +282,7 @@
                 type: "WMS",
                 format: "image/png",
                 layers: ["pdmteste:reserva"],
-                baseURL: "http://gistree.espigueiro.pt/geoserver/wms",
+                baseURL: "http://172.16.0.2/geoserver/wms",
                 customParams: {
 
                 }
