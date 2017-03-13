@@ -281,7 +281,7 @@
             layers: [{
                 type: "WMS",
                 format: "image/png",
-                layers: ["PDM-VilaReal:RESERVA_ECOLOGICA_NACIONAL"],
+                layers: ["PDM-VilaReal:RESERVA_AGRICOLA_NACIONAL"],
                 baseURL: "http://gistree.espigueiro.pt/geoserver/wms",
                 customParams: {
 
