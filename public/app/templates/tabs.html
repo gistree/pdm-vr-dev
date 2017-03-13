@@ -23,6 +23,9 @@
                     <button data-tooltip="Ajuda" ng-click="tc.help()" class="btn btn-secondary btn-circle">
                         <i class="fa fa-question"></i>
                     </button>
+                    <a ng-click="tc.print()" target="_blank" class="btn btn-secondary btn-circle" ng-href="http://localhost:8080/geoserver/pdf/print.pdf?spec={{printSpec}}">
+                        <i class="fa fa-print"></i>
+                    </a>
                 </div>
             </div>
             <div id="legenda" role="tabpanel" class="tab-pane" ng-controller="LegendsController as lgsCtrl">
