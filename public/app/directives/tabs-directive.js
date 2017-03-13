@@ -194,7 +194,7 @@
                 freguesia: 'Folhadela',
                 local: 'Folhadela'
             }],
-            "legends": [{
+            /*"legends": [{
                 "name": "Reservas",
                 "classes": [{
                         "name": "",
@@ -220,8 +220,9 @@
                         "icon": "http://localhost:8080/geoserver/wms?version=1.3.0%26SERVICE=WMS%26REQUEST=GetLegendGraphic%26WIDTH=20%26HEIGHT=20%26LAYER=pdmlocal:RESERVA_AGRICOLA_NACIONAL%26FORMAT=image/png%26LEGEND_OPTIONS=forceLabels:on;"
                     },
                 ]
-            }]
-        };*/
+
+            }]*/
+        };
 
         $scope.printSpecLocal = {
             layout: 'pdmLayout',
@@ -331,6 +332,7 @@
                 local: 'Folhadela'
             }]
         };
+
 
 
         tc.print = function () {
