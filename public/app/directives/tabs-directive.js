@@ -100,75 +100,7 @@
             alert(" Em Desenvolvimento... ");
         }
 
-        $scope.printSpecLocal = {
-            layout: 'pdmLayout',
-            srs: 'EPSG:3857',
-            units: 'm',
-            outputFilename: 'PDM_VilaReal',
-            outputFormat: 'pdf',
-            mapTitle: 'Plano Director Municipal - Vila Real',
-            layers: [{
-                baseURL: "http://a.tile.openstreetmap.org/",
-                opacity: 1,
-                singleTile: false,
-                type: "OSM",
-                maxExtent: [-20037508.3392, -20037508.3392, 20037508.3392, 20037508.3392],
-                tileSize: [256, 256],
-                extension: "png",
-                resolutions: [156543.03390625, 78271.516953125, 39135.7584765625, 19567.87923828125, 9783.939619140625, 4891.9698095703125,
-                    2445.9849047851562, 1222.9924523925781, 611.4962261962891, 305.74811309814453, 152.87405654907226, 76.43702827453613,
-                    38.218514137268066, 19.109257068634033, 9.554628534317017, 4.777314267158508, 2.388657133579254, 1.194328566789627, 0.5971642833948135
-                ]
-            }, {
-                type: "WMS",
-                format: "image/png",
-                layers: ["pdmlocal:RESERVA_ECOLOGICA_NACIONAL"],
-                baseURL: "http://localhost:8080/geoserver/wms",
-                customParams: {
-
-                }
-            }],
-            pages: [{
-                mapTitle: "Título do Mapa",
-                center: [-862594.0274085791, 5055714.580579155],
-                scale: 25000,
-                dpi: 300,
-                requerente: 'João Cordeiro',
-                nif: '123456789',
-                proprietario: 'Gistree',
-                freguesia: 'Folhadela',
-                local: 'Folhadela'
-            }],
-            "legends": [{
-                "name": "Reservas",
-                "classes": [{
-                        "name": "",
-                        "iconAfterName": false,
-                        "icons": "http://localhost:8080/geoserver/wms?version=1.3.0%26SERVICE=WMS%26REQUEST=GetLegendGraphic%26WIDTH=20%26HEIGHT=20%26LAYER=pdmlocal:RESERVA_AGRICOLA_NACIONAL%26FORMAT=image/png%26LEGEND_OPTIONS=forceLabels:on;"
-                    },
-                    {
-                        "name": "",
-                        "iconAfterName": false,
-                        "icon": "http://localhost:8080/geoserver/wms?version=1.3.0%26SERVICE=WMS%26REQUEST=GetLegendGraphic%26WIDTH=20%26HEIGHT=20%26LAYER=pdmlocal:RESERVA_AGRICOLA_NACIONAL%26FORMAT=image/png%26LEGEND_OPTIONS=forceLabels:on;"
-                    },
-                ]
-            }, {
-                "name": "Reservas 2",
-                "classes": [{
-                        "name": "",
-                        "iconAfterName": false,
-                        "icon": "http://localhost:8080/geoserver/wms?version=1.3.0%26SERVICE=WMS%26REQUEST=GetLegendGraphic%26WIDTH=20%26HEIGHT=20%26LAYER=pdmlocal:RESERVA_AGRICOLA_NACIONAL%26FORMAT=image/png%26LEGEND_OPTIONS=forceLabels:on;"
-                    },
-                    {
-                        "name": "",
-                        "iconAfterName": false,
-                        "icon": "http://localhost:8080/geoserver/wms?version=1.3.0%26SERVICE=WMS%26REQUEST=GetLegendGraphic%26WIDTH=20%26HEIGHT=20%26LAYER=pdmlocal:RESERVA_AGRICOLA_NACIONAL%26FORMAT=image/png%26LEGEND_OPTIONS=forceLabels:on;"
-                    },
-                ]
-            }]
-        };
-
-        $scope.printSpecRemote = {
+        $scope.printSpec = {
             layout: 'pdmLayout',
             srs: 'EPSG:3857',
             units: 'm',
