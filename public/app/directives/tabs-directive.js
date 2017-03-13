@@ -284,6 +284,7 @@
                 layers: ["pdmteste:RESERVA_ECOLOGICA_NACIONAL"],
                 baseURL: "http://gistree.espigueiro.pt/geoserver/wms",
                 customParams: {
+                    "Param":"No Param"
                 }
             }],
             pages: [{
