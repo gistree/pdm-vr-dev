@@ -222,10 +222,12 @@
             layers: [{
                 type: "WMS",
                 format: "image/png",
-                layers: ["pdmlocal:RESERVA_ECOLOGICA_NACIONAL"],
-                baseURL: "http://localhost:8080/geoserver/wms",
+                layers: ["sig:carta_3"],
+                baseURL: "http://sig.cm-albergaria.pt/geoserver/wms",
+                styles: [""],
                 customParams: {
-
+                    BUFFER: 0,
+                    TRANSPARENT: true
                 }
             }],
             pages: [{
