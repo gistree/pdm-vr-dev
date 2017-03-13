@@ -281,8 +281,8 @@
             layers: [{
                 type: "WMS",
                 format: "image/png",
-                layers: ["pdmteste:reserva"],
-                baseURL: "http://gistree.espigueiro.pt:8080/geoserver/wms",
+                layers: ["reserva"],
+                baseURL: "http://gistree.espigueiro.pt:8080/geoserver/wms/pdmteste",
                 customParams: {
 
                 }
