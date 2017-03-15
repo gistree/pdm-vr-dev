@@ -131,13 +131,37 @@
             pages: [{
                 mapTitle: "Título do Mapa",
                 center: [-862594.0274085791, 5055714.580579155],
-                scale: 25000,
+                scale: 10000,
                 dpi: 300,
                 requerente: 'João Cordeiro',
                 nif: '123456789',
                 proprietario: 'Gistree',
                 freguesia: 'Folhadela',
                 local: 'Folhadela'
+            }],
+            legends: [{
+                name: "",
+                classes: [{
+                        name: "",
+                        iconAfterName: false,
+                        icon: "http://gistree.espigueiro.pt/geoserver/wms?version=1.1.1%26SERVICE=WMS%26REQUEST=GetLegendGraphic%26WIDTH=25%26HEIGHT=25%26LAYER=PDM-VilaReal:RESERVA_ECOLOGICA_NACIONAL%26FORMAT=image/png%26LEGEND_OPTIONS=forceLabels:on"
+                    },
+                    {
+                        name: "",
+                        iconAfterName: false,
+                        icon: "http://gistree.espigueiro.pt/geoserver/wms?version=1.1.1%26SERVICE=WMS%26REQUEST=GetLegendGraphic%26WIDTH=25%26HEIGHT=25%26LAYER=PDM-VilaReal:RESERVA_AGRICOLA_NACIONAL%26FORMAT=image/png%26LEGEND_OPTIONS=forceLabels:on"
+                    },
+                    {
+                        name: "",
+                        iconAfterName: false,
+                        icon: "http://gistree.espigueiro.pt/geoserver/wms?version=1.1.1%26SERVICE=WMS%26REQUEST=GetLegendGraphic%26WIDTH=25%26HEIGHT=25%26LAYER=PDM-VilaReal:RESERVA_ECOLOGICA_NACIONAL%26FORMAT=image/png%26LEGEND_OPTIONS=forceLabels:on"
+                    },
+                    {
+                        name: "",
+                        iconAfterName: false,
+                        icon: "http://gistree.espigueiro.pt/geoserver/wms?version=1.1.1%26SERVICE=WMS%26REQUEST=GetLegendGraphic%26WIDTH=25%26HEIGHT=25%26LAYER=PDM-VilaReal:RESERVA_AGRICOLA_NACIONAL%26FORMAT=image/png%26LEGEND_OPTIONS=forceLabels:on"
+                    }
+                ]
             }]
         };
         tc.print = function () {
