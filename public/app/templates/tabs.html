@@ -56,38 +56,46 @@
                         </div>
                     </section>
                     <div class="nav-buttons">
-                        <button ng-click="pagesCtrl.active = pagesCtrl.active + 1" class="btn btn-secondary clearfix">Seguinte</button>
+                        <button ng-click="pagesCtrl.nextPage(true)" class="btn btn-secondary clearfix">Seguinte</button>
                     </div>
                 </section>
-                <section ng-show="pagesCtrl.activeTab(2)">
+                <section ng-show="pagesCtrl.activeTab(2)" ng-controller="FormController as formCtrl">
                     <h6>Dados da Requisição</h6>
                     <hr style="margin: 0.5em">
-                    <form class="my-form">
+                    <form name="form" class="my-form" novalidate>
                         <div class="row form-line">
                             <label class="col-4" for="requerente">Requerente:</label>
-                            <input type="text" class="col-7" id="requerente" placeholder="Nome do Requerente">
+                            <input type="text" class="col-7" id="requerente" ng-model="formCtrl.userData.requerente" placeholder="Nome do Requerente">
                         </div>
                         <div class="row form-line">
                             <label class="col-4" for="proprietario">Proprietário:</label>
-                            <input type="text" class="col-7" id="proprietario" placeholder="Nome do Proprietário">
+                            <input type="text" class="col-7" id="proprietario" ng-model="formCtrl.userData.proprietario" placeholder="Nome do Proprietário">
                         </div>
                         <div class="row form-line">
                             <label class="col-4" for="nif">NIF:</label>
-                            <input type="number" class="col-7" id="nif" placeholder="Nro Identificação Fiscal">
+                            <input type="number" name="uNif" class="col-7" id="nif" ng-minlength="9" ng-maxlength="9" ng-model="formCtrl.userData.nif"
+                                placeholder="Nro Identificação Fiscal">
                         </div>
                         <div class="row form-line">
                             <label class="col-4" for="freguesia">Freguesia:</label>
-                            <input type="text" class="col-7" id="freguesia" placeholder="Nome da Freguesia">
+                            <input type="text" class="col-7" id="freguesia" ng-model="formCtrl.userData.freguesia" placeholder="Nome da Freguesia">
                         </div>
                         <div class="row form-line">
                             <label class="col-4" for="local">Local:</label>
-                            <input type="text" class="col-7" id="local" placeholder="Nome do Local">
+                            <input type="text" class="col-7" id="local" ng-model="formCtrl.userData.local" placeholder="Nome do Local">
+                        </div>
+                        <div ng-show="form.uNif.$invalid" class="form-line form-error">NIF necessita de 9 algarismos.</div>
+                        <hr style="margin: 0.5em">
+                        <div class="nav-buttons clearfix">
+                            <button type="button" ng-click="pagesCtrl.active = pagesCtrl.active - 1" class="btn btn-secondary ">Anterior</button>
+                            <button ng-click="pagesCtrl.nextPage(form.$valid)" class="btn btn-secondary ">Seguinte</button>
                         </div>
                     </form>
-                    <hr style="margin: 0.5em">
+                </section>
+                <section ng-show="pagesCtrl.activeTab(3)">
                     <div class="nav-buttons clearfix">
-                        <button ng-click="pagesCtrl.active = pagesCtrl.active - 1" class="btn btn-secondary ">Anterior</button>
-                        <button ng-click="pagesCtrl.active = pagesCtrl.active + 1" class="btn btn-secondary ">Seguinte</button>
+                        <button type="button" ng-click="pagesCtrl.active = pagesCtrl.active - 1" class="btn btn-secondary ">Anterior</button>
+                        <button ng-click="pagesCtrl.nextPage(form.$valid)" class="btn btn-secondary ">Seguinte</button>
                     </div>
                 </section>
             </div>
