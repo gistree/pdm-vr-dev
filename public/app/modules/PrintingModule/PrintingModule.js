@@ -6,9 +6,14 @@
         .controller('PagesController', PagesController);
 
     function PagesController() {
-        var vm = this;
+        var pagesCtrl = this;
         activate();
-
-        function activate() {}
+        this.active = 2;
+        this.activeTab = function(tab){
+            return tab == pagesCtrl.active;
+        }
+        function activate() {
+            pagesCtrl.ctrlName = "PagesController";
+        }
     }
 })();

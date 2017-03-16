@@ -38,23 +38,58 @@
                     </li>
                 </ul>
             </div>
-            <div id="imprimir" role="tabpanel" class="tab-pane active" ng-controller="DrawingController as drawCtrl">
-                <h5>Espaço para Impressão</h5>
-                <h6>{{drawCtrl.ControllerName}}</h6>
-                <p>Defina no mapa a área da pretensão.</p>              
-                <div class="drawing-commands">
-                    <button data-tooltip="Ponto" class="btn btn-secondary btn-circle icon point tooltip-bottom" ng-click="drawCtrl.setDrawingMode('Point')"></button>
-                    <button data-tooltip="Linha" class="btn btn-secondary btn-circle icon line tooltip-bottom" ng-click="drawCtrl.setDrawingMode('LineString')"></button>
-                    <button data-tooltip="Polígono" class="btn btn-secondary btn-circle icon polygon tooltip-bottom" ng-click="drawCtrl.setDrawingMode('Polygon')"></button>
-                    <button data-tooltip="Círculo" class="btn btn-secondary btn-circle icon circle tooltip-bottom" ng-click="drawCtrl.setDrawingMode('Circle')"></button>
-                    <button data-tooltip="Limpar Desenhos" class="btn btn-secondary btn-circle icon remove tooltip-bottom" ng-click="drawCtrl.clearDraw()"></button>
-                </div>
-                <div class="nav-buttons">
-                    <hr>
-                    <p>{{drawCtrl.info}}</p>
-                    <hr>
-                    <button class="btn btn-secondary clearfix">Seguinte</button>
-                </div>
+            <div id="imprimir" role="tabpanel" class="tab-pane active" ng-controller="PagesController as pagesCtrl">
+                <h5>Impressão de Plantas</h5>
+                <section ng-show="pagesCtrl.activeTab(1)">
+                    <h6>Desenhar</h6>
+                    <section ng-controller="DrawingController as drawCtrl">
+                        <hr style="margin: 0.5em">
+                        <div class="subtitle">Defina no mapa a área da pretensão.</div>
+                        <div class="draw-info">{{drawCtrl.info}}</div>
+                        <hr style="margin: 0.5em">
+                        <div class="drawing-commands">
+                            <button data-tooltip="Ponto" class="btn btn-secondary btn-circle icon point tooltip-bottom" ng-click="drawCtrl.setDrawingMode('Point')"></button>
+                            <button data-tooltip="Linha" class="btn btn-secondary btn-circle icon line tooltip-bottom" ng-click="drawCtrl.setDrawingMode('LineString')"></button>
+                            <button data-tooltip="Polígono" class="btn btn-secondary btn-circle icon polygon tooltip-bottom" ng-click="drawCtrl.setDrawingMode('Polygon')"></button>
+                            <button data-tooltip="Círculo" class="btn btn-secondary btn-circle icon circle tooltip-bottom" ng-click="drawCtrl.setDrawingMode('Circle')"></button>
+                            <button data-tooltip="Limpar Desenhos" class="btn btn-secondary btn-circle icon remove tooltip-bottom" ng-click="drawCtrl.clearDraw()"></button>
+                        </div>
+                    </section>
+                    <div class="nav-buttons">
+                        <button ng-click="pagesCtrl.active = pagesCtrl.active + 1" class="btn btn-secondary clearfix">Seguinte</button>
+                    </div>
+                </section>
+                <section ng-show="pagesCtrl.activeTab(2)">
+                    <h6>Dados da Requisição</h6>
+                    <hr style="margin: 0.5em">
+                    <form class="my-form">
+                        <div class="row form-line">
+                            <label class="col-4" for="requerente">Requerente:</label>
+                            <input type="text" class="col-7" id="requerente" placeholder="Nome do Requerente">
+                        </div>
+                        <div class="row form-line">
+                            <label class="col-4" for="proprietario">Proprietário:</label>
+                            <input type="text" class="col-7" id="proprietario" placeholder="Nome do Proprietário">
+                        </div>
+                        <div class="row form-line">
+                            <label class="col-4" for="nif">NIF:</label>
+                            <input type="number" class="col-7" id="nif" placeholder="Nro Identificação Fiscal">
+                        </div>
+                        <div class="row form-line">
+                            <label class="col-4" for="freguesia">Freguesia:</label>
+                            <input type="text" class="col-7" id="freguesia" placeholder="Nome da Freguesia">
+                        </div>
+                        <div class="row form-line">
+                            <label class="col-4" for="local">Local:</label>
+                            <input type="text" class="col-7" id="local" placeholder="Nome do Local">
+                        </div>
+                    </form>
+                    <hr style="margin: 0.5em">
+                    <div class="nav-buttons clearfix">
+                        <button ng-click="pagesCtrl.active = pagesCtrl.active - 1" class="btn btn-secondary ">Anterior</button>
+                        <button ng-click="pagesCtrl.active = pagesCtrl.active + 1" class="btn btn-secondary ">Seguinte</button>
+                    </div>
+                </section>
             </div>
         </div>
     </div>

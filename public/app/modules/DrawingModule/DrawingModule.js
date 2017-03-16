@@ -79,8 +79,6 @@
         drawCtrl.clearDraw = function () {
             _map.removeLayer(_vector);
             _vector.getSource().clear();
-            drawCtrl.info = _defaultInfo;
-            $scope.$apply();
         }
 
         function _setInformationText(dM) {
