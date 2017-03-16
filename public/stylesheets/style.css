@@ -101,6 +101,10 @@ ul.fancytree-container {
     border: 1px solid #eee;
 }
 
+.nav-link {
+    padding: 0.5em .8em;
+}
+
 .btn-hide {
     position: absolute !important;
     top: 0.5rem;
@@ -174,6 +178,44 @@ ul.fancytree-container {
     font-size: 18px;
     line-height: 1.33;
     border-radius: 25px;
+}
+
+.drawing-commands {
+    text-align: center;
+}
+
+.drawing-commands .icon {
+    background-position: 4px 4px;
+    background-size: 1.75em 1.75em;
+    background-repeat: no-repeat;
+}
+
+.point {
+    background-image: url('../app/icons/points_20.png') !important;
+}
+
+.polygon {
+    background-image: url('../app/icons/polygon_20.png') !important;
+}
+
+.line {
+    background-image: url('../app/icons/line_20.png') !important;
+}
+
+.circle {
+    background-image: url('../app/icons/circle_20.png') !important;
+}
+
+.remove {
+    background-image: url('../app/icons/close_20.png');
+}
+
+.nav-buttons {
+    margin-top: 2em;
+    text-align: center; 
+}
+.nav-buttons button {
+    cursor: pointer;
 }
 
 .bottom-tree-commands {

@@ -1,14 +1,15 @@
 <div class="panel">
     <div class="tabbable-line">
         <ul id="lefttopmenutabs" role="tablist" class="nav nav-tabs">
-            <a data-toggle="tab" href="#layers" role="tab" class="nav-item nav-link active">Camadas</a>
+            <a data-toggle="tab" href="#layers" role="tab" class="nav-item nav-link ">Camadas</a>
             <a data-toggle="tab" href="#legenda" role="tab" class="nav-item nav-link">Legenda</a>
+            <a data-toggle="tab" href="#imprimir" role="tab" class="nav-item nav-link active">Imprimir</a>
             <button type="button" ng-click="tc.hideMenu()" class="btn btn-secondary btn-circle btn-hide tooltip-bottom" data-tooltip="Esconder">
                 <i class="fa fa-arrow-left"></i>
             </button>
         </ul>
         <div id="tabcontent" class="tab-content">
-            <div id="layers" role="tabpanel" class="tab-pane active">
+            <div id="layers" role="tabpanel" class="tab-pane ">
                 <div id="tree" class="panel-body fancytree-plain fancytree-colorize-selected fancytree-fade-expander"></div>
                 <div class="bottom-tree-commands">
                     <button data-tooltip="Expandir" ng-click="tc.expandTree()" class="btn btn-secondary btn-circle">
@@ -37,7 +38,24 @@
                     </li>
                 </ul>
             </div>
+            <div id="imprimir" role="tabpanel" class="tab-pane active" ng-controller="DrawingController as drawCtrl">
+                <h5>Espaço para Impressão</h5>
+                <h6>{{drawCtrl.ControllerName}}</h6>
+                <p>Defina no mapa a área da pretensão.</p>              
+                <div class="drawing-commands">
+                    <button data-tooltip="Ponto" class="btn btn-secondary btn-circle icon point tooltip-bottom" ng-click="drawCtrl.setDrawingMode('Point')"></button>
+                    <button data-tooltip="Linha" class="btn btn-secondary btn-circle icon line tooltip-bottom" ng-click="drawCtrl.setDrawingMode('LineString')"></button>
+                    <button data-tooltip="Polígono" class="btn btn-secondary btn-circle icon polygon tooltip-bottom" ng-click="drawCtrl.setDrawingMode('Polygon')"></button>
+                    <button data-tooltip="Círculo" class="btn btn-secondary btn-circle icon circle tooltip-bottom" ng-click="drawCtrl.setDrawingMode('Circle')"></button>
+                    <button data-tooltip="Limpar Desenhos" class="btn btn-secondary btn-circle icon remove tooltip-bottom" ng-click="drawCtrl.clearDraw()"></button>
+                </div>
+                <div class="nav-buttons">
+                    <hr>
+                    <p>{{drawCtrl.info}}</p>
+                    <hr>
+                    <button class="btn btn-secondary clearfix">Seguinte</button>
+                </div>
+            </div>
         </div>
-        <div id="opcoes" role="tabpanel" class="tab-pane"> </div>
     </div>
 </div>
