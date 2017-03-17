@@ -6,6 +6,7 @@
 
     function MapService() {
         var _layers = {};
+        var _userFeatures = {};
         if (!ol) return {};
         var map = {},
             defaultMapConfig = {
@@ -24,7 +25,8 @@
             init: init,
             addLayer: addLayer,
             removeLayer: removeLayer,
-            setDefaultView: setDefaultView
+            setDefaultView: setDefaultView,
+            userFeatures: _userFeatures
         };
         return ms;
 
@@ -143,5 +145,6 @@
         function _checkLayer(layer_key) {
             return !_layers.hasOwnProperty(layer_key);
         }
+
     };
 })();

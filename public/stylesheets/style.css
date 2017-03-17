@@ -26,6 +26,8 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0;
 }
 
+li {list-style-type: none;}
+
 #map {
     height: 100%;
     width: 100%;
@@ -277,6 +279,14 @@ ul.fancytree-container {
     padding-left: 3em;
 }
 
+.info {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 0.65em;
+    color: #a6a6a6;
+    padding-left: 3em;
+}
+
 input[type=text],
 input[type=number] {
     height: 17px;
@@ -296,6 +306,22 @@ input[type=number]:focus {
 
 input[type=number].ng-invalid {
     box-shadow: -4px 8px 0px -7px red, 4px 8px 0px -7px red;
+}
+
+a.print {
+    height: 17px;
+    border: 0;
+    width: calc(100% - 2px);
+    margin-left: 1px;
+    box-shadow: -8px 10px 0px -7px #ebebeb, 8px 10px 0px -7px #ebebeb;
+    -webkit-transition: box-shadow 0.3s;
+    transition: box-shadow 0.3s;
+}
+
+a.print:hover, a.print:focus {
+    outline: none;
+    box-shadow: -4px 8px 0px -7px #a6a6a6, 4px 8px 0px -7px #a6a6a6;
+    text-decoration: none;
 }
 
 .draw-info {
@@ -326,10 +352,6 @@ input[type=number].ng-invalid {
 
 .line {
     background-image: url('../app/icons/line_20.png') !important;
-}
-
-.circle {
-    background-image: url('../app/icons/circle_20.png') !important;
 }
 
 .remove {

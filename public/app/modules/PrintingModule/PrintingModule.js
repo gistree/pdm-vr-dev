@@ -6,6 +6,7 @@
         .controller('PagesController', PagesController)
         .controller('FormController', FormController)
         .controller('LayoutSelectionController', LayoutSelectionController)
+        .controller('PrintResultController', PrintResultsController)
         .service('PrintDetailsService', PrintDetailsService);
 
     function PagesController() {
@@ -21,7 +22,7 @@
         }
 
         function activate() {
-            pagesCtrl.active = 3;
+            pagesCtrl.active = 1;
             pagesCtrl.ctrlName = "PagesController";
         }
     }
@@ -46,19 +47,80 @@
         }
     }
 
-    function PrintDetailsService() {
+    PrintDetailsService.$inject = ['MapService']
+
+    function PrintDetailsService(MapService) {
         this.details = {};
+        this.layers = {
+            "Planta de Ordenamento": [{
+                type: "WMS",
+                format: "image/png",
+                layers: ["PDM-VilaReal-database:RESERVA_ECOLOGICA_NACIONAL"],
+                baseURL: "http://gistree.espigueiro.pt/geoserver/wms",
+                customParams: {
+
+                }
+            }],
+            "Planta de Condicionantes": [{
+                type: "WMS",
+                format: "image/png",
+                layers: ["PDM-VilaReal-database:RESERVA_ECOLOGICA_NACIONAL"],
+                baseURL: "http://gistree.espigueiro.pt/geoserver/wms",
+                customParams: {
+
+                }
+            }]
+        };
+        this.printResults = [];
+        this.getPrintSpec = function (mapTitle) {
+            var defaultLayout = {
+                layout: "pdmLayout",
+                srs: "EPSG:3857",
+                units: "m",
+                outputFormat: "pdf",
+                mapTitle: mapTitle,
+                layers: [],
+                pages: [{
+                    center: MapService.map.getView().getCenter(),
+                    scale: 10000,
+                    dpi: 300,
+                }]
+            };
+            defaultLayout.outputFilename = mapTitle.split(" ").join("_");
+            defaultLayout.pages[0].MapTitle = mapTitle;
+            defaultLayout.layers = this.layers[mapTitle];
+            //defaultLayout.layers.push(MapService.getUserFeatures());
+            angular.extend(defaultLayout.pages[0], this.details);
+            console.log(MapService.userFeatures);
+            //return defaultLayout;
+        }
     }
 
-    LayoutSelectionController.$inject = ['PrintDetailsService', '$http'];
+    LayoutSelectionController.$inject = ['PrintDetailsService', '$http', '$q'];
 
-    function LayoutSelectionController(PrintDetailsService, $http) {
+    function LayoutSelectionController(PrintDetailsService, $http, $q) {
         var layoutCtrl = this;
         activate();
-
         layoutCtrl.change = function () {
             layoutCtrl.noSelect = !layoutCtrl.layouts.some(function (layout) {
                 return layout.selected === true;
+            });
+        }
+
+        layoutCtrl.printLayouts = function () {
+            var printConfigs = [];
+            layoutCtrl.layouts.forEach(function (layout) {
+                if (layout.selected) {
+                    printConfigs.push($http.post("http://gistree.espigueiro.pt:80/geoserver/pdf/create.json", PrintDetailsService.getPrintSpec(layout.name)));
+                }
+            });
+            $q.all(printConfigs).then(function (results) {
+                results.forEach(function (res) {
+                    PrintDetailsService.printResults.push({
+                        title: res.config.data.mapTitle,
+                        url: res.data.getURL
+                    });
+                });
             });
         }
 
@@ -81,40 +143,18 @@
             }];
             layoutCtrl.noSelect = true;
         }
-        layoutCtrl.printLayouts = function () {
-            //TODO
-            // 2. Get the data for request
-            // First We Test
-            var printSpec = {
-                layout: "pdmLayout",
-                srs: "EPSG:3857",
-                units: "m",
-                outputFilename: "PDM_VilaReal",
-                outputFormat: "pdf",
-                mapTitle: "Plano Director Municipal - Vila Real",
-                layers: [{
-                    type: "WMS",
-                    format: "image/png",
-                    layers: ["PDM-VilaReal-database:RESERVA_ECOLOGICA_NACIONAL"],
-                    baseURL: "http://gistree.espigueiro.pt/geoserver/wms",
-                    customParams: {
+    }
 
-                    }
-                }],
-                pages: [{
-                    MapTitle: "Título do Mapa",
-                    center: [-862594.0274085791, 5055714.580579155],
-                    scale: 10000,
-                    dpi: 300,
-                }]
-            };
-            angular.extend(printSpec.pages[0], PrintDetailsService.details)
-            console.log(printSpec);
-            // 3. Make the request
-            $http.post("http://gistree.espigueiro.pt:80/geoserver/pdf/create.json", printSpec).then(function successCallback(response) {
-                console.log(response);
-            });
-            // 4. Print the Results
+    PrintResultsController.$inject = ['PrintDetailsService'];
+
+    function PrintResultsController(PrintDetailsService) {
+        var printResCtrl = this;
+        activate();
+
+        function activate() {
+            printResCtrl.printResults = PrintDetailsService.printResults;
+            printResCtrl.message1 = "A processar o seu pedido.";
+            printResCtrl.message2 = "Por favor aguarde..."
         }
     }
 })();

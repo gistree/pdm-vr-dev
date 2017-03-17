@@ -5,10 +5,12 @@
         .module('DrawingModule')
         .controller('DrawingController', DrawingController);
 
-    DrawingController.$inject = ['$scope','MapService']
+    DrawingController.$inject = ['$scope', 'MapService']
 
     function DrawingController($scope, MapService) {
         var drawCtrl = this;
+        var geojson = new ol.format.GeoJSON();
+
         var _style = new ol.style.Style({
             fill: new ol.style.Fill({
                 color: 'rgba(255, 255, 255, 0.3)'
@@ -48,6 +50,10 @@
         var _source = new ol.source.Vector({
             wrapX: false
         });
+        _source.on('addfeature', function () {
+            console.log(geojson.writeFeatures(_vector.getSource().getFeatures()));
+            MapService.userFeatures = geojson.writeFeatures(_vector.getSource().getFeatures());
+        });
         var _vector = new ol.layer.Vector({
             source: _source,
             style: _style
@@ -57,7 +63,6 @@
         var _defaultInfo = "Utilize os botões para definir o tipo de desenho desejado."
         drawCtrl.ControllerName = "DrawingCtrl";
         drawCtrl.info = _defaultInfo;
-
         drawCtrl.setDrawingMode = function (dM) {
             _setInformationText(dM);
             _map.removeInteraction(_draw);
@@ -91,9 +96,6 @@
                     break;
                 case 'Polygon':
                     drawCtrl.info = "Para desenhar um polígono, vá clicando no mapa. Duplo clique fecha o polígono";
-                    break;
-                case 'Circle':
-                    drawCtrl.info = "Para desenhar um círculo, faça clique no mapa e arraste.";
                     break;
             }
         }

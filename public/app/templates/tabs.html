@@ -51,7 +51,6 @@
                             <button data-tooltip="Ponto" class="btn btn-secondary btn-circle icon point tooltip-bottom" ng-click="drawCtrl.setDrawingMode('Point')"></button>
                             <button data-tooltip="Linha" class="btn btn-secondary btn-circle icon line tooltip-bottom" ng-click="drawCtrl.setDrawingMode('LineString')"></button>
                             <button data-tooltip="Polígono" class="btn btn-secondary btn-circle icon polygon tooltip-bottom" ng-click="drawCtrl.setDrawingMode('Polygon')"></button>
-                            <button data-tooltip="Círculo" class="btn btn-secondary btn-circle icon circle tooltip-bottom" ng-click="drawCtrl.setDrawingMode('Circle')"></button>
                             <button data-tooltip="Limpar Desenhos" class="btn btn-secondary btn-circle icon remove tooltip-bottom" ng-click="drawCtrl.clearDraw()"></button>
                         </div>
                     </section>
@@ -106,11 +105,28 @@
                         </div>
                     </form>
                     <hr style="margin: 0.5em;">
-                    <code>{{layoutCtrl.userData | json}}</code>
                     <div class="nav-buttons clearfix">
                         <button type="button" ng-click="pagesCtrl.active = pagesCtrl.active - 1" class="btn btn-secondary ">Anterior</button>
-                        <button ng-disabled="layoutCtrl.noSelect" ng-click="layoutCtrl.printLayouts()" class="btn btn-secondary ">Seguinte</button>
+                        <button ng-disabled="layoutCtrl.noSelect" ng-click="layoutCtrl.printLayouts();pagesCtrl.nextPage(true)" class="btn btn-secondary ">Seguinte</button>
                     </div>
+                </section>
+                <section ng-show="pagesCtrl.activeTab(4)" ng-controller="PrintResultController as prCtrl">
+                    <h6>Resultados de Impressão</h6>
+                    <div ng-show="prCtrl.printResults.length == 0">
+                        <hr style="margin: 0.5em;">
+                        <div class="info">{{prCtrl.message1}}</div>
+                        <div class="info">{{prCtrl.message2}}</div>
+                    </div>
+                    <hr style="margin: 0.5em;">
+                    <div ng-show="prCtrl.printResults.length > 0">
+                        <div class="draw-info">A(s) Planta(s) requesitada(s) estão disponíveis para download nos links abaixo.</div>
+                        <ul>
+                            <li style="padding: 0.2em;" ng-repeat="printResult in prCtrl.printResults">
+                                <a class="print" ng-href="{{printResult.url}}">{{printResult.title}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <hr style="margin: 0.5em;">
                 </section>
             </div>
         </div>
