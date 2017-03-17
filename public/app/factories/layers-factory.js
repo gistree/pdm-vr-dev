@@ -29,7 +29,7 @@
                     children: [{
                             title: "Reserva Agrícola Nacional",
                             data: {
-                                workspace: "PDM-VilaReal",
+                                workspace: "PDM-VilaReal-database",
                                 name: "RESERVA_AGRICOLA_NACIONAL",
                                 type: "Raster",
                                 extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
@@ -39,7 +39,7 @@
                         {
                             title: "Reserva Ecológica Nacional",
                             data: {
-                                workspace: "PDM-VilaReal",
+                                workspace: "PDM-VilaReal-database",
                                 name: "RESERVA_ECOLOGICA_NACIONAL",
                                 type: "Raster",
                                 extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],

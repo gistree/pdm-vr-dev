@@ -35,7 +35,7 @@
         this.userData = {
             requerente: '',
             proprietario: '',
-            nif: null,
+            nif: '',
             freguesia: '',
             local: ''
         }
@@ -68,12 +68,14 @@
                 selected: false,
                 name: "Planta de Ordenamento",
                 layout: "pdmLayout",
+                title: "Planta de Condicionantes",
                 escala: 10000,
                 tamanho: "A3"
             }, {
                 selected: false,
                 name: "Planta de Condicionantes",
                 layout: "pdmLayout",
+                title: "Planta de Condicionantes",
                 escala: 10000,
                 tamanho: "A3"
             }];
@@ -100,49 +102,19 @@
                     }
                 }],
                 pages: [{
-                    mapTitle: "Título do Mapa",
+                    MapTitle: "Título do Mapa",
                     center: [-862594.0274085791, 5055714.580579155],
                     scale: 10000,
                     dpi: 300,
-                    requerente: "João Cordeiro",
-                    nif: "123456789",
-                    proprietario: "Gistree",
-                    freguesia: "Folhadela",
-                    local: "Folhadela"
                 }]
             };
-
+            angular.extend(printSpec.pages[0], PrintDetailsService.details)
+            console.log(printSpec);
             // 3. Make the request
-            // GET REQUEST WORKS
-            /*$http({
-                method: 'GET',
-                url: 'http://gistree.espigueiro.pt/geoserver/pdf/print.pdf',
-                params: {
-                    "spec": printSpec
-                }
-            }).then(function successCallback(response) {
-                console.log("Response");
-                console.log(response);
-            }, function errorCallback(response) {
-                console.log("Error");
-                console.log(response);
-            });*/
-            // POST REQUEST
-            $http.post("http://gistree.espigueiro.pt/geoserver/pdf/create.json",
-                printSpec, {
-                    headers: {
-                        "Content-Type": "application/json"
-                    }
-                }
-            ).then(function successCallback(response) {
-                console.log("Response");
-                console.log(response);
-            }, function errorCallback(response) {
-                console.log("Error");
+            $http.post("http://gistree.espigueiro.pt:80/geoserver/pdf/create.json", printSpec).then(function successCallback(response) {
                 console.log(response);
             });
             // 4. Print the Results
         }
     }
-
 })();
