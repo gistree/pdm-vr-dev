@@ -96,31 +96,20 @@
                     <h6>Plantas para impressão disponíveis:</h6>
                     <hr style="margin: 0.5em;">
                     <form name="form" class="my-form" novalidate>
-                        <div class="checkbox">
-                            <label style="display:block">
-                                <input type="checkbox" ng-model="layoutCtrl.selectedLayouts.ordenamento" value="">
+                        <div class="checkbox" ng-repeat="layout in layoutCtrl.layouts">
+                            <label style="display: block">
+                                <input type="checkbox" ng-model="layout.selected" ng-change="layoutCtrl.change()" value="">
                                 <span class="cr"><i class="cr-icon fa fa-check"></i></span>
-                                    <div class="checkbox-title">Planta de Ordenamento</div>
-                                    <div class="checkbox-info" style="padding-left: 3em;">(Escala 1:10000 - Tamanho A3)</div>
-                            </label>
-                        </div>
-                        <div class="checkbox">
-                            <label style="display:block">
-                                <input type="checkbox" ng-model="layoutCtrl.selectedLayouts.condicionantes" value="">
-                                <span class="cr"><i class="cr-icon fa fa-check"></i></span>
-                                    <div class="checkbox-title">Planta de Condicionantes</div>
-                                    <div class="checkbox-info" style="padding-left: 3em;">(Escala 1:10000 - Tamanho A3)</div>
+                                <div class="checkbox-title">{{layout.name}}</div>
+                                <div class="checkbox-info">(Escala 1:{{layout.escala}} - Tamanho {{layout.tamanho}})</div>
                             </label>
                         </div>
                     </form>
                     <hr style="margin: 0.5em;">
                     <code>{{layoutCtrl.userData | json}}</code>
-                    <div ng-repeat="sel in layoutCtrl.selectedLayouts">
-                        {{sel}}
-                    </div>
                     <div class="nav-buttons clearfix">
                         <button type="button" ng-click="pagesCtrl.active = pagesCtrl.active - 1" class="btn btn-secondary ">Anterior</button>
-                        <button ng-click="layoutCtrl.printLayouts()" class="btn btn-secondary ">Seguinte</button>
+                        <button ng-disabled="layoutCtrl.noSelect" ng-click="layoutCtrl.printLayouts()" class="btn btn-secondary ">Seguinte</button>
                     </div>
                 </section>
             </div>

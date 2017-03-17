@@ -55,17 +55,37 @@
     function LayoutSelectionController(PrintDetailsService) {
         var layoutCtrl = this;
         activate();
+        
+        layoutCtrl.change = function () {
+            layoutCtrl.noSelect = !layoutCtrl.layouts.some(function (layout) {
+                return layout.selected === true;
+            });
+        }
 
         function activate() {
             layoutCtrl.userData = PrintDetailsService.details;
-            layoutCtrl.selectedLayouts = {
-                ordenamento: false,
-                condicionantes: false
-            };
+            layoutCtrl.layouts = [{
+                selected: false,
+                name: "Planta de Ordenamento",
+                layout: "pdmLayout",
+                escala: 10000,
+                tamanho: "A3"
+            }, {
+                selected: false,
+                name: "Planta de Condicionantes",
+                layout: "pdmLayout",
+                escala: 10000,
+                tamanho: "A3"
+            }];
+            layoutCtrl.noSelect = true;
         }
-
         layoutCtrl.printLayouts = function () {
+            //TODO
+            // 2. Get the data for request
+            // First We Test
             
+            // 3. Make the request
+            // 4. Print the Results
         }
     }
 

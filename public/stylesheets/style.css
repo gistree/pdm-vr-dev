@@ -215,6 +215,10 @@ ul.fancytree-container {
     color: rgb(174, 0, 0);
 }
 
+.my-form .checkbox label {
+    cursor: pointer;
+}
+
 .my-form .checkbox label:after {
     content: '';
     display: table;
@@ -270,6 +274,7 @@ ul.fancytree-container {
     font-weight: bold;
     font-size: 0.65em;
     color: #a6a6a6;
+    padding-left: 3em;
 }
 
 input[type=text],
