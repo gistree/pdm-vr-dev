@@ -6,10 +6,11 @@
         .controller('PagesController', PagesController)
         .controller('FormController', FormController)
         .controller('LayoutSelectionController', LayoutSelectionController)
-        .controller('PrintResultController', PrintResultsController)
-        .service('PrintDetailsService', PrintDetailsService);
+        .controller('PrintResultController', PrintResultsController);
 
-    function PagesController() {
+    PagesController.$inject = ['$scope'];
+
+    function PagesController($scope) {
         var pagesCtrl = this;
         activate();
         this.activeTab = function (tab) {
@@ -21,93 +22,47 @@
             }
         }
 
+        $scope.$on('resetPrinting', function () {
+            pagesCtrl.active = 1;
+        });
+
         function activate() {
             pagesCtrl.active = 1;
-            pagesCtrl.ctrlName = "PagesController";
         }
     }
+    FormController.$inject = ['$scope', 'PrintDetailsService'];
 
-    FormController.$inject = ['PrintDetailsService'];
-
-    function FormController(PrintDetailsService) {
+    function FormController($scope, PrintDetailsService) {
         var formCtrl = this;
         activate();
 
-        this.userData = {
-            requerente: '',
-            proprietario: '',
-            nif: '',
-            freguesia: '',
-            local: ''
-        }
-        PrintDetailsService.details = this.userData;
+        $scope.$on('resetPrinting', function () {
+            activate();
+        });
 
         function activate() {
-            formCtrl.ctrlName = "FormController";
+            formCtrl.userData = {
+                requerente: '',
+                proprietario: '',
+                nif: '',
+                freguesia: '',
+                local: ''
+            }
+            PrintDetailsService.setDetails(formCtrl.userData);
         }
     }
 
-    PrintDetailsService.$inject = ['MapService']
+    LayoutSelectionController.$inject = ['$scope', 'PrintDetailsService', '$http', '$q'];
 
-    function PrintDetailsService(MapService) {
-        this.details = {};
-        this.layers = {
-            "Planta de Ordenamento": [{
-                type: "WMS",
-                format: "image/png",
-                layers: ["PDM-VilaReal-database:RESERVA_ECOLOGICA_NACIONAL"],
-                baseURL: "http://gistree.espigueiro.pt/geoserver/wms",
-                customParams: {
-
-                }
-            }],
-            "Planta de Condicionantes": [{
-                type: "WMS",
-                format: "image/png",
-                layers: ["PDM-VilaReal-database:RESERVA_ECOLOGICA_NACIONAL"],
-                baseURL: "http://gistree.espigueiro.pt/geoserver/wms",
-                customParams: {
-
-                }
-            }]
-        };
-        this.printResults = [];
-        this.getPrintSpec = function (mapTitle) {
-            var defaultLayout = {
-                layout: "pdmLayout",
-                srs: "EPSG:3857",
-                units: "m",
-                outputFormat: "pdf",
-                mapTitle: mapTitle,
-                layers: [],
-                pages: [{
-                    center: MapService.map.getView().getCenter(),
-                    scale: 10000,
-                    dpi: 300,
-                }]
-            };
-            defaultLayout.outputFilename = mapTitle.split(" ").join("_");
-            defaultLayout.pages[0].MapTitle = mapTitle;
-            defaultLayout.layers = this.layers[mapTitle];
-            //defaultLayout.layers.push(MapService.getUserFeatures());
-            angular.extend(defaultLayout.pages[0], this.details);
-            console.log(MapService.userFeatures);
-            //return defaultLayout;
-        }
-    }
-
-    LayoutSelectionController.$inject = ['PrintDetailsService', '$http', '$q'];
-
-    function LayoutSelectionController(PrintDetailsService, $http, $q) {
+    function LayoutSelectionController($scope, PrintDetailsService, $http, $q) {
         var layoutCtrl = this;
         activate();
-        layoutCtrl.change = function () {
+        this.change = function () {
             layoutCtrl.noSelect = !layoutCtrl.layouts.some(function (layout) {
                 return layout.selected === true;
             });
         }
-
-        layoutCtrl.printLayouts = function () {
+        this.printLayouts = function () {
             var printConfigs = [];
             layoutCtrl.layouts.forEach(function (layout) {
                 if (layout.selected) {
@@ -116,7 +71,7 @@
             });
             $q.all(printConfigs).then(function (results) {
                 results.forEach(function (res) {
-                    PrintDetailsService.printResults.push({
+                    PrintDetailsService.addNewResult({
                         title: res.config.data.mapTitle,
                         url: res.data.getURL
                     });
@@ -124,8 +79,11 @@
             });
         }
 
+        $scope.$on('resetPrinting', function () {
+            activate();
+        });
+
         function activate() {
-            layoutCtrl.userData = PrintDetailsService.details;
             layoutCtrl.layouts = [{
                 selected: false,
                 name: "Planta de Ordenamento",
@@ -145,14 +103,19 @@
         }
     }
 
-    PrintResultsController.$inject = ['PrintDetailsService'];
+    PrintResultsController.$inject = ['$scope', 'PrintDetailsService'];
 
-    function PrintResultsController(PrintDetailsService) {
+    function PrintResultsController($scope, PrintDetailsService) {
         var printResCtrl = this;
         activate();
 
+        this.newPrint = function () {
+            $scope.$parent.$broadcast('resetPrinting');
+            PrintDetailsService.resetPrintResults();
+        }
+
         function activate() {
-            printResCtrl.printResults = PrintDetailsService.printResults;
+            printResCtrl.printResults = PrintDetailsService.getPrintResults();
             printResCtrl.message1 = "A processar o seu pedido.";
             printResCtrl.message2 = "Por favor aguarde..."
         }
