@@ -26,7 +26,9 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0;
 }
 
-li {list-style-type: none;}
+li {
+    list-style-type: none;
+}
 
 #map {
     height: 100%;
@@ -146,8 +148,8 @@ ul.fancytree-container {
 }
 
 .tabbable-line>.nav-tabs>a.active {
-    border: 1px solid #18481A;
-    border-bottom: 3px solid #18481A;
+    border: 1px solid #737373;
+    border-bottom: 3px solid #737373;
     border-radius: 5px;
     position: relative;
 }
@@ -318,7 +320,8 @@ a.print {
     transition: box-shadow 0.3s;
 }
 
-a.print:hover, a.print:focus {
+a.print:hover,
+a.print:focus {
     outline: none;
     box-shadow: -4px 8px 0px -7px #a6a6a6, 4px 8px 0px -7px #a6a6a6;
     text-decoration: none;
@@ -547,19 +550,36 @@ a.print:hover, a.print:focus {
     width: 95%;
 }
 
+.legends-container {
+    height: calc(100vh - 120px);
+    box-sizing: border-box;
+    overflow: auto;
+}
+
 .legends-list {
     margin-top: 0.2em;
     font-size: 0.8em;
 }
 
 .legends-list>b {
-    padding-left: 0.5em;
+    text-align: center;
     text-decoration: underline;
+    font-size: 1.3em;
 }
 
 .legends-item {
-    height: 1.5em;
-    font-size: 0.9em;
+    font-size: 1.1em;
+    padding: 0.55rem 0.55rem;
+}
+
+.legends-item>.image-container {
+    display: block;
+    width: 100%;
+}
+
+.legends-item>.image-container>img {
+    max-width: 95%;
+    padding-left: 0.25rem;
 }
 
 
