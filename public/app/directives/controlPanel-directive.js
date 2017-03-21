@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module('gestreeApp')
-        .directive('gesTabs', Directive);
+        .directive('controlPanel', Directive);
 
     Directive.$inject = ['LayersFactory', 'MapService', 'LegendsService'];
 
@@ -25,7 +25,7 @@
                 extensions: ["edit", "glyph", "wide"],
                 checkbox: true,
                 glyph: LayersFactory.glyph_opts,
-                clickFolderMode: 3,
+                clickFolderMode: 4,
                 selectMode: 3,
                 source: LayersFactory.source,
                 toggleEffect: {
@@ -33,7 +33,7 @@
                     options: {
                         direction: "left"
                     },
-                    duration: 400
+                    duration: 200
                 },
                 wide: {
                     iconWidth: "1em",

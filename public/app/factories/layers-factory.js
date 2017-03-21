@@ -8,16 +8,14 @@
         return {
             glyph_opts: {
                 map: {
-                    doc: "fa fa-file-o",
-                    docOpen: "fa fa-file",
-                    checkbox: "fa fa-square-o",
-                    checkboxSelected: "fa fa-check-square",
-                    checkboxUnknown: "fa fa-spinner",
+                    checkbox: "fa fa-toggle-off",
+                    checkboxSelected: "fa fa-toggle-on",
+                    checkboxUnknown: "fa fa-circle",
                     error: "fa fa-exclamation-triangle",
                     expanderClosed: "fa  fa-arrow-right",
                     expanderLazy: "fa fa-arrow-right", // glyphicon-plus-sign
                     expanderOpen: "fa fa-arrow-down", // glyphicon-collapse-down
-                    folder: "fa  fa-folder",
+                    folder: "fa fa-folder",
                     folderOpen: "fa fa-folder-open",
                     loading: "fa fa-spinner"
                 }

@@ -19,9 +19,20 @@ a:hover {
     text-decoration: underline;
 }
 
-li {
-    list-style-type: none;
+
+/* MAP CSS [START]*/
+
+#map {
+    height: 100%;
+    width: 100%;
+    background-color: #b5d0d0;
 }
+
+
+/* MAP CSS [END]*/
+
+
+
 
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
@@ -30,44 +41,31 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0;
 }
 
-
-/* MAP CSS [START]*/
-
-#map {
-    height: 100%;
-    width: 100%;
-    background-color: #67a926;
+li {
+    list-style-type: none;
 }
 
-
-/* MAP CSS [END]*/
-
-
-/* JOKORD.layout[Start] */
-
-.no-padding {
-    padding: 0;
+ul.fancytree-container {
+    border: 0;
+    background-color: #f7f7f7;
 }
-
-.navbar {
-    -webkit-box-shadow: 0px 1px 15px #67a926;
-    -moz-box-shadow: 0px 1px 15px #67a926;
-    box-shadow: 0px 1px 15px #67a926;
-}
-
-
-/* JOKORD.layout[End] */
-
 
 /* JOKORD.Panel[Start] */
 
 .panel {
     padding: 0.25rem;
-    border: 1px solid #67a926;
+    border: 1px solid #eee;
 }
 
+.nav-link {
+    padding: 0.5em .8em;
+}
 
-/* JOKORD.Panel.Top [Start] */
+.btn-hide {
+    position: absolute !important;
+    top: 0.5rem;
+    right: 0.5rem;
+}
 
 .tabbable-line>.nav-tabs {
     border: none;
@@ -80,7 +78,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .tabbable-line>.nav-tabs>a {
     margin-right: 0;
-    color: #666;
+    color: #737373;
 }
 
 .tabbable-line>.nav-tabs>a>i {
@@ -89,19 +87,16 @@ input[type=number]::-webkit-outer-spin-button {
 
 .tabbable-line>.nav-tabs>li.open,
 .tabbable-line>.nav-tabs>a:hover {
-    border: 1px solid #b0e27e;
-    border-bottom: 3px solid #b0e27e;
+    border: 1px solid #eee;
+    border-bottom: 3px solid #ddd;
     border-radius: 5px;
-    color: #67a926;
 }
 
 .tabbable-line>.nav-tabs>a.active {
-    border: 1px solid #b0e27e;
-    border-bottom: 3px solid #b0e27e;
+    border: 1px solid #737373;
+    border-bottom: 3px solid #737373;
     border-radius: 5px;
     position: relative;
-    background-color: #67a926;
-    color: #fff;
 }
 
 .tabbable-line>.nav-tabs>a.active>a {
@@ -117,119 +112,8 @@ input[type=number]::-webkit-outer-spin-button {
     margin-top: -3px;
     background-color: #fff;
     border: 0;
-    border-top: 1px solid #67a926;
+    border-top: 1px solid #eee;
     padding: 5px 0;
-}
-
-.nav-link {
-    padding: 0.5em .8em;
-}
-
-.btn-hide {
-    position: absolute !important;
-    top: 0.5rem;
-    right: 0.5rem;
-}
-
-
-/* JOKORD.Panel.FancyTree [Start] */
-
-.tree-container {
-    height: calc(100vh - 12em);
-    box-sizing: border-box;
-    overflow: auto;
-}
-
-ul.fancytree-container {
-    border: 0;
-    background-color: #fff;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif !important;
-}
-
-.tree-container li .fancytree-folder>.fancytree-title {
-    color: #18481A;
-    font-weight: 500;
-}
-
-.fancytree-checkbox{
-    cursor: pointer;
-}
-
-.fancytree-plain.fancytree-container span.fancytree-title:hover {
-    background-color: #b0e27e;
-}
-
-.fancytree-plain.fancytree-colorize-selected span.fancytree-node.fancytree-selected.fancytree-folder span.fancytree-title,
-.fancytree-plain.fancytree-colorize-selected span.fancytree-node.fancytree-selected:hover.fancytree-folder span.fancytree-title {
-    background-color: #67a926;
-    border-color: #67a926;
-}
-
-.fancytree-plain.fancytree-colorize-selected span.fancytree-node.fancytree-selected.fancytree-folder,
-.fancytree-plain.fancytree-colorize-selected span.fancytree-node.fancytree-selected.fancytree-folder span.fancytree-title,
-.fancytree-plain.fancytree-colorize-selected span.fancytree-node.fancytree-selected:hover.fancytree-folder span.fancytree-title {
-    background-color: #67a926;
-    border-color: #67a926;
-}
-
-.fancytree-plain.fancytree-colorize-selected span.fancytree-node.fancytree-selected,
-.fancytree-plain.fancytree-colorize-selected span.fancytree-node.fancytree-selected span.fancytree-title,
-.fancytree-plain.fancytree-colorize-selected span.fancytree-node.fancytree-selected:hover span.fancytree-title {
-    background-color: #b0e27e;
-    border-color: #b0e27e;
-    color: #333333;
-}
-
-.fancytree-plain.fancytree-container.fancytree-treefocus span.fancytree-node.fancytree-focused span.fancytree-title {
-    border-color: #67a926;
-}
-
-.fancytree-plain.fancytree-container.fancytree-treefocus span.fancytree-node.fancytree-active span.fancytree-title {
-    background-color: inherit;
-    border-color: #b0e27e;
-}
-
-.fancytree-plain.fancytree-colorize-selected span.fancytree-node.fancytree-active.fancytree-selected span.fancytree-title {
-    color: #333333;
-}
-
-.fancytree-plain.fancytree-container.fancytree-treefocus span.fancytree-node.fancytree-active:hover span.fancytree-title {
-    background-color: inherit;
-}
-
-.fancytree-plain.fancytree-colorize-selected.fancytree-treefocus span.fancytree-node.fancytree-active.fancytree-selected span.fancytree-title {
-    color: #333333;
-}
-
-.fancytree-plain.fancytree-container span.fancytree-node.fancytree-active span.fancytree-title {
-    background-color: inherit;
-    color: inherit;
-}
-
-.fancytree-plain.fancytree-container.fancytree-ext-wide span.fancytree-node.fancytree-active {
-    color: inherit;
-}
-
-.fancytree-plain.fancytree-container span.fancytree-node.fancytree-active:hover span.fancytree-title {
-    background-color: #b0e27e;
-}
-
-.fancytree-level-2 span.fancytree-title {
-    padding-left: 5.5em !important;
-}
-
-
-/* JOKORD.Panel.FancyTree [End] */
-
-
-/* JOKORD.Panel.BottomButtons [Start] */
-
-.bottom-tree-commands {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 1rem;
-    text-align: center;
 }
 
 .btn-circle {
@@ -240,24 +124,17 @@ ul.fancytree-container {
     font-size: 12px;
     line-height: 1.428571429;
     border-radius: 10px;
-    border-color: #4e7f10;
-    border-width: 0.15em;
     cursor: pointer;
-    background-color: #67a926;
-    color: #fff;
 }
 
-.btn-circle:hover {
-    background-color: #4e7f10;
-    border-color: #67a926;
-    color: #fff;
+.btn-circle.btn-lg {
+    width: 50px;
+    height: 50px;
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.33;
+    border-radius: 25px;
 }
-
-
-/* JOKORD.Panel.BottomButtons [End] */
-
-
-/* JOKORD.Panel.Top [End] */
 
 #imprimir h5,
 #imprimir h6 {
@@ -438,6 +315,14 @@ a.print:focus {
     cursor: pointer;
 }
 
+.bottom-tree-commands {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0.5rem;
+    text-align: center;
+}
+
 
 /* JOKORD.Panel[END] */
 
@@ -606,8 +491,12 @@ a.print:focus {
 
 /* JOKORD.legendsModule[Start] */
 
+.wd-95 {
+    width: 95%;
+}
+
 .legends-container {
-    height: calc(100vh - 12em);
+    height: calc(100vh - 150px);
     box-sizing: border-box;
     overflow: auto;
 }
@@ -640,6 +529,22 @@ a.print:focus {
 
 
 /* JOKORD.legendsModule[End] */
+
+
+/* JOKORD.layout[Start] */
+
+.no-padding {
+    padding: 0;
+}
+
+.navbar {
+    -webkit-box-shadow: 0px 1px 15px #888;
+    -moz-box-shadow: 0px 1px 15px #888;
+    box-shadow: 0px 1px 15px #888;
+}
+
+
+/* JOKORD.layout[End] */
 
 .bottom-bar-left {
     position: absolute;
