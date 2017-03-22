@@ -30,6 +30,10 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0;
 }
 
+.full_height {
+    height: 100%;
+}
+
 
 /* MAP CSS [START]*/
 
@@ -38,6 +42,125 @@ input[type=number]::-webkit-outer-spin-button {
     width: 100%;
     background-color: #67a926;
 }
+
+
+/* JOKORD.MAP.ToolBar [Start] */
+
+#toolbar {
+    position: absolute;
+    top: 1.2rem;
+    left: 1.2rem;
+}
+
+#toolbar button {
+    padding: 0.25rem 0.5rem;
+}
+
+#toolbar button:focus {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+#toolbar button.active {
+    padding: 0.25rem 0.5rem;
+    color: #333;
+    background-color: #b0e27e;
+}
+
+#toolbar button.btn-primary {
+    border-color: #67a926;
+    cursor: pointer;
+    background-color: #4e7f10;
+    color: #fff;
+}
+
+#toolbar .btn-primary:hover {
+    background-color: #67a926;
+    border-color: #4e7f10;
+    color: #fff;
+}
+
+
+/* JOKORD.MAP.ToolBar [End] */
+
+
+/* JOKORD.ScaleLine[START] */
+
+.ol-scale-line {
+    bottom: 25px;
+    left: 5px;
+    background-color: #b0e27e;
+}
+
+.ol-scale-line>.ol-scale-line-inner {
+    color: #333;
+    border: 1px solid #333;
+    border-top: none;
+    font-family: Courier New, Courier, monospace;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+
+/* JOKORD.ScaleLine[End] */
+
+
+/* JOKORD.MAP.Bottom-Controls [Start] */
+
+.bottom-bar-left {
+    position: absolute;
+    bottom: 1px;
+    left: 5px;
+}
+
+.bottom-bar-right {
+    position: absolute;
+    bottom: 1px;
+    right: 0px;
+}
+
+.bottom-bar-right .card {
+    background-color: transparent;
+    border-color: #333;
+}
+
+.bottom-bar-right .card-header {
+    background-color: rgba(40.4%, 66.3%, 14.9%, 0.75);
+    border-color: #333;
+    text-align: center;
+    padding: 0.1rem 0.1rem;
+    font-size: 0.55rem;
+    font-weight: bold;
+}
+
+.bottom-bar-right .card-block {
+    padding: 0.1rem 0.1rem;
+    font-size: 0.65rem;
+    font-weight: bold;
+    font-family: Courier New, Courier, monospace;
+    text-align: center;
+    background-color: #b0e27e;
+}
+
+.box {
+    background-color: #b0e27e;
+    border-color: #333;
+    border: 1px solid #333;
+    border-radius: 2px;
+    font-family: Courier New, Courier, monospace;
+    font-size: 0.8em;
+    font-weight: bold;
+    padding: 1px 2px;
+}
+
+.drag_zoom_box {
+    border: 2px dashed #666;
+    background-color: rgba(69%, 88.6%, 49.4%, 0.45);
+}
+
+
+/* JOKORD.MAP.Bottom-Controls [End] */
 
 
 /* MAP CSS [END]*/
@@ -122,7 +245,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .nav-link {
-    padding: 0.5em .8em;
+    padding: 0.4em .7em;
 }
 
 .btn-hide {
@@ -132,12 +255,16 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 
+/* JOKORD.Panel.Top [End] */
+
+
 /* JOKORD.Panel.FancyTree [Start] */
 
 .tree-container {
     height: calc(100vh - 12em);
     box-sizing: border-box;
     overflow: auto;
+    margin-top: 0.5em;
 }
 
 ul.fancytree-container {
@@ -151,8 +278,12 @@ ul.fancytree-container {
     font-weight: 500;
 }
 
-.fancytree-checkbox{
+.fancytree-checkbox {
     cursor: pointer;
+}
+
+span.fancytree-title {
+    color: #666;
 }
 
 .fancytree-plain.fancytree-container span.fancytree-title:hover {
@@ -203,11 +334,19 @@ ul.fancytree-container {
 
 .fancytree-plain.fancytree-container span.fancytree-node.fancytree-active span.fancytree-title {
     background-color: inherit;
-    color: inherit;
+    color: #333333;
 }
 
 .fancytree-plain.fancytree-container.fancytree-ext-wide span.fancytree-node.fancytree-active {
     color: inherit;
+}
+
+.fancytree-plain.fancytree-container.fancytree-ext-wide span.fancytree-node.fancytree-active.fancytree-folder {
+    color: inherit;
+}
+
+.fancytree-plain.fancytree-container.fancytree-ext-wide span.fancytree-node.fancytree-active.fancytree-folder span.fancytree-title {
+    color: #18481A;
 }
 
 .fancytree-plain.fancytree-container span.fancytree-node.fancytree-active:hover span.fancytree-title {
@@ -257,12 +396,77 @@ ul.fancytree-container {
 /* JOKORD.Panel.BottomButtons [End] */
 
 
-/* JOKORD.Panel.Top [End] */
+/* JOKORD.Panel.Legends [Start] */
+
+.legends-container {
+    height: calc(100vh - 12em);
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+.legends-list {
+    margin-top: 0.2em;
+    font-size: 0.8em;
+}
+
+.legends-list>b {
+    text-align: center;
+    font-family: Courier New, Courier, monospace;
+    font-size: 1.3em;
+    color: #333333;
+}
+
+.legends-list:not(:first-child) {
+    padding-top: 0.8em;
+}
+
+.legends-item {
+    font-size: 1.1em;
+    padding: 0.35rem 0.35rem;
+    border-color: #4e7f10;
+    color: #18481A;
+}
+
+.legends-item>.image-container {
+    display: block;
+    width: 100%;
+}
+
+.legends-item>.image-container>img {
+    max-width: 95%;
+    padding-left: 0.25rem;
+}
+
+
+/* JOKORD.Panel.Legends [End] */
+
+
+/* JOKORD.Panel.Print [Start] */
 
 #imprimir h5,
 #imprimir h6 {
+    font-family: Courier New, Courier, monospace;
+    font-weight: bold;
+    font-size: 1.2em;
     text-align: center;
-    margin-top: 0.5em;
+    margin-top: 1em;
+    color: #333333;
+}
+
+#imprimir h6 {
+    margin-top: 0.3em;
+    font-size: 1em;
+    color: #18481A;
+    margin-bottom: 1em;
+}
+
+#imprimir section.print-content {
+    padding: 0 1em;
+}
+
+#imprimir hr {
+    border-top-color: #67a926;
+    border-top-color: rgba(40.4%, 66.3%, 14.9%, 0.75);
 }
 
 #imprimir .subtitle {
@@ -270,11 +474,72 @@ ul.fancytree-container {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
+    font-size: 0.8em;
+    color: #67a926;
+}
+
+#imprimir .draw-info {
+    text-align: center;
+    font-size: 0.7em;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    padding: 1.2em;
+    color: #333;
+    min-height: 5.5em;
+}
+
+.drawing-commands {
+    margin-top: 2em;
+    text-align: center;
+}
+
+.drawing-commands .icon {
+    background-position: 4px 4px;
+    background-size: 1.75em 1.75em;
+    background-repeat: no-repeat;
+}
+
+.drawing-commands .icon.point {
+    background-image: url('../app/icons/points_20.png') !important;
+}
+
+.drawing-commands .icon.polygon {
+    background-image: url('../app/icons/polygon_20.png') !important;
+}
+
+.drawing-commands .icon.line {
+    background-image: url('../app/icons/line_20.png') !important;
+}
+
+.drawing-commands .icon.remove {
+    background-image: url('../app/icons/close_20.png');
+}
+
+.nav-buttons {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 1rem;
+    text-align: center;
+}
+
+.nav-buttons button {
+    padding: 0.3rem 0.5rem;
+    cursor: pointer;
+    background-color: #67a926;
+    color: #fff;
+    border-color: #4e7f10 !important;
+}
+
+.nav-buttons button:hover {
+    color: #fff;
+    background-color: #4e7f10;
 }
 
 .my-form {
     padding-left: 1em;
     margin-top: 1em;
+    padding-right: 1em;
 }
 
 .form-line {
@@ -285,6 +550,61 @@ ul.fancytree-container {
 .my-form .form-error {
     text-align: center;
     color: rgb(174, 0, 0);
+}
+
+::-webkit-input-placeholder {
+    /* WebKit, Blink, Edge */
+    color: rgba(40.4%, 66.3%, 14.9%, 0.75);
+}
+
+:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: rgb(40.4%, 66.3%, 14.9%);
+    opacity: 0.75;
+}
+
+::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: rgb(40.4%, 66.3%, 14.9%);
+    opacity: 0.75;
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: rgba(40.4%, 66.3%, 14.9%, 0.75);
+}
+
+.my-form input[type=text],
+.my-form input[type=number] {
+    text-align: center;
+    height: 17px;
+    border: 0;
+    width: calc(100% - 2px);
+    margin-left: 1px;
+    box-shadow: -8px 10px 0px -7px #ebebeb, 8px 10px 0px -7px #ebebeb;
+    -webkit-transition: box-shadow 0.3s;
+    transition: box-shadow 0.3s;
+    color: #666;
+}
+
+.my-form input[type=text]:focus,
+.my-form input[type=number]:focus {
+    outline: none;
+    box-shadow: -4px 8px 0px -7px rgba(40.4%, 66.3%, 14.9%, 0.75), 4px 8px 0px -7px rgba(40.4%, 66.3%, 14.9%, 0.75);
+}
+
+.my-form input[type=text].ng-dirty.ng-not-empty,
+.my-form input[type=number].ng-dirty.ng-not-empty {
+    outline: none;
+    box-shadow: -4px 8px 0px -7px rgba(40.4%, 66.3%, 14.9%, 0.75), 4px 8px 0px -7px rgba(40.4%, 66.3%, 14.9%, 0.75);
+}
+
+.my-form input[type=number].ng-invalid {
+    box-shadow: -4px 8px 0px -7px rgba(70%, 5%, 5%, 0.75), 4px 8px 0px -7px rgba(70%, 5%, 5%, 0.75) !important;
+}
+
+.my-form .checkbox-container {
+    padding: 0.3em 1.5em;
 }
 
 .my-form .checkbox label {
@@ -300,12 +620,13 @@ ul.fancytree-container {
 .my-form .checkbox .cr {
     position: relative;
     display: block;
-    border: 1px solid #a9a9a9;
+    border: 1px solid #666;
     border-radius: .25em;
-    width: 1.3em;
-    height: 1.3em;
+    width: 1em;
+    height: 1em;
     float: left;
     margin-right: .5em;
+    margin-top: 0.2em;
 }
 
 .my-form .checkbox .cr .cr-icon {
@@ -313,7 +634,7 @@ ul.fancytree-container {
     font-size: .7em;
     line-height: 0;
     top: 50%;
-    left: 20%;
+    left: 10%;
 }
 
 .my-form .checkbox label input[type="checkbox"] {
@@ -329,10 +650,19 @@ ul.fancytree-container {
 .my-form .checkbox label input[type="checkbox"]:checked+.cr>.cr-icon {
     transform: scale(1) rotateZ(0deg);
     opacity: 1;
+    color: #18481A;
 }
 
-.my-form .checkbox label input[type="checkbox"]:disabled+.cr {
-    opacity: .5;
+.my-form .checkbox label input[type="checkbox"]:checked+.cr {
+    border-color: #18481A;
+}
+
+.my-form .checkbox label input[type="checkbox"]:checked~.checkbox-title {
+    color: #18481A;
+}
+
+.my-form .checkbox label input[type="checkbox"]:checked~.checkbox-info {
+    color: #67a926;
 }
 
 .my-form .checkbox-title {
@@ -345,7 +675,7 @@ ul.fancytree-container {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     font-size: 0.65em;
-    color: #a6a6a6;
+    color: #666;
     padding-left: 3em;
 }
 
@@ -353,12 +683,11 @@ ul.fancytree-container {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     font-size: 0.65em;
-    color: #a6a6a6;
+    color: #666;
     padding-left: 3em;
 }
 
-input[type=text],
-input[type=number] {
+#imprimir a.print {
     height: 17px;
     border: 0;
     width: calc(100% - 2px);
@@ -368,75 +697,15 @@ input[type=number] {
     transition: box-shadow 0.3s;
 }
 
-input[type=text]:focus,
-input[type=number]:focus {
+#imprimir a.print:hover,
+#imprimir a.print:focus {
     outline: none;
-    box-shadow: -4px 8px 0px -7px #a6a6a6, 4px 8px 0px -7px #a6a6a6;
-}
-
-input[type=number].ng-invalid {
-    box-shadow: -4px 8px 0px -7px red, 4px 8px 0px -7px red;
-}
-
-a.print {
-    height: 17px;
-    border: 0;
-    width: calc(100% - 2px);
-    margin-left: 1px;
-    box-shadow: -8px 10px 0px -7px #ebebeb, 8px 10px 0px -7px #ebebeb;
-    -webkit-transition: box-shadow 0.3s;
-    transition: box-shadow 0.3s;
-}
-
-a.print:hover,
-a.print:focus {
-    outline: none;
-    box-shadow: -4px 8px 0px -7px #a6a6a6, 4px 8px 0px -7px #a6a6a6;
+    box-shadow: -4px 8px 0px -7px rgba(40.4%, 66.3%, 14.9%, 0.75), 4px 8px 0px -7px rgba(40.4%, 66.3%, 14.9%, 0.75);
     text-decoration: none;
 }
 
-.draw-info {
-    text-align: center;
-    font-size: 0.8em;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    padding: 1.5em;
-}
 
-.drawing-commands {
-    text-align: center;
-}
-
-.drawing-commands .icon {
-    background-position: 4px 4px;
-    background-size: 1.75em 1.75em;
-    background-repeat: no-repeat;
-}
-
-.point {
-    background-image: url('../app/icons/points_20.png') !important;
-}
-
-.polygon {
-    background-image: url('../app/icons/polygon_20.png') !important;
-}
-
-.line {
-    background-image: url('../app/icons/line_20.png') !important;
-}
-
-.remove {
-    background-image: url('../app/icons/close_20.png');
-}
-
-.nav-buttons {
-    margin-top: 1em;
-    text-align: center;
-}
-
-.nav-buttons button {
-    cursor: pointer;
-}
+/* JOKORD.Panel.Print [End] */
 
 
 /* JOKORD.Panel[END] */
@@ -489,13 +758,13 @@ a.print:focus {
 .tooltip:after,
 [data-tooltip]:after {
     z-index: 1000;
-    padding: 3px;
+    padding: 2px;
     width: 120px;
-    background-color: rgba(90.5%, 90.5%, 90.5%, 0.65);
-    color: #000;
+    background-color: #b0e27e;
+    color: #333;
     content: attr(data-tooltip);
-    font-family: Courier New, Courier, monospace;
-    font-size: 1em;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px !important;
     font-weight: bold;
     border-radius: 5px;
 }
@@ -516,7 +785,7 @@ a.print:focus {
     margin-left: -6px;
     margin-bottom: -12px;
     border-top-color: #000;
-    border-top-color: rgba(90.5%, 90.5%, 90.5%, 0.65);
+    border-top-color: #b0e27e;
 }
 
 [data-tooltip]:after,
@@ -545,11 +814,11 @@ a.print:focus {
 }
 
 .tooltip-bottom:before {
-    margin-top: -5px;
+    margin-top: -12px;
     margin-bottom: 0;
     border-top-color: transparent;
     border-bottom-color: #000;
-    border-bottom-color: rgba(90.5%, 90.5%, 90.5%, 0.45);
+    border-bottom-color: #b0e27e;
 }
 
 .tooltip-bottom:hover:before,
@@ -563,132 +832,3 @@ a.print:focus {
 
 
 /* JOKORD.ToolTip[END] */
-
-
-/* JOKORD.ScaleLine[START] */
-
-.ol-scale-line {
-    bottom: 25px;
-    left: 5px;
-    background-color: rgba(90.5%, 90.5%, 90.5%, 0.45);
-}
-
-.ol-scale-line>.ol-scale-line-inner {
-    color: #292b2c;
-    border: 1px solid gray;
-    border-top: none;
-    font-family: Courier New, Courier, monospace;
-    font-size: 0.8em;
-    font-weight: bold;
-}
-
-
-/* JOKORD.ScaleLine[START] */
-
-#toolbar {
-    position: absolute;
-    top: 1.2rem;
-    left: 1.2rem;
-}
-
-#toolbar button {
-    padding: 0.25rem 0.5rem;
-}
-
-#lefttopmenu {
-    overflow: auto;
-}
-
-#tree {
-    margin-bottom: 50px;
-}
-
-
-/* JOKORD.legendsModule[Start] */
-
-.legends-container {
-    height: calc(100vh - 12em);
-    box-sizing: border-box;
-    overflow: auto;
-}
-
-.legends-list {
-    margin-top: 0.2em;
-    font-size: 0.8em;
-}
-
-.legends-list>b {
-    text-align: center;
-    text-decoration: underline;
-    font-size: 1.3em;
-}
-
-.legends-item {
-    font-size: 1.1em;
-    padding: 0.55rem 0.55rem;
-}
-
-.legends-item>.image-container {
-    display: block;
-    width: 100%;
-}
-
-.legends-item>.image-container>img {
-    max-width: 95%;
-    padding-left: 0.25rem;
-}
-
-
-/* JOKORD.legendsModule[End] */
-
-.bottom-bar-left {
-    position: absolute;
-    bottom: 1px;
-    left: 5px;
-}
-
-.bottom-bar-right {
-    position: absolute;
-    bottom: 1px;
-    right: 0px;
-}
-
-.bottom-bar-right .card {
-    background-color: transparent;
-}
-
-.bottom-bar-right .card-header {
-    background-color: rgba(90.5%, 90.5%, 90.5%, 0.45);
-    text-align: center;
-    padding: 0.1rem 0.1rem;
-    font-size: 0.55rem;
-    font-weight: bold;
-}
-
-.bottom-bar-right .card-block {
-    padding: 0.1rem 0.1rem;
-    font-size: 0.55rem;
-    font-weight: bold;
-    font-family: Courier New, Courier, monospace;
-    text-align: center;
-    background-color: rgba(90.5%, 90.5%, 90.5%, 0.25);
-}
-
-.box {
-    background-color: rgba(90.5%, 90.5%, 90.5%, 0.45);
-    border: 1px solid gray;
-    border-radius: 2px;
-    font-family: Courier New, Courier, monospace;
-    font-size: 0.8em;
-    font-weight: bold;
-    padding: 1px 2px;
-}
-
-.drag_zoom_box {
-    border: 2px dashed grey;
-    background-color: rgba(90.5%, 90.5%, 90.5%, 0.45);
-}
-
-.full_height {
-    height: 100%;
-}

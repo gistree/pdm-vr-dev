@@ -52,7 +52,7 @@
                     drawCtrl.info = "Para desenhar uma linha, vá clicando no mapa. Duplo clique termina a linha.";
                     break;
                 case 'Polygon':
-                    drawCtrl.info = "Para desenhar um polígono, vá clicando no mapa. Duplo clique fecha o polígono";
+                    drawCtrl.info = "Para desenhar um polígono, vá clicando no mapa. Duplo clique fecha o polígono.";
                     break;
             }
         }
