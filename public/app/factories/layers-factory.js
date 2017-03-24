@@ -40,8 +40,8 @@
                         {
                             title: "Reserva Ecológica Nacional",
                             data: {
-                                workspace: "PDM-VilaReal-database",
-                                name: "RESERVA_ECOLOGICA_NACIONAL",
+                                workspace: "cmvrpostgis",
+                                name: "reserva_ecologica_nacional",
                                 type: "Raster",
                                 extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
                                 opacity: 0.7,
