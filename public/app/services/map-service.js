@@ -49,7 +49,8 @@
                     center: ol.proj.transform(mapConfig.center, 'EPSG:4326', 'EPSG:3857'),
                     zoom: mapConfig.zoom
                 })
-            });          
+            });
+            window.view = map.getView();
         };
 
         function addLayer(layerData) {
@@ -114,15 +115,17 @@
                         params: {
                             'LAYERS': layerData.workspace + ":" + layerData.name
                         },
-                        extent: layerData.extent
-                    })
+                        extent: layerData.extent,
+                    }),
+                    minResolution: calculateResolution(layerData.maxZoom),
+                    maxResolution: calculateResolution(layerData.minZoom)
                 });
                 _layers[layerData.key] = wmsLayer;
-                map.addLayer(wmsLayer);
+                map.getLayers().insertAt(layerData.index, wmsLayer);
                 _layers[layerData.key].visible = true;
             } else {
                 if (!_layers[layerData.key].visible) {
-                    map.addLayer(_layers[layerData.key]);
+                    map.getLayers().insertAt(layerData.index, _layers[layerData.key]);
                     _layers[layerData.key].visible = true;
                 }
             }
@@ -144,6 +147,14 @@
 
         function _checkLayer(layer_key) {
             return !_layers.hasOwnProperty(layer_key);
+        }
+
+        function calculateResolution(zoomLevel) {
+            if (typeof zoomLevel == 'undefined') {
+                return zoomLevel;
+            } else {
+                return Math.floor(156543.04 / (Math.pow(2, zoomLevel)));
+            }
         }
 
     };

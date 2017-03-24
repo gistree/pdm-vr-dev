@@ -23,11 +23,24 @@ li {
     list-style-type: none;
 }
 
+
+/* SANDBOX [Start] */
+
+.can-select-layer {
+    color:red !important;
+}
+
+
+/* SANDBOX [End] */
+
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    margin: 0;
+    -webkit-appearance: none !important;
+    margin: 0 !important;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
 }
 
 .full_height {
