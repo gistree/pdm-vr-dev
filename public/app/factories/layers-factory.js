@@ -27,8 +27,8 @@
                     children: [{
                             title: "Reserva Agrícola Nacional",
                             data: {
-                                workspace: "PDM-VilaReal-database",
-                                name: "RESERVA_AGRICOLA_NACIONAL",
+                                workspace: "cmvrpostgis",
+                                name: "reserva_agricola_nacional",
                                 type: "Raster",
                                 extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
                                 opacity: 1,

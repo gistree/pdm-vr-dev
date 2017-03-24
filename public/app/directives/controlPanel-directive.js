@@ -68,9 +68,26 @@
                         }
                     }
                     scope.$apply();
+                },
+                init: function (event, data) {
+                    var zoomLevel = MapService.map.getView().getZoom();
+                    if (zoomLevel === parseInt(zoomLevel, 10)) {
+                        data.tree.visit(function (node) {
+                            var minZoom = node.data.minZoom,
+                                maxZoom = node.data.maxZoom;
+                            if (!node.isFolder()) {
+                                if (minZoom != undefined || maxZoom != undefined) {
+                                    if (minZoom < zoomLevel && maxZoom >= zoomLevel) {
+                                        node.removeClass("layer-hidden");
+                                    } else {
+                                        node.addClass("layer-hidden");
+                                    }
+                                }
+                            }
+                        });
+                    }
                 }
             });
-            scope.tree = element.find("#tree").fancytree("getTree");
         }
     }
 

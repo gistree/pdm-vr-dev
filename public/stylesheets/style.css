@@ -23,16 +23,6 @@ li {
     list-style-type: none;
 }
 
-
-/* SANDBOX [Start] */
-
-.can-select-layer {
-    color:red !important;
-}
-
-
-/* SANDBOX [End] */
-
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none !important;
@@ -296,7 +286,7 @@ ul.fancytree-container {
 }
 
 span.fancytree-title {
-    color: #666;
+    color: #333;
 }
 
 .fancytree-plain.fancytree-container span.fancytree-title:hover {
@@ -369,7 +359,10 @@ span.fancytree-title {
 .fancytree-level-2 span.fancytree-title {
     padding-left: 5.5em !important;
 }
-
+.fancytree-container span.fancytree-node.layer-hidden , 
+.fancytree-container span.fancytree-node.layer-hidden .fancytree-title{
+    color: #999 !important;
+}
 
 /* JOKORD.Panel.FancyTree [End] */
 

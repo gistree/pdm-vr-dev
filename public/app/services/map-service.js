@@ -50,7 +50,22 @@
                     zoom: mapConfig.zoom
                 })
             });
-            window.view = map.getView();
+            map.getView().on('change:resolution', function (evt) {
+                var zoomLevel = evt.target.getZoom();
+                if (zoomLevel === parseInt(zoomLevel, 10)) {
+                    $("#tree").fancytree("getTree").visit(function (node) {
+                        if (!node.isFolder()) {
+                            if (node.data.minZoom != undefined || node.data.maxZoom != undefined) {
+                                if (node.data.minZoom < zoomLevel && node.data.maxZoom >= zoomLevel) {
+                                    node.removeClass("layer-hidden");
+                                } else {
+                                    node.addClass("layer-hidden");
+                                }
+                            }
+                        }
+                    });
+                }
+            });
         };
 
         function addLayer(layerData) {
