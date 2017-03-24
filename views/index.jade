@@ -14,13 +14,12 @@ html(lang='en' ng-app='gestreeApp')
 
   body
     nav.navbar.navbar-toggleable-md.fixed-top
-        a.navbar-brand(href='#') Plano Director Municipal do Munícipio de Vila Real
-        span.navbar-text
+        a.navbar-brand(href='#')
+            img(src="/app/icons/cmvr.png" width="200" height="45")    
     .container-fluid.no-padding.full_height
         .row.no-gutters.full_height
             #menu-container.col-3.full_height(ng-hide="menuIsHidden")
-                //- START[*JoKord] 
-                ges-tabs
+                control-panel
             #map-container.full_height.col-9(ng-class="{'col-12': menuIsHidden}")
                 #map.map.full_height
                 map-interactions(menu-is-hidden="menuIsHidden")   
@@ -45,9 +44,12 @@ html(lang='en' ng-app='gestreeApp')
     script(src='app/app.js')
     script(src='app/modules/LegendModule/LegendsModule.js')
     script(src='app/modules/MapInteractionsModule/MapInteractionsModule.js')
+    script(src='app/modules/DrawingModule/DrawingModule.js')
+    script(src='app/modules/PrintingModule/PrintingModule.js')
+    script(src='app/modules/PrintingModule/services/PrintDetailsService.js')
     script(src='app/services/map-service.js')
     script(src='app/factories/layers-factory.js')
-    script(src='app/directives/tabs-directive.js')
+    script(src='app/directives/controlPanel-directive.js')
 
 
     // END[*JoKOrd]
