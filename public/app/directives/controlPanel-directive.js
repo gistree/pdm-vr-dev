@@ -76,8 +76,8 @@
                             var minZoom = node.data.minZoom,
                                 maxZoom = node.data.maxZoom;
                             if (!node.isFolder()) {
-                                if (minZoom != undefined || maxZoom != undefined) {
-                                    if (minZoom < zoomLevel && maxZoom >= zoomLevel) {
+                                if (minZoom != undefined) {
+                                    if (minZoom < zoomLevel) {
                                         node.removeClass("layer-hidden");
                                     } else {
                                         node.addClass("layer-hidden");

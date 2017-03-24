@@ -28,6 +28,17 @@
             setDefaultView: setDefaultView,
             userFeatures: _userFeatures
         };
+
+        ol.Collection.prototype.insertLayer = function (layer) {
+            var index = this.getArray().findIndex(function (mapLayer) {
+                return mapLayer.get('group') < layer.get('group');
+            });
+            if (index !== -1) {
+                this.insertAt(index, layer);
+            } else {
+                this.push(layer);
+            }
+        };
         return ms;
 
         function init(config) {
@@ -40,7 +51,7 @@
                 target: mapConfig.target,
                 layers: [
                     new ol.layer.Tile({
-                        source: new ol.source.OSM()
+                        source: new ol.source.OSM({})
                     })
                 ],
                 interactions: mapConfig.interactions,
@@ -55,8 +66,8 @@
                 if (zoomLevel === parseInt(zoomLevel, 10)) {
                     $("#tree").fancytree("getTree").visit(function (node) {
                         if (!node.isFolder()) {
-                            if (node.data.minZoom != undefined || node.data.maxZoom != undefined) {
-                                if (node.data.minZoom < zoomLevel && node.data.maxZoom >= zoomLevel) {
+                            if (node.data.minZoom != undefined) {
+                                if (node.data.minZoom < zoomLevel) {
                                     node.removeClass("layer-hidden");
                                 } else {
                                     node.addClass("layer-hidden");
@@ -66,6 +77,7 @@
                     });
                 }
             });
+            window.map = map;
         };
 
         function addLayer(layerData) {
@@ -73,6 +85,58 @@
                 addWMSLayer(layerData);
             } else {
                 addWFSLayer(layerData);
+            }
+        }
+
+        function addWMSLayer(layerData) {
+            if (_checkLayer(layerData.key)) {
+                var wmsLayer = new ol.layer.Image({
+                    opacity: layerData.opacity,
+                    source: new ol.source.ImageWMS({
+                        url: 'http://gistree.espigueiro.pt/geoserver/wms',
+                        params: {
+                            'LAYERS': layerData.workspace + ":" + layerData.name
+                        },
+                        extent: layerData.extent,
+                    }),
+                    minResolution: calculateResolution(layerData.maxZoom),
+                    maxResolution: calculateResolution(layerData.minZoom),
+                    group: layerData.group
+                });
+                _layers[layerData.key] = wmsLayer;
+                map.getLayers().insertLayer(wmsLayer);
+                _layers[layerData.key].visible = true;
+            } else {
+                if (!_layers[layerData.key].visible) {
+                    map.getLayers().insertLayer(_layers[layerData.key]);
+                    _layers[layerData.key].visible = true;
+                }
+            }
+        }
+
+        function removeLayer(layerData) {
+            if (_layers[layerData.key]) {
+                map.removeLayer(_layers[layerData.key]);
+                _layers[layerData.key].visible = false;
+            }
+        }
+
+        function setDefaultView() {
+            map.setView(new ol.View({
+                center: ol.proj.transform(mapConfig.center, 'EPSG:4326', 'EPSG:3857'),
+                zoom: mapConfig.zoom
+            }));
+        }
+
+        function _checkLayer(layer_key) {
+            return !_layers.hasOwnProperty(layer_key);
+        }
+
+        function calculateResolution(zoomLevel) {
+            if (typeof zoomLevel == 'undefined') {
+                return zoomLevel;
+            } else {
+                return Math.floor(156543.04 / (Math.pow(2, zoomLevel)));
             }
         }
 
@@ -118,57 +182,6 @@
                     map.addLayer(_layers[layerData.key]);
                     _layers[layerData.key].visible = true;
                 }
-            }
-        }
-
-        function addWMSLayer(layerData) {
-            if (_checkLayer(layerData.key)) {
-                var wmsLayer = new ol.layer.Image({
-                    opacity: layerData.opacity,
-                    source: new ol.source.ImageWMS({
-                        url: 'http://gistree.espigueiro.pt/geoserver/wms',
-                        params: {
-                            'LAYERS': layerData.workspace + ":" + layerData.name
-                        },
-                        extent: layerData.extent,
-                    }),
-                    minResolution: calculateResolution(layerData.maxZoom),
-                    maxResolution: calculateResolution(layerData.minZoom)
-                });
-                _layers[layerData.key] = wmsLayer;
-                map.getLayers().insertAt(layerData.index, wmsLayer);
-                _layers[layerData.key].visible = true;
-            } else {
-                if (!_layers[layerData.key].visible) {
-                    map.getLayers().insertAt(layerData.index, _layers[layerData.key]);
-                    _layers[layerData.key].visible = true;
-                }
-            }
-        }
-
-        function removeLayer(layerData) {
-            if (_layers[layerData.key]) {
-                map.removeLayer(_layers[layerData.key]);
-                _layers[layerData.key].visible = false;
-            }
-        }
-
-        function setDefaultView() {
-            map.setView(new ol.View({
-                center: ol.proj.transform(mapConfig.center, 'EPSG:4326', 'EPSG:3857'),
-                zoom: mapConfig.zoom
-            }));
-        }
-
-        function _checkLayer(layer_key) {
-            return !_layers.hasOwnProperty(layer_key);
-        }
-
-        function calculateResolution(zoomLevel) {
-            if (typeof zoomLevel == 'undefined') {
-                return zoomLevel;
-            } else {
-                return Math.floor(156543.04 / (Math.pow(2, zoomLevel)));
             }
         }
 
