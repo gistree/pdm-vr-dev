@@ -26,7 +26,8 @@
             addLayer: addLayer,
             removeLayer: removeLayer,
             setDefaultView: setDefaultView,
-            userFeatures: _userFeatures
+            userFeatures: _userFeatures,
+            setBaseLayer: setBaseLayer
         };
 
         ol.Collection.prototype.insertLayer = function (layer) {
@@ -77,8 +78,11 @@
                     });
                 }
             });
-            window.map = map;
         };
+
+        function setBaseLayer(layer){
+            map.getLayers().setAt(0, layer);
+        }
 
         function addLayer(layerData) {
             if (layerData.type === 'Raster') {

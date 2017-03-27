@@ -102,7 +102,7 @@
             {
                 title: "Enquadramento",
                 folder: true,
-                expanded: true,
+                expanded: false,
                 children: [{
                         title: "Edifícios",
                         preselected: true,

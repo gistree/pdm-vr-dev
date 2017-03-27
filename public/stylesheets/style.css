@@ -43,7 +43,7 @@ input[type=number] {
 #map {
     height: 100%;
     width: 100%;
-    background-color: #67a926;
+    background-color: #fff;
 }
 
 
@@ -271,6 +271,8 @@ input[type=number] {
 }
 
 ul.fancytree-container {
+    height: calc(100vh - 16em);
+    overflow: auto;
     border: 0;
     background-color: #fff;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif !important;
@@ -359,10 +361,57 @@ span.fancytree-title {
 .fancytree-level-2 span.fancytree-title {
     padding-left: 5.5em !important;
 }
-.fancytree-container span.fancytree-node.layer-hidden , 
-.fancytree-container span.fancytree-node.layer-hidden .fancytree-title{
+
+.fancytree-container span.fancytree-node.layer-hidden,
+.fancytree-container span.fancytree-node.layer-hidden .fancytree-title {
     color: #999 !important;
 }
+
+.base-layer {
+    position: absolute;
+    bottom: 4em;
+    right: 0.5em;
+}
+
+.base-layer button {
+    font-size: 0.8em;
+    padding: 0.2rem 0.2rem;
+    min-width: 13em;
+    cursor: pointer;
+    background-color: #67a926;
+    color: #fff;
+    border-color: #4e7f10 !important;
+}
+
+.base-layer button:hover {
+    color: #fff;
+    background-color: #4e7f10;
+}
+
+.base-layer .btn-secondary:active,
+.btn-secondary.active,
+.show>.btn-secondary.dropdown-toggle {
+    color: #fff;
+    background-color: #4e7f10;
+    border-color: #adadad;
+}
+
+.base-layer .dropup .dropdown-menu {
+    top: auto;
+    bottom: 100%;
+    margin-bottom: 0.1rem;
+    padding: 0.2rem 0;
+    background-color: #b0e27e;
+    color: #333;
+    left: -1em;
+}
+
+.base-layer .dropdown-item:hover {
+    color: #fff;
+    text-decoration: none;
+    background-color: #4e7f10;
+}
+
 
 /* JOKORD.Panel.FancyTree [End] */
 

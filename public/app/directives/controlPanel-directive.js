@@ -2,7 +2,8 @@
     'use strict';
     angular
         .module('gestreeApp')
-        .directive('controlPanel', Directive);
+        .directive('controlPanel', Directive)
+        .controller('BaseLayerController', BaseLayerController);
 
     Directive.$inject = ['LayersFactory', 'MapService', 'LegendsService', '$timeout'];
 
@@ -119,6 +120,33 @@
         }
         tc.help = function () {
             alert(" Em Desenvolvimento... ");
+        }
+    }
+
+    BaseLayerController.$inject = ['$scope', 'MapService'];
+
+    function BaseLayerController($scope, MapService) {
+        var blCtrl = this;
+        activate();
+
+        blCtrl.setBaseLayer = function (layer) {
+            blCtrl.baseLayer = layer.name;
+            MapService.setBaseLayer(layer.layerDef);
+        }
+
+        function activate() {
+            blCtrl.baseLayers = [{
+                    name: "Open Street Map",
+                    layerDef: new ol.layer.Tile({
+                        source: new ol.source.OSM({})
+                    })
+                },
+                {
+                    name: "Camada em Branco",
+                    layerDef: new ol.layer.Tile({})
+                }
+            ];
+            blCtrl.baseLayer = blCtrl.baseLayers[0].name;
         }
     }
 })();
