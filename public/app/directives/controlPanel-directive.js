@@ -4,9 +4,9 @@
         .module('gestreeApp')
         .directive('controlPanel', Directive);
 
-    Directive.$inject = ['LayersFactory', 'MapService', 'LegendsService'];
+    Directive.$inject = ['LayersFactory', 'MapService', 'LegendsService', '$timeout'];
 
-    function Directive(LayersFactory, MapService, LegendsService) {
+    function Directive(LayersFactory, MapService, LegendsService, $timeout) {
         var directive = {
             bindToController: true,
             controller: tabsController,
@@ -67,12 +67,15 @@
                             LegendsService.removeLayerLegend(data.node);
                         }
                     }
-                    scope.$apply();
+                    $timeout(function () {}, 1);
                 },
                 init: function (event, data) {
                     var zoomLevel = MapService.map.getView().getZoom();
                     if (zoomLevel === parseInt(zoomLevel, 10)) {
                         data.tree.visit(function (node) {
+                            if (node.data.preselected) {
+                                node.setSelected(true);
+                            }
                             var minZoom = node.data.minZoom,
                                 maxZoom = node.data.maxZoom;
                             if (!node.isFolder()) {
@@ -88,6 +91,7 @@
                     }
                 }
             });
+            scope.tree = element.find("#tree").fancytree('getTree');
         }
     }
 

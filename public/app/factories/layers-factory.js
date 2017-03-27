@@ -37,39 +37,64 @@
                 folder: true,
                 expanded: true,
                 children: [{
-
-                        title: "Rede Rodoviária",
+                        title: "Solo Rural",
                         data: {
-                            workspace: "PDM-VilaReal",
-                            name: "REDE_RODOVIÁRIA",
-                            type: "Raster",
-                            extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
-                            opacity: 0.7
-                        }
-                    },
-                    {
-                        title: "Zona Aeródromo Raster",
-                        data: {
-                            workspace: "PDM-VilaReal-Database",
-                            name: "aerodromo",
+                            workspace: "cmvrpostgis",
+                            name: "solo_rural",
                             type: "Raster",
                             extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
                             opacity: 0.9
                         }
                     },
                     {
-                        title: "Zona Aeródromo Vector",
+                        title: "Solo Urbano",
                         data: {
-                            workspace: "PDM-VilaReal",
-                            name: "AERÓDROMO",
+                            workspace: "cmvrpostgis",
+                            name: "solo_urbano",
                             type: "Raster",
-                            style: {
-                                fill: new ol.style.Fill({
-                                    color: '#dd0000'
-                                })
-                            },
                             extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
-                            opacity: 0.8
+                            opacity: 1
+                        }
+                    },
+                    {
+                        title: "Solo Urbanização Programada",
+                        data: {
+                            workspace: "cmvrpostgis",
+                            name: "solo_de_urbanizacao_programada",
+                            type: "Raster",
+                            extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
+                            opacity: 1
+                        }
+                    },
+                    {
+                        title: "Estrutura Ecológica Urbana",
+                        data: {
+                            workspace: "cmvrpostgis",
+                            name: "estrutura_ecologica_urbana",
+                            type: "Raster",
+                            extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
+                            opacity: 1
+                        }
+                    },
+                    {
+                        title: "Outras Instalações",
+                        data: {
+                            workspace: "cmvrpostgis",
+                            name: "outras_instalacoes",
+                            type: "Raster",
+                            extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
+                            opacity: 1
+                        }
+                    }
+                    ,
+                    {
+                        title: "Zonas de Proteção ao Aeródromo",
+                        data: {
+                            workspace: "cmvrpostgis",
+                            name: "zonas_de_protecao_ao_aerodromo",
+                            type: "Raster",
+                            extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
+                            opacity: 1
                         }
                     }
                 ]
@@ -79,38 +104,37 @@
                 folder: true,
                 expanded: true,
                 children: [{
-                        title: "Rede Rodoviária",
+                        title: "Edifícios",
+                        preselected: true,
                         data: {
-                            workspace: "PDM-VilaReal",
-                            name: "REDE_RODOVIÁRIA",
+                            workspace: "cmvrpostgis",
+                            name: "edificios",
                             type: "Raster",
                             extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
-                            opacity: 0.7
+                            opacity: 1,
+                            minZoom: 17
                         }
                     },
                     {
-                        title: "Zona Aeródromo Raster",
+                        title: "Limite Freguesias",
+                        preselected: true,
                         data: {
-                            workspace: "PDM-VilaReal-Database",
-                            name: "aerodromo",
+                            workspace: "cmvrpostgis",
+                            name: "limite_freguesias",
                             type: "Raster",
                             extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
-                            opacity: 0.9
+                            opacity: 1
                         }
                     },
                     {
-                        title: "Zona Aeródromo Vector",
+                        title: "Limite Concelho",
+                        preselected: true,
                         data: {
-                            workspace: "PDM-VilaReal",
-                            name: "AERÓDROMO",
+                            workspace: "cmvrpostgis",
+                            name: "limite_concelho",
                             type: "Raster",
-                            style: {
-                                fill: new ol.style.Fill({
-                                    color: '#dd0000'
-                                })
-                            },
                             extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
-                            opacity: 0.8
+                            opacity: 1
                         }
                     }
                 ]
