@@ -10,6 +10,7 @@ html(lang='en' ng-app='pdmApp')
     link(rel='stylesheet', href="stylesheets/ol.css")
     link(rel='stylesheet', href="stylesheets/font-awesome/css/font-awesome.min.css")
     link(rel='stylesheet', href="stylesheets/style.min.css")
+    link(rel="shortcut icon" href="app/icons/favicon.ico")
   body
     nav.navbar.navbar-toggleable-md.fixed-top
         a.navbar-brand(href='#')
@@ -21,7 +22,6 @@ html(lang='en' ng-app='pdmApp')
             #map-container.full_height.col-9(ng-class="{'col-12': menuIsHidden}")
                 #map.map.full_height
                 map-interactions(menu-is-hidden="menuIsHidden")   
-    
     // START[JQUERY]
     script(src='vendor/jquery/jquery.min.js')
     script(src='vendor/jquery/jquery-ui.min.js')
