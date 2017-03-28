@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     angular
-        .module('gestreeApp')
+        .module('pdmApp')
         .factory('LayersFactory', LayersFactory)
 
     function LayersFactory() {

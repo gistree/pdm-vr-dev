@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     angular
-        .module('gestreeApp')
+        .module('pdmApp')
         .factory('MapService', MapService)
 
     function MapService() {
