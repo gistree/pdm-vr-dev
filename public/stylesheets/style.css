@@ -342,6 +342,13 @@ span.fancytree-title {
     background-color: #b0e27e;
 }
 
+span.fancytree-node span.fancytree-expander:hover {
+    color: #67a926;
+}
+span.fancytree-node.fancytree-selected span.fancytree-expander:hover {
+    color: #333;
+}
+
 .fancytree-plain.fancytree-colorize-selected span.fancytree-node.fancytree-selected.fancytree-folder span.fancytree-title,
 .fancytree-plain.fancytree-colorize-selected span.fancytree-node.fancytree-selected:hover.fancytree-folder span.fancytree-title {
     background-color: #67a926;
