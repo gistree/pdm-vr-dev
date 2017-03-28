@@ -8,7 +8,7 @@
         var layers = [{
                 title: "Condicionantes",
                 folder: true,
-                expanded: true,
+                expanded: false,
                 children: [{
                         title: "Reserva Agrícola Nacional",
                         data: {
@@ -16,8 +16,7 @@
                             name: "reserva_agricola_nacional",
                             type: "Raster",
                             extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
-                            opacity: 1,
-                            minZoom: 12
+                            opacity: 1
                         }
                     },
                     {
@@ -27,7 +26,107 @@
                             name: "reserva_ecologica_nacional",
                             type: "Raster",
                             extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
-                            opacity: 0.7
+                            opacity: 1
+                        }
+                    },
+                    {
+                        title: "Zonas Inundáveis",
+                        data: {
+                            workspace: "cmvrpostgis",
+                            name: "zonas_inundaveis",
+                            type: "Raster",
+                            extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
+                            opacity: 1
+                        }
+                    },
+                    {
+                        title: "Pedreiras",
+                        data: {
+                            workspace: "cmvrpostgis",
+                            name: "pedreiras",
+                            type: "Raster",
+                            extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
+                            opacity: 1
+                        }
+                    },
+                    {
+                        title: "Limite da Rede Natura",
+                        data: {
+                            workspace: "cmvrpostgis",
+                            name: "limite_da_rede_natura_2000",
+                            type: "Raster",
+                            extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
+                            opacity: 1
+                        }
+                    },
+                    {
+                        title: "Aeródromo",
+                        data: {
+                            workspace: "cmvrpostgis",
+                            name: "aerodromo",
+                            type: "Raster",
+                            extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
+                            opacity: 1
+                        }
+                    },
+                    {
+                        title: "Linhas de Alta Tensão",
+                        data: {
+                            workspace: "cmvrpostgis",
+                            name: "linhas_de_alta_tensao",
+                            type: "Raster",
+                            extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
+                            opacity: 1
+                        }
+                    },
+                    {
+                        title: "Abastecimento de Águas Adutoras",
+                        data: {
+                            workspace: "cmvrpostgis",
+                            name: "abastecimento_de_aguas_adutoras",
+                            type: "Raster",
+                            extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
+                            opacity: 1
+                        }
+                    },
+                    {
+                        title: "Rede Rodoviária",
+                        data: {
+                            workspace: "cmvrpostgis",
+                            name: "rede_rodoviaria",
+                            type: "Raster",
+                            extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
+                            opacity: 1
+                        }
+                    },
+                    {
+                        title: "Rede Rodoviária Prevista",
+                        data: {
+                            workspace: "cmvrpostgis",
+                            name: "rede_rodoviaria_prevista",
+                            type: "Raster",
+                            extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
+                            opacity: 1
+                        }
+                    },
+                    {
+                        title: "Rede Ferroviária",
+                        data: {
+                            workspace: "cmvrpostgis",
+                            name: "rede_ferroviaria",
+                            type: "Raster",
+                            extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
+                            opacity: 1
+                        }
+                    },
+                    {
+                        title: "Vértices Geodésicos",
+                        data: {
+                            workspace: "cmvrpostgis",
+                            name: "vertices_geodesicos",
+                            type: "Raster",
+                            extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
+                            opacity: 1
                         }
                     }
                 ]
@@ -35,7 +134,7 @@
             {
                 title: "Ordenamento",
                 folder: true,
-                expanded: true,
+                expanded: false,
                 children: [{
                         title: "Solo Rural",
                         data: {
@@ -43,7 +142,7 @@
                             name: "solo_rural",
                             type: "Raster",
                             extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
-                            opacity: 0.9
+                            opacity: 1
                         }
                     },
                     {
@@ -85,8 +184,7 @@
                             extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
                             opacity: 1
                         }
-                    }
-                    ,
+                    },
                     {
                         title: "Zonas de Proteção ao Aeródromo",
                         data: {
@@ -102,7 +200,7 @@
             {
                 title: "Enquadramento",
                 folder: true,
-                expanded: false,
+                expanded: true,
                 children: [{
                         title: "Edifícios",
                         preselected: true,

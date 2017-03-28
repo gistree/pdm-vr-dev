@@ -66,7 +66,7 @@
             var printConfigs = [];
             layoutCtrl.layouts.forEach(function (layout) {
                 if (layout.selected) {
-                    printConfigs.push($http.post("http://gistree.espigueiro.pt:80/geoserver/pdf/create.json", PrintDetailsService.getPrintSpec(layout.name)));
+                    printConfigs.push($http.post("http://gistree.espigueiro.pt:80/geoserver/pdf/create.json", PrintDetailsService.getPrintSpec(layout.name, layout.type)));
                 }
             });
             $q.all(printConfigs).then(function (results) {
@@ -88,14 +88,16 @@
                 selected: false,
                 name: "Planta de Ordenamento",
                 layout: "pdmLayout",
-                title: "Planta de Condicionantes",
+                title: "Planta de Ordenamento",
                 escala: 10000,
+                type: 'ordenamento',
                 tamanho: "A3"
             }, {
                 selected: false,
                 name: "Planta de Condicionantes",
                 layout: "pdmLayout",
                 title: "Planta de Condicionantes",
+                type: 'condicionantes',
                 escala: 10000,
                 tamanho: "A3"
             }];

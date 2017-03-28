@@ -14,7 +14,31 @@
                 target: 'map',
                 center: [-7.7464, 41.2951],
                 interactions: [new ol.interaction.MouseWheelZoom(), new ol.interaction.DragPan()],
-                controls: [new ol.control.ScaleLine()]
+                controls: [new ol.control.ScaleLine(), new ol.control.OverviewMap({
+                    // see in overviewmap-custom.html to see the custom CSS used
+                    className: 'ol-overviewmap ol-custom-overviewmap',
+                    layers: [
+                        new ol.layer.Image({
+                            source: new ol.source.ImageWMS({
+                                url: 'http://gistree.espigueiro.pt/geoserver/wms',
+                                params: {
+                                    'LAYERS': 'cmvrpostgis:limite_freguesias'
+                                },
+                                extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
+                            }),
+                        }),
+                        new ol.layer.Image({
+                            source: new ol.source.ImageWMS({
+                                url: 'http://gistree.espigueiro.pt/geoserver/wms',
+                                params: {
+                                    'LAYERS': 'cmvrpostgis:limite_concelho'
+                                },
+                                extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
+                            }),
+                        })
+                    ],
+                    collapsed: false
+                })]
             },
             mapConfig = {};
         if (angular.equals(map, {})) {
@@ -59,9 +83,11 @@
                 controls: mapConfig.controls,
                 view: new ol.View({
                     center: ol.proj.transform(mapConfig.center, 'EPSG:4326', 'EPSG:3857'),
-                    zoom: mapConfig.zoom
+                    zoom: mapConfig.zoom,
+                    extent: [-928405.1144335504, 5033494.2861691285, -777977.0427683234, 5078592.132857382]
                 })
             });
+            window.map = map;
             map.getView().on('change:resolution', function (evt) {
                 var zoomLevel = evt.target.getZoom();
                 if (zoomLevel === parseInt(zoomLevel, 10)) {
@@ -80,7 +106,7 @@
             });
         };
 
-        function setBaseLayer(layer){
+        function setBaseLayer(layer) {
             map.getLayers().setAt(0, layer);
         }
 

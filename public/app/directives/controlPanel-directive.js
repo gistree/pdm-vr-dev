@@ -42,33 +42,34 @@
                     levelOfs: "1.5em"
                 },
                 select: function (event, data) {
-                    if (data.node.isFolder()) {
-                        var children = data.node.children;
-                        if (data.node.isSelected()) {
-                            children.forEach(function (el) {
-                                el.data.key = el.key;
-                                MapService.addLayer(el.data);
-                                LegendsService.addLayerLegend(el);
-                            });
+                    $timeout(function () {
+                        if (data.node.isFolder()) {
+                            var children = data.node.children;
+                            if (data.node.isSelected()) {
+                                children.forEach(function (el) {
+                                    el.data.key = el.key;
+                                    MapService.addLayer(el.data);
+                                    LegendsService.addLayerLegend(el);
+                                });
+                            } else {
+                                children.forEach(function (el) {
+                                    el.data.key = el.key;
+                                    MapService.removeLayer(el.data);
+                                    LegendsService.removeLayerLegend(el);
+                                });
+                            }
                         } else {
-                            children.forEach(function (el) {
-                                el.data.key = el.key;
-                                MapService.removeLayer(el.data);
-                                LegendsService.removeLayerLegend(el);
-                            });
+                            if (data.node.isSelected()) {
+                                data.node.data.key = data.node.key;
+                                MapService.addLayer(data.node.data);
+                                LegendsService.addLayerLegend(data.node);
+                            } else {
+                                data.node.data.key = data.node.key;
+                                MapService.removeLayer(data.node.data);
+                                LegendsService.removeLayerLegend(data.node);
+                            }
                         }
-                    } else {
-                        if (data.node.isSelected()) {
-                            data.node.data.key = data.node.key;
-                            MapService.addLayer(data.node.data);
-                            LegendsService.addLayerLegend(data.node);
-                        } else {
-                            data.node.data.key = data.node.key;
-                            MapService.removeLayer(data.node.data);
-                            LegendsService.removeLayerLegend(data.node);
-                        }
-                    }
-                    $timeout(function () {}, 1);
+                    }, 1);
                 },
                 init: function (event, data) {
                     var zoomLevel = MapService.map.getView().getZoom();
@@ -146,7 +147,7 @@
                     layerDef: new ol.layer.Tile({})
                 }
             ];
-            blCtrl.baseLayer = blCtrl.baseLayers[0].name;
+            blCtrl.baseLayer = "Mapa de Base";
         }
     }
 })();

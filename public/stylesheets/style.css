@@ -38,13 +38,60 @@ input[type=number] {
 }
 
 
-/* MAP CSS [START]*/
+/* JOKORD.MAP [START]*/
 
 #map {
     height: 100%;
     width: 100%;
     background-color: #fff;
 }
+
+
+/* JOKORD.MAP [END] */
+
+
+/* JOKORD.OVERVIEW.MAP [START] */
+
+.ol-custom-overviewmap,
+.ol-custom-overviewmap.ol-uncollapsible {
+    bottom: auto;
+    left: auto;
+    right: 0;
+    top: 0;
+    background-color: rgba(69%, 88.6%, 49.4%, 0.5);
+}
+
+.ol-custom-overviewmap:hover {
+    background-color: rgba(69%, 88.6%, 49.4%, 0.75);
+}
+
+.ol-custom-overviewmap:not(.ol-collapsed) {
+    border: 1px solid #67a926;
+}
+
+.ol-custom-overviewmap .ol-overviewmap-map {
+    border: none;
+    width: 12em;
+    height: 10em;
+}
+
+.ol-custom-overviewmap .ol-overviewmap-box {
+    border: 2px solid #333;
+}
+
+.ol-custom-overviewmap:not(.ol-collapsed) button {
+    bottom: auto;
+    left: auto;
+    right: 1px;
+    top: 1px;
+}
+
+.ol-custom-overviewmap button {
+    display: none;
+}
+
+
+/* JOKORD.OVERVIEW.MAP [END] */
 
 
 /* JOKORD.MAP.ToolBar [Start] */
