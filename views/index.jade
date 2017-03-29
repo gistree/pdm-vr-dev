@@ -7,11 +7,9 @@ html(lang='en' ng-app='pdmApp')
     meta(name="description" content="Plataforma WebSIG para o Plano Director Municipal de Vila Real")
     meta(name="keywords" content="Plano Director Municipal, Vila Real, WebSIG, Gistree")
     meta(name="author" content="Gistree, Sistemas de Informação Geográfica, Floresta e Ambiente, Lda")
-    link(rel='stylesheet', href="stylesheets/ui.fancytree.min.css")
-    link(rel='stylesheet', href="stylesheets/bootstrap.min.css")
-    link(rel='stylesheet', href="stylesheets/ol.css")
-    link(rel='stylesheet', href="stylesheets/font-awesome/css/font-awesome.min.css")
-    link(rel='stylesheet', href="stylesheets/style.min.css")
+    link(rel='stylesheet', href="style/vendor.css")
+    link(rel='stylesheet', href="style/font-awesome/css/font-awesome.min.css")
+    link(rel='stylesheet', href="style/style.min.css")
     link(rel="shortcut icon" href="app/icons/favicon.ico")
   body
     nav.navbar.navbar-toggleable-md.fixed-top
@@ -24,22 +22,17 @@ html(lang='en' ng-app='pdmApp')
             #map-container.full_height.col-9(ng-class="{'col-12': menuIsHidden}")
                 #map.map.full_height
                 map-interactions(menu-is-hidden="menuIsHidden")   
-    // START[JQUERY]
-    script(src='vendor/jquery/jquery.min.js')
-    script(src='vendor/jquery/jquery-ui.min.js')
-    // END[JQUERY]
-    // START[FANCYTREE]
-    script(src='vendor/fancytree/jquery.fancytree.min.js')
-    script(src='vendor/fancytree/jquery.fancytree.edit.js')
-    script(src='vendor/fancytree/jquery.fancytree.glyph.js')
-    script(src='vendor/fancytree/jquery.fancytree.wide.js')
-    // END[FANCYTREE]
-    // START[OPENLAYERS]
-    script(src='vendor/ol/ol.js')
-    script(src="vendor/ol/proj4.js")
-    // END[OPENLAYERS]
+
+    script(src="vendor/tether.min.js")
+    script(src="vendor/jquery.min.js")
+    script(src="vendor/jquery-ui.min.js")
+    script(src="vendor/fancytree-build.min.js")
+    script(src="vendor/ol.js")
+    script(src="vendor/proj4.js")
+    script(src="vendor/bootstrap.min.js")
+    script(src="app/lib/angular.min.js")
+    
     // START[APP]
-    script(src='app/lib/angular.min.js')
     script(src='app/app.js')
     script(src='app/modules/LegendModule/LegendsModule.js')
     script(src='app/modules/MapInteractionsModule/MapInteractionsModule.js')
@@ -50,5 +43,3 @@ html(lang='en' ng-app='pdmApp')
     script(src='app/factories/layers-factory.js')
     script(src='app/directives/controlPanel-directive.js')
     // END[APP]
-    script(src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js', integrity='sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb', crossorigin='anonymous')
-    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js', integrity='sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn', crossorigin='anonymous')
