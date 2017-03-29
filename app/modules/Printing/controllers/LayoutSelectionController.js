@@ -3,54 +3,7 @@
 
     angular
         .module('PrintingModule')
-        .controller('PagesController', PagesController)
-        .controller('FormController', FormController)
-        .controller('LayoutSelectionController', LayoutSelectionController)
-        .controller('PrintResultController', PrintResultsController);
-
-    PagesController.$inject = ['$scope'];
-
-    function PagesController($scope) {
-        var pagesCtrl = this;
-        activate();
-        this.activeTab = function (tab) {
-            return tab == pagesCtrl.active;
-        }
-        this.nextPage = function (valid) {
-            if (valid) {
-                pagesCtrl.active++;
-            }
-        }
-
-        $scope.$on('resetPrinting', function () {
-            pagesCtrl.active = 1;
-        });
-
-        function activate() {
-            pagesCtrl.active = 1;
-        }
-    }
-    FormController.$inject = ['$scope', 'PrintDetailsService'];
-
-    function FormController($scope, PrintDetailsService) {
-        var formCtrl = this;
-        activate();
-
-        $scope.$on('resetPrinting', function () {
-            activate();
-        });
-
-        function activate() {
-            formCtrl.userData = {
-                requerente: '',
-                proprietario: '',
-                nif: '',
-                freguesia: '',
-                local: ''
-            }
-            PrintDetailsService.setDetails(formCtrl.userData);
-        }
-    }
+        .controller('LayoutSelectionController', LayoutSelectionController);
 
     LayoutSelectionController.$inject = ['$scope', 'PrintDetailsService', '$http', '$q'];
 
@@ -105,21 +58,4 @@
         }
     }
 
-    PrintResultsController.$inject = ['$scope', 'PrintDetailsService'];
-
-    function PrintResultsController($scope, PrintDetailsService) {
-        var printResCtrl = this;
-        activate();
-
-        this.newPrint = function () {
-            $scope.$parent.$broadcast('resetPrinting');
-            PrintDetailsService.resetPrintResults();
-        }
-
-        function activate() {
-            printResCtrl.printResults = PrintDetailsService.getPrintResults();
-            printResCtrl.message1 = "A processar o seu pedido.";
-            printResCtrl.message2 = "Por favor aguarde..."
-        }
-    }
 })();

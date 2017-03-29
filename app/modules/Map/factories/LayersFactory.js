@@ -1,8 +1,8 @@
 (function () {
     'use strict';
     angular
-        .module('pdmApp')
-        .factory('LayersFactory', LayersFactory)
+        .module('MapModule')
+        .factory('LayersFactory', LayersFactory);
 
     function LayersFactory() {
         var layers = [{

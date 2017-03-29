@@ -3,51 +3,11 @@
 
     angular
         .module('MapInteractionsModule')
-        .directive('mapInteractions', MapInteractionsDirective)
-        .controller('InteractionsController', InteractionsController);
+        .controller('MapInteractionsController', MapInteractionsController);
 
-    MapInteractionsDirective.$inject = ['MapService'];
+    MapInteractionsController.$inject = ['$scope', '$timeout', 'MapService'];
 
-    function MapInteractionsDirective(MapService) {
-
-        var directive = {
-            bindToController: true,
-            controller: InteractionsController,
-            controllerAs: 'itCtrl',
-            link: link,
-            restrict: 'E',
-            scope: {
-                menuIsHidden: "="
-            },
-            templateUrl: 'app/modules/MapInteractionsModule/template.html'
-        };
-        return directive;
-
-        function link(scope, element, attrs) {
-            MapService.map.addControl(new ol.control.MousePosition({
-                coordinateFormat: function (coord) {
-                    return ol.coordinate.format(coord, " {x} , {y} ", 4);
-                },
-                projection: 'EPSG:4326',
-                className: '',
-                target: document.getElementById('coordinate4326'),
-                undefinedHTML: '&nbsp;'
-            }));
-            MapService.map.addControl(new ol.control.MousePosition({
-                coordinateFormat: function (coord) {
-                    return ol.coordinate.format(coord, " {x} , {y} ", 4);
-                },
-                projection: ol.proj.get('EPSG:27493'),
-                className: '',
-                target: document.getElementById('coordinate27493'),
-                undefinedHTML: '&nbsp;' 
-            }));
-        }
-    }
-
-    InteractionsController.$inject = ['$scope', '$timeout', 'MapService'];
-
-    function InteractionsController($scope, $timeout, MapService) {
+    function MapInteractionsController($scope, $timeout, MapService) {
         this.active = 'DragPan';
         this.isActive = function (active) {
             return this.active == active;

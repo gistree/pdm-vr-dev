@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     angular
-        .module('pdmApp')
+        .module('MapModule')
         .factory('MapService', MapService)
 
     function MapService() {
@@ -84,7 +84,8 @@
                 view: new ol.View({
                     center: ol.proj.transform(mapConfig.center, 'EPSG:4326', 'EPSG:3857'),
                     zoom: mapConfig.zoom,
-                    extent: [-928405.1144335504, 5033494.2861691285, -777977.0427683234, 5078592.132857382]
+                    extent: [-928405.1144335504, 5033494.2861691285, -777977.0427683234, 5078592.132857382],
+                    minZoom: 11
                 })
             });
             window.map = map;
@@ -154,7 +155,9 @@
         function setDefaultView() {
             map.setView(new ol.View({
                 center: ol.proj.transform(mapConfig.center, 'EPSG:4326', 'EPSG:3857'),
-                zoom: mapConfig.zoom
+                zoom: mapConfig.zoom,
+                extent: [-928405.1144335504, 5033494.2861691285, -777977.0427683234, 5078592.132857382], 
+                minZoom: 11
             }));
         }
 

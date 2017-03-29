@@ -3,10 +3,7 @@
 
     angular
         .module('LegendsModule')
-        .service('LegendsService', LegendsService)
-        .controller('LegendsController', LegendsController);
-
-    LegendsController.$inject = ['$scope', 'LegendsService'];
+        .service('LegendsService', LegendsService);
 
     function LegendsService() {
         this.groups = [];
@@ -53,7 +50,4 @@
         }
     }
 
-    function LegendsController($scope, LegendsService) {
-        $scope.groups = LegendsService.groups;
-    }
 })();

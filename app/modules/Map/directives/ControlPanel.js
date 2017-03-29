@@ -1,16 +1,15 @@
 (function () {
     'use strict';
     angular
-        .module('pdmApp')
-        .directive('controlPanel', Directive)
-        .controller('BaseLayerController', BaseLayerController);
+        .module('MapModule')
+        .directive('controlPanel', Directive);
 
     Directive.$inject = ['LayersFactory', 'MapService', 'LegendsService', '$timeout'];
 
     function Directive(LayersFactory, MapService, LegendsService, $timeout) {
         var directive = {
             bindToController: true,
-            controller: tabsController,
+            controller: 'TabsController',
             controllerAs: 'tc',
             link: link,
             restrict: 'E',
@@ -97,58 +96,4 @@
         }
     }
 
-    /* @ngInject */
-    function tabsController($scope) {
-        var tc = this;
-        $scope.groups = [];
-        tc.expandTree = function () {
-            $scope.tree.visit(function (node) {
-                node.setExpanded(true);
-            });
-        };
-        tc.collapseTree = function () {
-            $scope.tree.visit(function (node) {
-                node.setExpanded(false);
-            });
-        };
-        tc.deselectAll = function () {
-            $scope.tree.visit(function (node) {
-                node.setSelected(false);
-            });
-        };
-        tc.hideMenu = function () {
-            $scope.$parent.menuIsHidden = true;
-        }
-        tc.help = function () {
-            alert(" Em Desenvolvimento... ");
-        }
-    }
-
-    BaseLayerController.$inject = ['$scope', 'MapService'];
-
-    function BaseLayerController($scope, MapService) {
-        var blCtrl = this;
-        activate();
-
-        blCtrl.setBaseLayer = function (layer) {
-            console.log("Click");
-            blCtrl.baseLayer = layer.name;
-            MapService.setBaseLayer(layer.layerDef);
-        }
-
-        function activate() {
-            blCtrl.baseLayers = [{
-                    name: "Open Street Map",
-                    layerDef: new ol.layer.Tile({
-                        source: new ol.source.OSM({})
-                    })
-                },
-                {
-                    name: "Camada em Branco",
-                    layerDef: new ol.layer.Tile({})
-                }
-            ];
-            blCtrl.baseLayer = "Mapa de Base";
-        }
-    }
 })();
