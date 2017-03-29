@@ -311,7 +311,7 @@ input[type=number] {
 /* JOKORD.Panel.FancyTree [Start] */
 
 .tree-container {
-    height: calc(100vh - 12em);
+    height: calc(100vh - 12.5em);
     box-sizing: border-box;
     overflow: auto;
     margin-top: 0.5em;
@@ -424,7 +424,7 @@ span.fancytree-node.fancytree-selected span.fancytree-expander:hover {
 
 .base-layer {
     position: absolute;
-    bottom: 4em;
+    bottom: 4.5em;
     right: 0.5em;
 }
 
