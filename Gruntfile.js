@@ -30,7 +30,7 @@ module.exports = function (grunt) {
             css: {
                 expand: true,
                 cwd: 'app/style/min/',
-                src: 'app/style.min.css',
+                src: 'style.min.css',
                 dest: 'public/style/',
             },
             modules: {

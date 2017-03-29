@@ -1,6 +1,25 @@
-extends layout
-
-block content
-  h1= message
-  h2= error.status
-  pre #{error.stack}
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name="description" content="Plataforma WebSIG para o Plano Director Municipal de Vila Real")
+    meta(name="keywords" content="Plano Director Municipal, Vila Real, WebSIG, Gistree")
+    meta(name="author" content="Gistree, Sistemas de Informação Geográfica, Floresta e Ambiente, Lda")
+    link(rel='stylesheet', href="/style/font-awesome/css/font-awesome.min.css")
+    link(rel='stylesheet', href="/style/style.min.css")
+    title Error 404
+  body
+    .error
+      .error-code.m-b-10.m-t-20
+        | 404 
+        i.fa.fa-warning
+      h3.font-bold Não foi possível encontrar a página desejada...
+      .error-desc
+        | Pedimos desculpa, mas a página que está à procura não existe ou não foi encontrada. 
+        br
+        |             Faça clique no botão abaixo para regressar à aplicação.
+        div(style="padding:1em;")
+          a.login-detail-panel-button.btn(href='/')
+            i.fa.fa-arrow-left
+            |                         Voltar à página inicial.
