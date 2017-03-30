@@ -1,17 +1,17 @@
 doctype html
-html(lang='en' ng-app='gestreeApp')
+html(lang='en' ng-app='pdmApp')
   head
-    title Map Prototype
-    // Required meta tags
+    title PDM - Vila Real
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
-    // Bootstrap CSS
-    link(href='fancytree/skin-bootstrap/ui.fancytree.css' rel="stylesheet")
-    link(rel='stylesheet', href='bootstrap/css/bootstrap.css')
-    link(rel='stylesheet', href='ol.css', type='text/css')
-    link(rel='stylesheet', href='stylesheets/font-awesome/css/font-awesome.css')
-    link(rel='stylesheet', href="stylesheets/style.css")
-
+    meta(name="description" content="Plataforma WebSIG para o Plano Director Municipal de Vila Real")
+    meta(name="keywords" content="Plano Director Municipal, Vila Real, WebSIG, Gistree")
+    meta(name="author" content="Gistree, Sistemas de Informação Geográfica, Floresta e Ambiente, Lda")
+    link(rel='stylesheet', href="style/vendor.css")
+    link(rel='stylesheet', href="style/font-awesome/css/font-awesome.min.css")
+    link(rel='stylesheet', href="style/style.min.css")
+    link(rel="shortcut icon" href="app/icons/favicon.ico")
+    
   body
     nav.navbar.navbar-toggleable-md.fixed-top
         a.navbar-brand(href='#')
@@ -23,41 +23,16 @@ html(lang='en' ng-app='gestreeApp')
             #map-container.full_height.col-9(ng-class="{'col-12': menuIsHidden}")
                 #map.map.full_height
                 map-interactions(menu-is-hidden="menuIsHidden")   
-    // jQuery first, then Tether, then Bootstrap JS.
 
-    //script(src='https://code.jquery.com/jquery-3.1.1.slim.min.js', integrity='sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n', crossorigin='anonymous')
-    script(src='jquery.js')
-    script(src='jquery-ui.js')
-
-    script(src='fancytree/jquery.fancytree-all.js')
-    script(src='fancytree/src/jquery.fancytree.dnd.js')
-    script(src='fancytree/src/jquery.fancytree.edit.js')
-    script(src='fancytree/src/jquery.fancytree.glyph.js')
-    script(src='fancytree/src/jquery.fancytree.table.js')
-    script(src='fancytree/src/jquery.fancytree.wide.js')
-    // START[*JoKord]
-
-    script(src='ol-debug.js')
-    script(src="app/lib/proj4.js")
-    script(src='app/lib/angular.js')
+    script(src="vendor/tether.min.js")
+    script(src="vendor/jquery.min.js")
+    script(src="vendor/jquery-ui.min.js")
+    script(src="vendor/fancytree-build.min.js")
+    script(src="vendor/ol.js")
+    script(src="vendor/proj4.js")
+    script(src="vendor/bootstrap.min.js")
+    script(src="vendor/angular.min.js")
     
-    script(src='app/app.js')
-    script(src='app/modules/LegendModule/LegendsModule.js')
-    script(src='app/modules/MapInteractionsModule/MapInteractionsModule.js')
-    script(src='app/modules/DrawingModule/DrawingModule.js')
-    script(src='app/modules/PrintingModule/PrintingModule.js')
-    script(src='app/modules/PrintingModule/services/PrintDetailsService.js')
-    script(src='app/services/map-service.js')
-    script(src='app/factories/layers-factory.js')
-    script(src='app/directives/controlPanel-directive.js')
-
-
-    // END[*JoKOrd]
-    script(src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js', integrity='sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb', crossorigin='anonymous')
-    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js', integrity='sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn', crossorigin='anonymous')
-    // Initialize the tree when page is loaded
-    //script(src='fancytree/test.js')
-    //script(src='ol-debug.js')
-    //script(src='map_test.js')  
-    //script(src='app/sandbox/testeWFS.js')
-
+    // START[APP]
+    script(src="app/app-v1.0.0.js")
+    // END[APP]
