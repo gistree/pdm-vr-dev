@@ -121,7 +121,7 @@ module.exports = function (grunt) {
     
     grunt.registerTask('build-css', ['cssmin', 'concat', 'copy:css']);
     grunt.registerTask('fancytree_min', ['uglify:fancytree']);
-    grunt.registerTask('angular-modules', ['uglify:mapInteractions', 'uglify:drawing', 'uglify:legends', 'uglify:printing', 'copy:modules']);
+    grunt.registerTask('angular-modules', ['uglify:map','uglify:mapInteractions', 'uglify:drawing', 'uglify:legends', 'uglify:printing', 'copy:modules']);
     grunt.registerTask('angular-build', ['uglify:modules']);
 
     grunt.registerTask('build', ['build-css', 'angular-modules', 'angular-build']);

@@ -37,7 +37,10 @@
                             }),
                         })
                     ],
-                    collapsed: false
+                    collapseLabel: '\u002D',
+                    label: '\u002B',
+                    collapsed: false,
+                    tipLabel: ''
                 })]
             },
             mapConfig = {};
@@ -114,7 +117,7 @@
         function addLayer(layerData) {
             if (layerData.type === 'WMS') {
                 addWMSLayer(layerData);
-            } else if(layerData.type === 'TileWMS'){
+            } else if (layerData.type === 'TileWMS') {
                 addTiledWMSLayer(layerData);
             } else {
                 addWFSLayer(layerData);

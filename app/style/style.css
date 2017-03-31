@@ -52,42 +52,60 @@ input[type=number] {
 
 /* JOKORD.OVERVIEW.MAP [START] */
 
-.ol-custom-overviewmap,
-.ol-custom-overviewmap.ol-uncollapsible {
-    bottom: auto;
-    left: auto;
-    right: 0;
-    top: 0;
-    background-color: rgba(69%, 88.6%, 49.4%, 0.5);
+.ol-overviewmap {
+    right: 0.5em;
+    top: 0.5em;
 }
 
-.ol-custom-overviewmap:hover {
+.ol-overviewmap.ol-uncollapsible {
+    bottom: 0;
+    left: 0;
+    border-radius: 0 1em 0 0; 
+}
+
+.ol-overviewmap .ol-overviewmap-map,
+.ol-overviewmap button {
+    display: inline-block;
+}
+
+.ol-overviewmap .ol-overviewmap-map {
+    border: 0;
+    height: 12em;
+    margin: 0.25em;
+    width: 12em;
+    background-color: rgba(69%, 88.6%, 49.4%, 0.5);
+}
+.ol-overviewmap .ol-overviewmap-map:hover {
     background-color: rgba(69%, 88.6%, 49.4%, 0.75);
 }
 
-.ol-custom-overviewmap:not(.ol-collapsed) {
-    border: 1px solid #67a926;
+.ol-overviewmap button {
+    cursor: pointer;
 }
 
-.ol-custom-overviewmap .ol-overviewmap-map {
-    border: none;
-    width: 12em;
-    height: 10em;
+.ol-overviewmap:not(.ol-collapsed) button {
+    top: 2px;
+    right: 2px;
+    position: absolute;
 }
 
-.ol-custom-overviewmap .ol-overviewmap-box {
-    border: 2px solid #FF0000;
-}
-
-.ol-custom-overviewmap:not(.ol-collapsed) button {
-    bottom: auto;
-    left: auto;
-    right: 1px;
-    top: 1px;
-}
-
-.ol-custom-overviewmap button {
+.ol-overviewmap.ol-collapsed .ol-overviewmap-map,
+.ol-overviewmap.ol-uncollapsible button {
     display: none;
+}
+
+.ol-overviewmap.ol-control button {
+    border-color: #67a926 !important;
+    background-color: #4e7f10 !important;
+}
+
+.ol-overviewmap.ol-control button:hover {
+    background-color: #67a926 !important;
+    border-color: #4e7f10 !important;
+}
+
+.ol-overviewmap-box {
+    border: 2px solid rgba(255, 0, 0, 0.7);
 }
 
 
@@ -974,5 +992,6 @@ span.fancytree-node.fancytree-selected span.fancytree-expander:hover {
 .m-t-20 {
     margin-top: 30px!important;
 }
+
 
 /* JOKORD.ERRORPAGE[END] */
