@@ -1,15 +1,15 @@
 <div class="panel">
     <div class="tabbable-line">
         <ul id="lefttopmenutabs" role="tablist" class="nav nav-tabs">
-            <a data-toggle="tab" href="#layers" role="tab" class="nav-item nav-link active">Camadas</a>
+            <a data-toggle="tab" href="#layers" role="tab" class="nav-item nav-link ">Camadas</a>
             <a data-toggle="tab" href="#legenda" role="tab" class="nav-item nav-link">Legenda</a>
-            <a data-toggle="tab" href="#imprimir" role="tab" class="nav-item nav-link">Imprimir</a>
+            <a data-toggle="tab" href="#imprimir" role="tab" class="nav-item nav-link active">Imprimir</a>
             <button type="button" ng-click="tc.hideMenu()" class="btn btn-secondary btn-circle btn-hide">
                 <i class="fa fa-arrow-left"></i>
             </button>
         </ul>
         <div id="tabcontent" class="tab-content">
-            <div id="layers" role="tabpanel" class="tab-pane active">
+            <div id="layers" role="tabpanel" class="tab-pane ">
                 <div class="tree-container">
                     <div id="tree" class="panel-body fancytree-plain fancytree-colorize-selected fancytree-fade-expander"></div>
                 </div>
@@ -51,7 +51,7 @@
                     </ul>
                 </section>
             </div>
-            <div id="imprimir" role="tabpanel" class="tab-pane" ng-controller="PagesController as pagesCtrl">
+            <div id="imprimir" role="tabpanel" class="tab-pane active" ng-controller="PagesController as pagesCtrl">
                 <section class="legends-container">
                     <h5>Impressão de Plantas</h5>
                     <section ng-show="pagesCtrl.activeTab(1)">
@@ -90,14 +90,21 @@
                                     <label class="col-4" for="proprietario">Proprietário:</label>
                                     <input type="text" class="col-7" id="proprietario" ng-model="formCtrl.userData.proprietario" placeholder="Nome do Proprietário">
                                 </div>
-                                <div class="row no-gutters form-line">
+                                <div class="row no-gutters form-line" style="margin-bottom: 0.25em;">
                                     <label class="col-4" for="nif">NIF:</label>
                                     <input type="number" name="uNif" class="col-7" id="nif" ng-minlength="9" ng-maxlength="9" ng-model="formCtrl.userData.nif"
                                         placeholder="Nro Identificação Fiscal">
                                 </div>
-                                <div class="row no-gutters form-line">
+                                <div class="row no-gutters form-line" ng-controller="FreguesiasController as frCtrl">
                                     <label class="col-4" for="freguesia">Freguesia:</label>
-                                    <input type="text" class="col-7" id="freguesia" ng-model="formCtrl.userData.freguesia" placeholder="Nome da Freguesia">
+                                    <span class="col-7 dropdown">
+                                        <button id="freguesia" ng-class="{'fr-selected': frCtrl.isSelected()}" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            {{frCtrl.freguesia}}
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" ng-repeat="freguesia in frCtrl.freguesias" ng-click="frCtrl.setFreguesia(freguesia)">{{freguesia.name}}</a>
+                                        </div>
+                                    </span>
                                 </div>
                                 <div class="row no-gutters form-line">
                                     <label class="col-4" for="local">Local:</label>

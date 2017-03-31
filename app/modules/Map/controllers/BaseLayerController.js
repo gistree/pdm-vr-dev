@@ -11,7 +11,6 @@
         activate();
 
         blCtrl.setBaseLayer = function (layer) {
-            console.log("Click");
             blCtrl.baseLayer = layer.name;
             MapService.setBaseLayer(layer.layerDef);
         }

@@ -60,7 +60,7 @@ input[type=number] {
 .ol-overviewmap.ol-uncollapsible {
     bottom: 0;
     left: 0;
-    border-radius: 0 1em 0 0; 
+    border-radius: 0 1em 0 0;
 }
 
 .ol-overviewmap .ol-overviewmap-map,
@@ -75,6 +75,7 @@ input[type=number] {
     width: 12em;
     background-color: rgba(69%, 88.6%, 49.4%, 0.5);
 }
+
 .ol-overviewmap .ol-overviewmap-map:hover {
     background-color: rgba(69%, 88.6%, 49.4%, 0.75);
 }
@@ -700,6 +701,56 @@ span.fancytree-node.fancytree-selected span.fancytree-expander:hover {
 :-ms-input-placeholder {
     /* Internet Explorer 10-11 */
     color: rgba(40.4%, 66.3%, 14.9%, 0.75);
+}
+
+.my-form .dropdown button {
+    width: calc(100% - 2px);
+    overflow-x: hidden;
+    height: 17px;
+    border: 0;
+    padding: 0;
+    font-size: 100%;
+    vertical-align: top;
+    color: rgba(40.4%, 66.3%, 14.9%, 0.75);
+    box-shadow: -8px 10px 0 -7px #ebebeb, 8px 10px 0 -7px #ebebeb;
+}
+
+.my-form .dropdown button.fr-selected {
+    color: #666;
+    outline: none;
+    box-shadow: -4px 8px 0px -7px rgba(40.4%, 66.3%, 14.9%, 0.75), 4px 8px 0px -7px rgba(40.4%, 66.3%, 14.9%, 0.75);
+}
+
+.my-form .dropdown button:hover {
+    cursor: pointer;
+    background-color: #fff;
+    color: rgba(40.4%, 66.3%, 14.9%, 0.75);
+}
+
+.my-form .dropdown button:focus {
+    cursor: pointer;
+    background-color: rgba(40.4%, 66.3%, 14.9%, 0.75);
+    color: #fff;
+}
+
+.my-form .dropdown .dropdown-menu {
+    background-color: #b0e27e;
+    color: #333;
+    margin-bottom: 0.1rem;
+    padding: 0.2rem 0;
+    overflow-y: auto;
+    max-height: 13em;
+    top: 75%;
+    left: -50%;
+    font-size: 0.75em;
+    font-weight: bold;
+}
+
+.my-form .dropdown-item:hover {
+    color: #fff;
+    text-decoration: none;
+    background-color: #4e7f10;
+    cursor: pointer;
 }
 
 .my-form input[type=text],
