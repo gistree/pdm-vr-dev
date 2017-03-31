@@ -14,7 +14,7 @@
                         data: {
                             workspace: "cmvrpostgis",
                             name: "reserva_agricola_nacional",
-                            type: "Raster",
+                            type: "TileWMS",
                             extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
                             opacity: 1
                         }
@@ -24,7 +24,7 @@
                         data: {
                             workspace: "cmvrpostgis",
                             name: "reserva_ecologica_nacional",
-                            type: "Raster",
+                            type: "TileWMS",
                             extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
                             opacity: 1
                         }
@@ -34,7 +34,7 @@
                         data: {
                             workspace: "cmvrpostgis",
                             name: "zonas_inundaveis",
-                            type: "Raster",
+                            type: "TileWMS",
                             extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
                             opacity: 1
                         }
@@ -44,7 +44,7 @@
                         data: {
                             workspace: "cmvrpostgis",
                             name: "pedreiras",
-                            type: "Raster",
+                            type: "TileWMS",
                             extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
                             opacity: 1
                         }
@@ -54,7 +54,7 @@
                         data: {
                             workspace: "cmvrpostgis",
                             name: "limite_da_rede_natura_2000",
-                            type: "Raster",
+                            type: "TileWMS",
                             extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
                             opacity: 1
                         }
@@ -64,7 +64,7 @@
                         data: {
                             workspace: "cmvrpostgis",
                             name: "aerodromo",
-                            type: "Raster",
+                            type: "TileWMS",
                             extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
                             opacity: 1
                         }
@@ -74,7 +74,7 @@
                         data: {
                             workspace: "cmvrpostgis",
                             name: "linhas_de_alta_tensao",
-                            type: "Raster",
+                            type: "TileWMS",
                             extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
                             opacity: 1
                         }
@@ -84,7 +84,7 @@
                         data: {
                             workspace: "cmvrpostgis",
                             name: "abastecimento_de_aguas_adutoras",
-                            type: "Raster",
+                            type: "TileWMS",
                             extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
                             opacity: 1
                         }
@@ -94,7 +94,7 @@
                         data: {
                             workspace: "cmvrpostgis",
                             name: "rede_rodoviaria",
-                            type: "Raster",
+                            type: "TileWMS",
                             extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
                             opacity: 1
                         }
@@ -104,7 +104,7 @@
                         data: {
                             workspace: "cmvrpostgis",
                             name: "rede_rodoviaria_prevista",
-                            type: "Raster",
+                            type: "TileWMS",
                             extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
                             opacity: 1
                         }
@@ -114,7 +114,7 @@
                         data: {
                             workspace: "cmvrpostgis",
                             name: "rede_ferroviaria",
-                            type: "Raster",
+                            type: "TileWMS",
                             extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
                             opacity: 1
                         }
@@ -124,7 +124,7 @@
                         data: {
                             workspace: "cmvrpostgis",
                             name: "vertices_geodesicos",
-                            type: "Raster",
+                            type: "TileWMS",
                             extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
                             opacity: 1
                         }
@@ -140,7 +140,7 @@
                         data: {
                             workspace: "cmvrpostgis",
                             name: "solo_rural",
-                            type: "Raster",
+                            type: "TileWMS",
                             extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
                             opacity: 1
                         }
@@ -150,7 +150,7 @@
                         data: {
                             workspace: "cmvrpostgis",
                             name: "solo_urbano",
-                            type: "Raster",
+                            type: "TileWMS",
                             extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
                             opacity: 1
                         }
@@ -160,7 +160,7 @@
                         data: {
                             workspace: "cmvrpostgis",
                             name: "solo_de_urbanizacao_programada",
-                            type: "Raster",
+                            type: "TileWMS",
                             extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
                             opacity: 1
                         }
@@ -170,7 +170,7 @@
                         data: {
                             workspace: "cmvrpostgis",
                             name: "estrutura_ecologica_urbana",
-                            type: "Raster",
+                            type: "TileWMS",
                             extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
                             opacity: 1
                         }
@@ -180,7 +180,7 @@
                         data: {
                             workspace: "cmvrpostgis",
                             name: "outras_instalacoes",
-                            type: "Raster",
+                            type: "TileWMS",
                             extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
                             opacity: 1
                         }
@@ -190,7 +190,7 @@
                         data: {
                             workspace: "cmvrpostgis",
                             name: "zonas_de_protecao_ao_aerodromo",
-                            type: "Raster",
+                            type: "TileWMS",
                             extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
                             opacity: 1
                         }
@@ -207,7 +207,7 @@
                         data: {
                             workspace: "cmvrpostgis",
                             name: "edificios",
-                            type: "Raster",
+                            type: "TileWMS",
                             extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
                             opacity: 1,
                             minZoom: 17
@@ -219,7 +219,7 @@
                         data: {
                             workspace: "cmvrpostgis",
                             name: "limite_freguesias",
-                            type: "Raster",
+                            type: "WMS",
                             extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
                             opacity: 1
                         }
@@ -230,7 +230,7 @@
                         data: {
                             workspace: "cmvrpostgis",
                             name: "limite_concelho",
-                            type: "Raster",
+                            type: "WMS",
                             extent: [-127028.95781617332, -301620.79631591577, 173162.9865501142, 278637.28586892004],
                             opacity: 1
                         }

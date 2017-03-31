@@ -1,7 +1,7 @@
 module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-        version: grunt.config.set('version', 'v1.0.0'),
+        version: grunt.config.set('version', '<%= pkg.version%>'),
         cssmin: {
             target: {
                 files: [{
@@ -118,12 +118,12 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     
-    grunt.registerTask('CSS_Minify', ['cssmin', 'concat', 'copy:css']);
+    grunt.registerTask('build-css', ['cssmin', 'concat', 'copy:css']);
     grunt.registerTask('fancytree_min', ['uglify:fancytree']);
     grunt.registerTask('angular-modules', ['uglify', 'uglify:mapInteractions', 'uglify:drawing', 'uglify:legends', 'uglify:printing', 'copy:modules']);
     grunt.registerTask('angular-build', ['uglify:modules']);
 
-    grunt.registerTask('build', ['CSS_Minify', 'angular-modules', 'angular-build']);
+    grunt.registerTask('build', ['build-css', 'angular-modules', 'angular-build']);
     grunt.registerTask('default', []);
 
 };

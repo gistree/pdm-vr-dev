@@ -112,10 +112,38 @@
         }
 
         function addLayer(layerData) {
-            if (layerData.type === 'Raster') {
+            if (layerData.type === 'WMS') {
                 addWMSLayer(layerData);
+            } else if(layerData.type === 'TileWMS'){
+                addTiledWMSLayer(layerData);
             } else {
                 addWFSLayer(layerData);
+            }
+        }
+
+        function addTiledWMSLayer(layerData) {
+            if (_checkLayer(layerData.key)) {
+                var wmsLayer = new ol.layer.Tile({
+                    opacity: layerData.opacity,
+                    source: new ol.source.TileWMS({
+                        url: 'http://gistree.espigueiro.pt/geoserver/wms',
+                        params: {
+                            'LAYERS': layerData.workspace + ":" + layerData.name
+                        },
+                        extent: layerData.extent,
+                    }),
+                    minResolution: calculateResolution(layerData.maxZoom),
+                    maxResolution: calculateResolution(layerData.minZoom),
+                    group: layerData.group
+                });
+                _layers[layerData.key] = wmsLayer;
+                map.getLayers().insertLayer(wmsLayer);
+                _layers[layerData.key].visible = true;
+            } else {
+                if (!_layers[layerData.key].visible) {
+                    map.getLayers().insertLayer(_layers[layerData.key]);
+                    _layers[layerData.key].visible = true;
+                }
             }
         }
 
@@ -156,7 +184,7 @@
             map.setView(new ol.View({
                 center: ol.proj.transform(mapConfig.center, 'EPSG:4326', 'EPSG:3857'),
                 zoom: mapConfig.zoom,
-                extent: [-928405.1144335504, 5033494.2861691285, -777977.0427683234, 5078592.132857382], 
+                extent: [-928405.1144335504, 5033494.2861691285, -777977.0427683234, 5078592.132857382],
                 minZoom: 11
             }));
         }

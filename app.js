@@ -9,6 +9,9 @@ var index = require('./routes/index');
 
 var app = express();
 
+// version
+app.set("version", process.env.npm_package_version);
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
