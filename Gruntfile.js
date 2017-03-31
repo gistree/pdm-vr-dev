@@ -49,7 +49,7 @@ module.exports = function (grunt) {
                         'app/vendor/fancytree/jquery.fancytree.min.js',
                         'app/vendor/fancytree/jquery.fancytree.edit.js',
                         'app/vendor/fancytree/jquery.fancytree.glyph.js',
-                        'app/vendor/fancytree/jquery.fancytree.wide.js',
+                        'app/vendor/fancytree/jquery.fancytree.wide.js'
                     ]
                 }
             },
@@ -60,7 +60,7 @@ module.exports = function (grunt) {
                         'app/modules/Map/services/*.js',
                         'app/modules/Map/factories/*.js',
                         'app/modules/Map/controllers/*.js',
-                        'app/modules/Map/directives/*.js',
+                        'app/modules/Map/directives/*.js'
                     ]
                 }
             },
@@ -68,8 +68,9 @@ module.exports = function (grunt) {
                 files: {
                     'app/modules/MapInteractions/build/build.js': [
                         'app/modules/MapInteractions/*.js',
+                        'app/modules/MapInteractions/services/*.js',
                         'app/modules/MapInteractions/controllers/*.js',
-                        'app/modules/MapInteractions/directives/*.js',
+                        'app/modules/MapInteractions/directives/*.js'
                     ]
                 }
             },
@@ -78,7 +79,7 @@ module.exports = function (grunt) {
                     'app/modules/Drawing/build/build.js': [
                         'app/modules/Drawing/*.js',
                         'app/modules/Drawing/controllers/*.js',
-                        'app/modules/Drawing/directives/*.js',
+                        'app/modules/Drawing/directives/*.js'
                     ]
                 }
             },
@@ -88,7 +89,7 @@ module.exports = function (grunt) {
                         'app/modules/Legends/*.js',
                         'app/modules/Legends/services/*.js',
                         'app/modules/Legends/controllers/*.js',
-                        'app/modules/Legends/directives/*.js',
+                        'app/modules/Legends/directives/*.js'
                     ]
                 }
             },
@@ -98,7 +99,7 @@ module.exports = function (grunt) {
                         'app/modules/Printing/*.js',
                         'app/modules/Printing/services/*.js',
                         'app/modules/Printing/controllers/*.js',
-                        'app/modules/Printing/directives/*.js',
+                        'app/modules/Printing/directives/*.js'
                     ]
                 }
             },
@@ -120,7 +121,7 @@ module.exports = function (grunt) {
     
     grunt.registerTask('build-css', ['cssmin', 'concat', 'copy:css']);
     grunt.registerTask('fancytree_min', ['uglify:fancytree']);
-    grunt.registerTask('angular-modules', ['uglify', 'uglify:mapInteractions', 'uglify:drawing', 'uglify:legends', 'uglify:printing', 'copy:modules']);
+    grunt.registerTask('angular-modules', ['uglify:mapInteractions', 'uglify:drawing', 'uglify:legends', 'uglify:printing', 'copy:modules']);
     grunt.registerTask('angular-build', ['uglify:modules']);
 
     grunt.registerTask('build', ['build-css', 'angular-modules', 'angular-build']);
