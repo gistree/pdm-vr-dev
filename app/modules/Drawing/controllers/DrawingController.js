@@ -5,17 +5,19 @@
         .module('DrawingModule')
         .controller('DrawingController', DrawingController);
 
-    DrawingController.$inject = ['$scope', 'MapService']
+    DrawingController.$inject = ['$scope', 'MapService', 'MapInteractionsService']
 
-    function DrawingController($scope, MapService) {
+    function DrawingController($scope, MapService, MapInteractionsService) {
         var drawCtrl = this;
         var geojson, _style, _revStyle, _source, _vector, _draw;
         var _map = MapService.map;
+        var _mps = MapInteractionsService;
         var _defaultInfo = "Utilize os botões para definir o tipo de desenho desejado."
 
         activate();
 
         drawCtrl.setDrawingMode = function (dM) {
+            _mps.setMapInteraction('DragPan');
             _setInformationText(dM);
             _map.removeInteraction(_draw);
             _map.removeLayer(_vector);

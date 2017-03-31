@@ -7,15 +7,19 @@
   },
   "dependencies": {
     "body-parser": "~1.16.0",
+    "bootstrap": "^4.0.0-alpha.6",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.0",
     "express": "~4.14.1",
     "jade": "~1.11.0",
     "morgan": "~1.7.0",
     "openlayers": "^4.0.0",
+    "proj4": "^2.4.3",
+    "proj4js": "^10.0.0",
     "serve-favicon": "~2.3.2"
   },
   "devDependencies": {
+    "grunt": "^1.0.1",
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-cssmin": "^2.0.0",
