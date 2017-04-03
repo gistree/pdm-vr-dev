@@ -5,7 +5,9 @@
         .module('PrintingModule')
         .controller('FreguesiasController', FreguesiasController);
 
-    function FreguesiasController() {
+    FreguesiasController.$inject = ['LocationsFactory']
+
+    function FreguesiasController(LocationsFactory) {
         var frCtrl = this;
         activate();
 
@@ -14,79 +16,15 @@
             frCtrl.freguesia = freguesia.name;
         }
 
-        frCtrl.isSelected = function(){
+        frCtrl.isSelected = function () {
             return frCtrl.selected;
         }
 
         function activate() {
             frCtrl.selected = false;
-            frCtrl.freguesias = [{
-                    name: "Constantim e Vale de Nogueiras",
-                },
-                {
-                    name: "Adoufe e Vilarinho da Samardã",
-                },{
-                    name: "Folhadela",
-                },
-                {
-                    name: "Constantim",
-                },{
-                    name: "Folhadela",
-                },
-                {
-                    name: "Constantim",
-                },{
-                    name: "Folhadela",
-                },
-                {
-                    name: "Constantim",
-                },{
-                    name: "Folhadela",
-                },
-                {
-                    name: "Constantim",
-                },{
-                    name: "Folhadela",
-                },
-                {
-                    name: "Constantim",
-                },{
-                    name: "Folhadela",
-                },
-                {
-                    name: "Constantim",
-                },{
-                    name: "Folhadela",
-                },
-                {
-                    name: "Constantim",
-                },{
-                    name: "Folhadela",
-                },
-                {
-                    name: "Constantim",
-                },{
-                    name: "Folhadela",
-                },
-                {
-                    name: "Constantim",
-                },{
-                    name: "Folhadela",
-                },
-                {
-                    name: "UF de Constantim e Vale de Nogueiras",
-                },{
-                    name: "Folhadela",
-                },
-                {
-                    name: "Constantim",
-                },{
-                    name: "Folhadela",
-                },
-                {
-                    name: "Constantim",
-                }
-            ];
+            LocationsFactory.getFreguesias(function (res) {
+                frCtrl.freguesias = res;
+            });
             frCtrl.freguesia = "Freguesia";
         }
     }

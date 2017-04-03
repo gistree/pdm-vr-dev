@@ -740,6 +740,7 @@ span.fancytree-node.fancytree-selected span.fancytree-expander:hover {
     padding: 0.2rem 0;
     overflow-y: auto;
     max-height: 13em;
+    min-width: 25em;
     top: 75%;
     left: -50%;
     font-size: 0.75em;
