@@ -10,7 +10,7 @@
     function LocationsFactory($http) {
         var locationsFac = {
             getFreguesias: getFreguesias,
-            //getLocalidades: getLocalidades
+            getLocalidades: getLocalidades
         };
 
         return locationsFac;
@@ -19,6 +19,16 @@
             $http({
                 method: 'GET',
                 url: '/api/freguesias'
+            }).then(function successCallback(response) {
+                callback(response.data);
+            }, function errorCallback(response) {
+                console.error(response);
+            });
+        }
+        function getLocalidades(callback) {
+            $http({
+                method: 'GET',
+                url: '/api/localidades'
             }).then(function successCallback(response) {
                 callback(response.data);
             }, function errorCallback(response) {
