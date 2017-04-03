@@ -24,7 +24,7 @@
         });
 
         function activate() {
-            pagesCtrl.active = 2;
+            pagesCtrl.active = 1;
         }
     }
 })();
