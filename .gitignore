@@ -39,3 +39,5 @@ data
 .node_repl_history
 
 /QGIS
+# Database Configuration
+/config
