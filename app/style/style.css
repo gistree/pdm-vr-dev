@@ -23,6 +23,28 @@ li {
     list-style-type: none;
 }
 
+::-webkit-input-placeholder {
+    /* WebKit, Blink, Edge */
+    color: rgba(40.4%, 66.3%, 14.9%, 0.75);
+}
+
+:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: rgb(40.4%, 66.3%, 14.9%);
+    opacity: 0.75;
+}
+
+::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: rgb(40.4%, 66.3%, 14.9%);
+    opacity: 0.75;
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: rgba(40.4%, 66.3%, 14.9%, 0.75);
+}
+
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none !important;
@@ -154,6 +176,63 @@ input[type=number] {
 /* JOKORD.MAP.ToolBar [End] */
 
 
+/* JOKORD.MAP.SearchBar [Start] */
+
+.search-bar {
+    min-width: 270px;
+    max-width: 270px;
+    display: -webkit-inline-flex;
+    display: inline-flex;
+}
+
+.selectize-input.selectize-focus {
+    border-color: #b0e27e !important;
+}
+
+.search-bar .selectize-input {
+    padding: 0.5em 0.5em;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    color: #333;
+    white-space: nowrap;
+}
+
+.search-bar .selectize-input::after {
+    border-color: #666 transparent transparent transparent !important;
+}
+
+.search-bar .selectize-dropdown {
+    margin: 2.6em 0 0 0;
+    background-color: #b0e27e;
+}
+
+.search-bar .selectize-dropdown .active,
+.search-bar .selectize-dropdown .ui-select-choices-row:hover {
+    background-color: #fff;
+    color: #18481A;
+}
+
+.search-bar .selectize-dropdown .active .ui-select-highlight,
+.search-bar .selectize-dropdown .ui-select-choices-row:hover .ui-select-highlight {
+    color: #333;
+}
+
+.search-bar .selectize-dropdown .ui-select-highlight {
+    color: #333;
+}
+
+.search-bar .selectize-dropdown-content {
+    overflow-y: hidden;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif !important;
+    font-weight: bold;
+    color: #666;
+    max-height: 220px;
+}
+
+
+/* JOKORD.MAP.SearchBar [End] */
+
+
 /* JOKORD.ScaleLine[START] */
 
 .ol-scale-line {
@@ -256,6 +335,7 @@ input[type=number] {
 .panel {
     padding: 0.25rem;
     border: 1px solid #67a926;
+    border-top: 1px solid transparent;
 }
 
 
@@ -679,28 +759,6 @@ span.fancytree-node.fancytree-selected span.fancytree-expander:hover {
 .my-form .form-error {
     text-align: center;
     color: rgb(174, 0, 0);
-}
-
-::-webkit-input-placeholder {
-    /* WebKit, Blink, Edge */
-    color: rgba(40.4%, 66.3%, 14.9%, 0.75);
-}
-
-:-moz-placeholder {
-    /* Mozilla Firefox 4 to 18 */
-    color: rgb(40.4%, 66.3%, 14.9%);
-    opacity: 0.75;
-}
-
-::-moz-placeholder {
-    /* Mozilla Firefox 19+ */
-    color: rgb(40.4%, 66.3%, 14.9%);
-    opacity: 0.75;
-}
-
-:-ms-input-placeholder {
-    /* Internet Explorer 10-11 */
-    color: rgba(40.4%, 66.3%, 14.9%, 0.75);
 }
 
 .my-form .dropdown button {

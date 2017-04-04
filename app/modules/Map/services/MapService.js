@@ -54,7 +54,8 @@
             removeLayer: removeLayer,
             setDefaultView: setDefaultView,
             userFeatures: _userFeatures,
-            setBaseLayer: setBaseLayer
+            setBaseLayer: setBaseLayer,
+            zoomToCoordinate: zoomToCoordinate
         };
 
         ol.Collection.prototype.insertLayer = function (layer) {
@@ -190,6 +191,11 @@
                 extent: [-928405.1144335504, 5033494.2861691285, -777977.0427683234, 5078592.132857382],
                 minZoom: 11
             }));
+        }
+
+        function zoomToCoordinate(coordinate, proj){
+            map.getView().setCenter(ol.proj.transform(coordinate, ol.proj.get(proj), 'EPSG:3857'));
+            map.getView().setZoom(15);
         }
 
         function _checkLayer(layer_key) {

@@ -21,6 +21,13 @@
         data-tooltip="Zoom Caixa">
             <i class="fa fa-expand"></i>
     </button>
+    <ui-select ng-controller="LocationController as locCtrl" on-select="locCtrl.onSelectCallback($model)" ng-model="locCtrl.location.selected"
+        theme="selectize" class="search-bar" title="Escolha um local">
+        <ui-select-match placeholder="Selecione uma Localidade...">{{$select.selected.properties.nome}}</ui-select-match>
+        <ui-select-choices repeat="location in locCtrl.locations | filter: {properties: {nome: $select.search}} | limitTo : 10">
+            <span ng-bind-html="location.properties.nome | highlight: $select.search"></span>
+        </ui-select-choices>
+    </ui-select>
 </div>
 <section class="bottom-bar-left">
     <div class="box">Acção Selecionada: {{itCtrl.currentInteraction}}</div>

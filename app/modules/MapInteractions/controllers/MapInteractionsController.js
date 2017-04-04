@@ -9,6 +9,7 @@
 
     function MapInteractionsController($scope, $timeout, MapService, MapInteractionsService) {
         MapInteractionsService.setMapInteraction('DragPan');
+        this.search = false;
         this.isActive = function (active) {
             return this.active == active;
         }
@@ -21,6 +22,12 @@
         this.showMenu = function () {
             this.menuIsHidden = false;
         };
+        this.showSearchBar = function(){
+            this.search = !this.search;
+        }
+        this.isSearch = function(){
+            return !this.search;
+        }
         $scope.$watch(function () {
             return MapInteractionsService.getMapInteraction();
         }, function (active) {

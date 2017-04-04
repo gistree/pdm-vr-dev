@@ -5,7 +5,8 @@
         'MapModule',
         'LegendsModule',
         'MapInteractionsModule',
-        'PrintingModule'
+        'PrintingModule',
+        'SearchLocationModule'
     ]);
 
 })();

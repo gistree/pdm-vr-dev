@@ -21,7 +21,9 @@ module.exports = function (grunt) {
                 src: [
                     'app/style/min/ui.fancytree.min.css',
                     'app/style/min/bootstrap.min.css',
-                    'app/style/ol.css'
+                    'app/style/min/ol.min.css',
+                    'app/style/min/selectize.min.css',
+                    'app/style/min/select.min.css'
                 ],
                 dest: 'public/style/vendor.css',
             },
@@ -103,6 +105,17 @@ module.exports = function (grunt) {
                     ]
                 }
             },
+            searchlocation: {
+                files: {
+                    'app/modules/SearchLocation/build/build.js': [
+                        'app/modules/SearchLocation/*.js',
+                        'app/modules/SearchLocation/services/*.js',
+                        'app/modules/SearchLocation/filters/*.js',
+                        'app/modules/SearchLocation/controllers/*.js',
+                        'app/modules/SearchLocation/directives/*.js'
+                    ]
+                }
+            },
             modules: {
                 files: {
                     'public/app/app-<%=version%>.js': [
@@ -118,10 +131,10 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    
+
     grunt.registerTask('build-css', ['cssmin', 'concat', 'copy:css']);
     grunt.registerTask('fancytree_min', ['uglify:fancytree']);
-    grunt.registerTask('angular-modules', ['uglify:map','uglify:mapInteractions', 'uglify:drawing', 'uglify:legends', 'uglify:printing', 'copy:modules']);
+    grunt.registerTask('angular-modules', ['uglify:map', 'uglify:mapInteractions', 'uglify:drawing', 'uglify:legends', 'uglify:printing','uglify:searchlocation', 'copy:modules']);
     grunt.registerTask('angular-build', ['uglify:modules']);
 
     grunt.registerTask('build', ['build-css', 'angular-modules', 'angular-build']);
