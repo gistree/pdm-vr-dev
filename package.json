@@ -1,6 +1,6 @@
 {
   "name": "pdm-vr-dev",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "private": true,
   "scripts": {
     "start": "forever start ./bin/www"

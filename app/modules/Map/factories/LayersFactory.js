@@ -255,6 +255,8 @@
                     checkbox: "fa fa-toggle-off",
                     checkboxSelected: "fa fa-toggle-on",
                     checkboxUnknown: "fa fa-circle",
+                    doc: "fa fa-search",
+                    docOpen: "fa fa-search",
                     error: "fa fa-exclamation-triangle",
                     expanderClosed: "fa  fa-arrow-right",
                     expanderLazy: "fa fa-arrow-right", // glyphicon-plus-sign

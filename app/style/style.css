@@ -513,7 +513,11 @@ span.fancytree-node.fancytree-selected span.fancytree-expander:hover {
 }
 
 .fancytree-level-2 span.fancytree-title {
-    padding-left: 5.5em !important;
+    padding-left: 6em !important;
+}
+.fancytree-level-2 span.fancytree-icon {
+    margin-top: 3px !important;
+    cursor: pointer;
 }
 
 .fancytree-container span.fancytree-node.layer-hidden,
