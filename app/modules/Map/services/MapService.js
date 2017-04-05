@@ -192,9 +192,17 @@
             }));
         }
 
-        function zoomToCoordinate(coordinate, proj){
-            map.getView().setCenter(ol.proj.transform(coordinate, ol.proj.get(proj), 'EPSG:3857'));
-            map.getView().setZoom(15);
+        function zoomToCoordinate(coordinate, proj) {
+            var view = map.getView();
+            window.view = view;
+            map.getView().animate({
+                zoom: 11,
+                duration: 2000
+            }, {
+                center: ol.proj.transform(coordinate, ol.proj.get(proj), 'EPSG:3857'),
+                duration: 2000,
+                zoom: 15
+            });
         }
 
         function _checkLayer(layer_key) {
