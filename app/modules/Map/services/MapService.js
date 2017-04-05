@@ -92,7 +92,6 @@
                     minZoom: 11
                 })
             });
-            window.map = map;
             map.getView().on('change:resolution', function (evt) {
                 var zoomLevel = evt.target.getZoom();
                 if (zoomLevel === parseInt(zoomLevel, 10)) {

@@ -90,6 +90,14 @@
                             }
                         });
                     }
+                },
+                dblclick: function (event, data) {
+                    if (data.targetType === 'title' && !data.node.isFolder()) {
+                        var extent = ol.proj.transformExtent(data.node.data.extent, ol.proj.get('EPSG:27493'), 'EPSG:3857');
+                        MapService.map.getView().fit(extent, {
+                            duration: 1500
+                        });
+                    }
                 }
             });
             scope.tree = element.find("#tree").fancytree('getTree');
