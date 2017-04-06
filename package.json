@@ -3,7 +3,8 @@
   "version": "1.0.4",
   "private": true,
   "scripts": {
-    "start": "forever start ./bin/www"
+    "start": "forever start ./bin/www",
+    "test": "supervisor start ./bin/www"
   },
   "dependencies": {
     "angular-sanitize": "^1.6.4",

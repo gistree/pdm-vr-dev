@@ -5,9 +5,9 @@
         .module('MapInteractionsModule')
         .service('MapInteractionsService', MapInteractionsService)
 
-    MapInteractionsService.$inject = ['MapService'];
+    MapInteractionsService.$inject = ['MapService', 'LayerQueryResultsService', '$http'];
 
-    function MapInteractionsService(MapService) {
+    function MapInteractionsService(MapService, LayerQueryResultsService, $http) {
         var data = {
             interaction: '',
             interactionText: ''
@@ -45,6 +45,14 @@
                     MapService.map.addInteraction(new ol.interaction.DragZoom({
                         condition: ol.events.condition.always,
                         className: 'drag_zoom_box'
+                    }));
+                    break;
+                case 'Identify':
+                    data.interactionText = 'Identificar Camadas';
+                    MapService.map.addInteraction(new ol.interaction.Pointer({
+                        handleDownEvent: function (evt) {
+                            LayerQueryResultsService.getLayersInfo(evt, evt.map.getView(), evt.map.getLayers().getArray());
+                        }
                     }));
                     break;
             }

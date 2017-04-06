@@ -71,6 +71,7 @@ module.exports = function (grunt) {
                     'app/modules/MapInteractions/build/build.js': [
                         'app/modules/MapInteractions/*.js',
                         'app/modules/MapInteractions/services/*.js',
+                        'app/modules/MapInteractions/filters/*.js',
                         'app/modules/MapInteractions/controllers/*.js',
                         'app/modules/MapInteractions/directives/*.js'
                     ]
@@ -134,7 +135,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('build-css', ['cssmin', 'concat', 'copy:css']);
     grunt.registerTask('fancytree_min', ['uglify:fancytree']);
-    grunt.registerTask('angular-modules', ['uglify:map', 'uglify:mapInteractions', 'uglify:drawing', 'uglify:legends', 'uglify:printing','uglify:searchlocation', 'copy:modules']);
+    grunt.registerTask('angular-modules', ['uglify:map', 'uglify:mapInteractions', 'uglify:drawing', 'uglify:legends', 'uglify:printing', 'uglify:searchlocation', 'copy:modules']);
     grunt.registerTask('angular-build', ['uglify:modules']);
 
     grunt.registerTask('build', ['build-css', 'angular-modules', 'angular-build']);

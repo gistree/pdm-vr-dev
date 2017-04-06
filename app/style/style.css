@@ -233,6 +233,67 @@ input[type=number] {
 /* JOKORD.MAP.SearchBar [End] */
 
 
+/* JOKORD.Identify[START] */
+
+.identify-container {
+    position: absolute;
+    top: 4em;
+    left: 5px;
+    background-color: rgba(100%, 100%, 100%, 0.8);
+    border: 1px solid #333;
+    border-radius: 2px;
+    font-family: Courier New, Courier, monospace;
+    min-width: 275px;
+    max-width: 275px;
+    max-height: 400px;
+    overflow: auto;
+}
+
+.identify-container .title {
+    text-align: center;
+    font-size: 0.9em;
+    font-weight: 700;
+    padding: 1px 2px;
+    border-bottom: 1px solid #333;
+    background-color: rgba(40.4%, 66.3%, 14.9%, .75);
+}
+
+.identify-container .no-results {
+    font-size: 0.8em;
+    text-align: center;
+}
+
+.identify-container .content {
+    padding: 0 0.3em;
+    background-color: #b0e27e;
+}
+
+.identify-container .content:not(:last-child) {
+    border-bottom: 1px solid #18481A;
+}
+
+.identify-container .content .layer {
+    padding: .3em 0;
+}
+
+.identify-container .content .layer li {
+    line-height: 1em;
+}
+
+.identify-container .content .key {
+    font-weight: bold;
+    font-size: 0.65em;
+}
+
+.identify-container .content .value {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.65em;
+}
+
+
+/* JOKORD.Identify[End] */
+
+
 /* JOKORD.ScaleLine[START] */
 
 .ol-scale-line {
@@ -515,6 +576,7 @@ span.fancytree-node.fancytree-selected span.fancytree-expander:hover {
 .fancytree-level-2 span.fancytree-title {
     padding-left: 6em !important;
 }
+
 .fancytree-level-2 span.fancytree-icon {
     margin-top: 3px !important;
     cursor: pointer;

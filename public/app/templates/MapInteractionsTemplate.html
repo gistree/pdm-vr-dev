@@ -21,6 +21,10 @@
         data-tooltip="Zoom Caixa">
             <i class="fa fa-expand"></i>
     </button>
+    <button ng-click="itCtrl.setInteraction('Identify')" ng-class="{active: itCtrl.isActive('Identify')}" type="button" class="btn btn-secondary tooltip-bottom"
+        data-tooltip="Identificar">
+            <i class="fa fa-info" style="padding: 0em 0.25em"></i>
+    </button>
     <ui-select ng-controller="LocationController as locCtrl" on-select="locCtrl.onSelectCallback($model)" ng-model="locCtrl.location.selected"
         theme="selectize" class="search-bar" title="Escolha um local">
         <ui-select-match placeholder="Selecione uma Localidade...">{{$select.selected.properties.nome}}</ui-select-match>
@@ -29,6 +33,22 @@
         </ui-select-choices>
     </ui-select>
 </div>
+<section class="identify-container" ng-show="itCtrl.isActive('Identify')" ng-controller="LayerResultsController as lrCtrl">
+    <div class="title">{{lrCtrl.title}}</div>
+    <div class="content" ng-hide="lrCtrl.hasResults()">
+        <div class="no-results">Não foram encontrados resultados.</div>
+    </div>
+    <div ng-repeat="result in lrCtrl.results" class="content">
+        <div class="layer">
+            <div ng-repeat="feature in result.features">
+                <li ng-repeat="(key, value) in feature.properties">
+                    <span class="key">{{key | uppercase}}:</span>
+                    <span class="value">{{value | capitalize}}</span>
+                </li>
+            </div>
+        </div>
+    </div>
+</section>
 <section class="bottom-bar-left">
     <div class="box">Acção Selecionada: {{itCtrl.currentInteraction}}</div>
 </section>

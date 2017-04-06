@@ -16,7 +16,8 @@
                             name: "reserva_agricola_nacional",
                             type: "TileWMS",
                             extent: [18766.638671875, 169217.796875, 43913.2890625, 193993.140625],
-                            opacity: 1
+                            opacity: 1,
+                            queryable: true
                         }
                     },
                     {
@@ -26,7 +27,8 @@
                             name: "reserva_ecologica_nacional",
                             type: "TileWMS",
                             extent: [17611.111328125, 167813.078125, 43707.05859375, 194903.828125],
-                            opacity: 1
+                            opacity: 1,
+                            queryable: true
                         }
                     },
                     {
@@ -36,7 +38,8 @@
                             name: "zonas_inundaveis",
                             type: "TileWMS",
                             extent: [27244.9114809302, 177243.61450175, 41852.2031466667, 189472.103570326],
-                            opacity: 1
+                            opacity: 1,
+                            queryable: true
                         }
                     },
                     {
@@ -46,7 +49,8 @@
                             name: "pedreiras",
                             type: "TileWMS",
                             extent: [31301, 178579, 41093.41, 190632.45],
-                            opacity: 1
+                            opacity: 1,
+                            queryable: true
                         }
                     },
                     {
@@ -56,7 +60,8 @@
                             name: "limite_da_rede_natura_2000",
                             type: "TileWMS",
                             extent: [17740.3000053704, 171533.053579776, 40013.0868021306, 194769.710001934],
-                            opacity: 1
+                            opacity: 1,
+                            queryable: true
                         }
                     },
                     {
@@ -66,7 +71,8 @@
                             name: "aerodromo",
                             type: "TileWMS",
                             extent: [34331.448827946, 177917.382271892, 34841.7445349963, 178924.526851403],
-                            opacity: 1
+                            opacity: 1,
+                            queryable: true
                         }
                     },
                     {
@@ -76,7 +82,8 @@
                             name: "linhas_de_alta_tensao",
                             type: "TileWMS",
                             extent: [17843.5054611179, 171303.709982924, 41964.3228092712, 193773.342089996],
-                            opacity: 1
+                            opacity: 1,
+                            queryable: true
                         }
                     },
                     {
@@ -86,7 +93,8 @@
                             name: "abastecimento_de_aguas_adutoras",
                             type: "TileWMS",
                             extent: [20487.740234375, 171527.75, 41165.7734375, 186798.828125],
-                            opacity: 1
+                            opacity: 1,
+                            queryable: true
                         }
                     },
                     {
@@ -96,7 +104,8 @@
                             name: "rede_rodoviaria",
                             type: "TileWMS",
                             extent: [16256.658203125, 170863.625, 44522.0078125, 192233.984375],
-                            opacity: 1
+                            opacity: 1,
+                            queryable: true
                         }
                     },
                     {
@@ -106,7 +115,8 @@
                             name: "rede_rodoviaria_prevista",
                             type: "TileWMS",
                             extent: [29997.7402124873, 177120.447071248, 41954.7321947515, 183448.040850479],
-                            opacity: 1
+                            opacity: 1,
+                            queryable: true
                         }
                     },
                     {
@@ -116,7 +126,8 @@
                             name: "rede_ferroviaria",
                             type: "TileWMS",
                             extent: [31424.05859375, 171505.453125, 37849.6171875, 193419.1875],
-                            opacity: 1
+                            opacity: 1,
+                            queryable: true
                         }
                     },
                     {
@@ -126,7 +137,8 @@
                             name: "vertices_geodesicos",
                             type: "TileWMS",
                             extent: [18029.923828125, 171169.359375, 43374.625, 193767.53125],
-                            opacity: 1
+                            opacity: 1,
+                            queryable: true
                         }
                     }
                 ]
@@ -142,7 +154,8 @@
                             name: "solo_rural",
                             type: "TileWMS",
                             extent: [17606.0390625, 167813.078125, 44726.4296875, 194903.828125],
-                            opacity: 1
+                            opacity: 1,
+                            queryable: true
                         }
                     },
                     {
@@ -152,7 +165,8 @@
                             name: "solo_urbano",
                             type: "TileWMS",
                             extent: [20274.8671875, 170510.4375, 43669.11328125, 193721.0625],
-                            opacity: 1
+                            opacity: 1,
+                            queryable: true
                         }
                     },
                     {
@@ -162,7 +176,8 @@
                             name: "solo_de_urbanizacao_programada",
                             type: "TileWMS",
                             extent: [23145.26953125, 176716.625, 43091.53515625, 187579.03125],
-                            opacity: 1
+                            opacity: 1,
+                            queryable: true
                         }
                     },
                     {
@@ -172,7 +187,8 @@
                             name: "estrutura_ecologica_urbana",
                             type: "TileWMS",
                             extent: [20556.63671875, 170877.609375, 43327.91015625, 190965.9375],
-                            opacity: 1
+                            opacity: 1,
+                            queryable: true
                         }
                     },
                     {
@@ -182,7 +198,8 @@
                             name: "outras_instalacoes",
                             type: "TileWMS",
                             extent: [31896.716796875, 175867.421875, 35477.484375, 183670.53125],
-                            opacity: 1
+                            opacity: 1,
+                            queryable: true
                         }
                     },
                     {
@@ -192,7 +209,8 @@
                             name: "zonas_de_protecao_ao_aerodromo",
                             type: "TileWMS",
                             extent: [29641.623046875, 173227.484375, 39421.3359375, 183633.4375],
-                            opacity: 1
+                            opacity: 1,
+                            queryable: true
                         }
                     }
                 ]
@@ -210,7 +228,8 @@
                             type: "TileWMS",
                             extent: [18766.4261249, 168284.50999, 45232.348, 193945.9475],
                             opacity: 1,
-                            minZoom: 17
+                            minZoom: 17,
+                            queryable: false
                         }
                     },
                     {
@@ -221,7 +240,8 @@
                             name: "limite_freguesias",
                             type: "WMS",
                             extent: [17736.5093, 167946.442199999, 44587.9413999999, 194768.479699999],
-                            opacity: 1
+                            opacity: 1,
+                            queryable: false
                         }
                     },
                     {
@@ -232,7 +252,8 @@
                             name: "limite_concelho",
                             type: "WMS",
                             extent: [17736.5093, 167946.442199999, 44587.9413999999, 194768.479699999],
-                            opacity: 1
+                            opacity: 1,
+                            queryable: false
                         }
                     }
                 ]

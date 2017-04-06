@@ -57,17 +57,6 @@
             setBaseLayer: setBaseLayer,
             zoomToCoordinate: zoomToCoordinate
         };
-
-        ol.Collection.prototype.insertLayer = function (layer) {
-            var index = this.getArray().findIndex(function (mapLayer) {
-                return mapLayer.get('group') < layer.get('group');
-            });
-            if (index !== -1) {
-                this.insertAt(index, layer);
-            } else {
-                this.push(layer);
-            }
-        };
         return ms;
 
         function init(config) {
@@ -80,7 +69,8 @@
                 target: mapConfig.target,
                 layers: [
                     new ol.layer.Tile({
-                        source: new ol.source.OSM({})
+                        source: new ol.source.OSM({}),
+                        queryable: false
                     })
                 ],
                 interactions: mapConfig.interactions,
@@ -137,7 +127,8 @@
                     }),
                     minResolution: calculateResolution(layerData.maxZoom),
                     maxResolution: calculateResolution(layerData.minZoom),
-                    group: layerData.group
+                    group: layerData.group,
+                    queryable: layerData.queryable
                 });
                 _layers[layerData.key] = wmsLayer;
                 map.getLayers().insertLayer(wmsLayer);
@@ -163,7 +154,8 @@
                     }),
                     minResolution: calculateResolution(layerData.maxZoom),
                     maxResolution: calculateResolution(layerData.minZoom),
-                    group: layerData.group
+                    group: layerData.group,
+                    queryable: layerData.queryable
                 });
                 _layers[layerData.key] = wmsLayer;
                 map.getLayers().insertLayer(wmsLayer);
@@ -197,10 +189,10 @@
             window.view = view;
             map.getView().animate({
                 zoom: 11,
-                duration: 2000
+                duration: 500
             }, {
                 center: ol.proj.transform(coordinate, ol.proj.get(proj), 'EPSG:3857'),
-                duration: 2000,
+                duration: 1500,
                 zoom: 15
             });
         }
@@ -261,5 +253,20 @@
                 }
             }
         }
+    };
+
+    ol.Collection.prototype.insertLayer = function (layer) {
+        var index = this.getArray().findIndex(function (mapLayer) {
+            return mapLayer.get('group') < layer.get('group');
+        });
+        if (index !== -1) {
+            this.insertAt(index, layer);
+        } else {
+            this.push(layer);
+        }
+    };
+
+    ol.layer.Base.prototype.isQueryable = function () {
+        return this.values_.queryable;
     };
 })();
