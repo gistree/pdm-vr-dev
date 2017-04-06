@@ -267,6 +267,6 @@
     };
 
     ol.layer.Base.prototype.isQueryable = function () {
-        return this.values_.queryable;
+        return this.get('queryable');
     };
 })();
