@@ -400,6 +400,7 @@ input[type=number] {
 }
 
 .panel .my-icon {
+    background-image: url("../app/icons/tab-icons.png");
     height: 23px;
     width: 23px;
     display: inline-block;
@@ -408,35 +409,23 @@ input[type=number] {
 }
 
 .panel .my-icon.my-icon-camadas {
-    background-image: url("../app/icons/layers.png");
-}
-
-.panel a.active .my-icon.my-icon-camadas {
-    background-image: url("../app/icons/layers_s.png");
+    background-position: 0 0;
 }
 
 .panel .my-icon.my-icon-legends {
-    background-image: url("../app/icons/legends.png");
-}
-
-.panel a.active .my-icon.my-icon-legends {
-    background-image: url("../app/icons/legends_s.png");
+    background-position: -23px 0;
 }
 
 .panel .my-icon.my-icon-imprimir {
-    background-image: url("../app/icons/print.png");
-}
-
-.panel a.active .my-icon.my-icon-imprimir {
-    background-image: url("../app/icons/print_s.png");
+    background-position: -50px 0;
 }
 
 .panel .my-icon.my-icon-basedoc {
-    background-image: url("../app/icons/base_doc.png");
+    background-position: -73px 0;
 }
 
-.panel a.active .my-icon.my-icon-basedoc {
-    background-image: url("../app/icons/base_doc_s.png");
+.panel a.active .my-icon {
+    background-position-y: -23px;
 }
 
 
@@ -1051,9 +1040,12 @@ span.fancytree-node.fancytree-selected span.fancytree-expander:hover {
 
 /* JOKORD.Panel.Print [End] */
 
+
 /* JOKORD.Panel.BaseDocumental [Start] */
 
+
 /* JOKORD.Panel.BaseDocumental [End] */
+
 
 /* JOKORD.Panel[END] */
 
