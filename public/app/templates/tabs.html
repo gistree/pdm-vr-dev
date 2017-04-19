@@ -1,9 +1,10 @@
 <div class="panel">
     <div class="tabbable-line">
         <ul id="lefttopmenutabs" role="tablist" class="nav nav-tabs">
-            <a data-toggle="tab" href="#layers" role="tab" class="nav-item nav-link active">Camadas</a>
-            <a data-toggle="tab" href="#legenda" role="tab" class="nav-item nav-link">Legenda</a>
-            <a data-toggle="tab" href="#imprimir" role="tab" class="nav-item nav-link">Imprimir</a>
+            <a data-toggle="tab" data-tooltip="Camadas" href="#layers" role="tab" class="nav-item nav-link active tooltip-bl"><i class="my-icon my-icon-camadas"></i></a>
+            <a data-toggle="tab" data-tooltip="Legenda" href="#legenda" role="tab" class="nav-item nav-link tooltip-bl"><i class="my-icon my-icon-legends"></i></a>
+            <a data-toggle="tab" data-tooltip="Impressão" href="#imprimir" role="tab" class="nav-item nav-link tooltip-bl"><i class="my-icon my-icon-imprimir"></i></a>
+            <a data-toggle="tab" data-tooltip="Base Documental" href="#documental" role="tab" class="nav-item nav-link tooltip-bl"><i class="my-icon my-icon-basedoc"></i></a>
             <button type="button" ng-click="tc.hideMenu()" class="btn btn-secondary btn-circle btn-hide">
                 <i class="fa fa-arrow-left"></i>
             </button>
@@ -39,7 +40,7 @@
                 </section>
             </div>
             <div id="legenda" role="tabpanel" class="tab-pane" ng-controller="LegendsController as lgsCtrl">
-                <section class="legends-container">                 
+                <section class="legends-container">
                     <ul class="list-group legends-list" ng-repeat="group in groups">
                         <b>{{group.title}}</b>
                         <li class="list-group-item legends-item" ng-repeat="legend in group.data">
@@ -169,6 +170,17 @@
                             </div>
                         </section>
                     </section>
+                </section>
+            </div>
+            <div id="documental" role="tabpanel" class="tab-pane" ng-controller="BaseDocumentalController as bdCtrl">
+                <section class="legends-container">
+                    <h5>Base Documental</h5>
+                    <div ng-repeat="item in bdCtrl.items">
+                        <div style="text-align:center; font-size: 1em; color: #18481a;">{{item.title}}</div>
+                        <div ng-repeat="url in item.content" style="padding-left:1em; font-size: 0.85em">
+                            <a target="_blank" ng-href="{{bdCtrl.baseAddress}}{{url.address}}"><i class="fa fa-download"></i>&nbsp;{{url.name}}</a>
+                        </div>
+                    </div>
                 </section>
             </div>
         </div>

@@ -399,6 +399,46 @@ input[type=number] {
     border-top: 1px solid transparent;
 }
 
+.panel .my-icon {
+    height: 23px;
+    width: 23px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    vertical-align: text-top;
+}
+
+.panel .my-icon.my-icon-camadas {
+    background-image: url("../app/icons/layers.png");
+}
+
+.panel a.active .my-icon.my-icon-camadas {
+    background-image: url("../app/icons/layers_s.png");
+}
+
+.panel .my-icon.my-icon-legends {
+    background-image: url("../app/icons/legends.png");
+}
+
+.panel a.active .my-icon.my-icon-legends {
+    background-image: url("../app/icons/legends_s.png");
+}
+
+.panel .my-icon.my-icon-imprimir {
+    background-image: url("../app/icons/print.png");
+}
+
+.panel a.active .my-icon.my-icon-imprimir {
+    background-image: url("../app/icons/print_s.png");
+}
+
+.panel .my-icon.my-icon-basedoc {
+    background-image: url("../app/icons/base_doc.png");
+}
+
+.panel a.active .my-icon.my-icon-basedoc {
+    background-image: url("../app/icons/base_doc_s.png");
+}
+
 
 /* JOKORD.Panel.Top [Start] */
 
@@ -1011,6 +1051,9 @@ span.fancytree-node.fancytree-selected span.fancytree-expander:hover {
 
 /* JOKORD.Panel.Print [End] */
 
+/* JOKORD.Panel.BaseDocumental [Start] */
+
+/* JOKORD.Panel.BaseDocumental [End] */
 
 /* JOKORD.Panel[END] */
 
@@ -1129,6 +1172,33 @@ span.fancytree-node.fancytree-selected span.fancytree-expander:hover {
 .tooltip-bottom:hover:after,
 .tooltip-bottom:focus:before,
 .tooltip-bottom:focus:after {
+    -webkit-transform: translateY(12px);
+    -moz-transform: translateY(12px);
+    transform: translateY(12px);
+}
+
+.tooltip-bl:before,
+.tooltip-bl:after {
+    top: 80%;
+    bottom: auto;
+    left: 120%;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.tooltip-bl:before {
+    margin-top: -12px;
+    margin-bottom: 0;
+    margin-left: -85%;
+    border-top-color: transparent;
+    border-bottom-color: #000;
+    border-bottom-color: #b0e27e;
+}
+
+.tooltip-bl:hover:before,
+.tooltip-bl:hover:after,
+.tooltip-bl:focus:before,
+.tooltip-bl:focus:after {
     -webkit-transform: translateY(12px);
     -moz-transform: translateY(12px);
     transform: translateY(12px);
