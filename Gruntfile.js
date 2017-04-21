@@ -117,6 +117,17 @@ module.exports = function (grunt) {
                     ]
                 }
             },
+            basedocumental: {
+                files: {
+                    'app/modules/BaseDocumental/build/build.js': [
+                        'app/modules/BaseDocumental/*.js',
+                        'app/modules/BaseDocumental/services/*.js',
+                        'app/modules/BaseDocumental/filters/*.js',
+                        'app/modules/BaseDocumental/controllers/*.js',
+                        'app/modules/BaseDocumental/directives/*.js'
+                    ]
+                }
+            },
             modules: {
                 files: {
                     'public/app/app-<%=version%>.js': [
@@ -135,7 +146,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('build-css', ['cssmin', 'concat', 'copy:css']);
     grunt.registerTask('fancytree_min', ['uglify:fancytree']);
-    grunt.registerTask('angular-modules', ['uglify:map', 'uglify:mapInteractions', 'uglify:drawing', 'uglify:legends', 'uglify:printing', 'uglify:searchlocation', 'copy:modules']);
+    grunt.registerTask('angular-modules', ['uglify:map', 'uglify:mapInteractions', 'uglify:drawing', 'uglify:legends', 'uglify:printing', 'uglify:searchlocation','uglify:basedocumental', 'copy:modules']);
     grunt.registerTask('angular-build', ['uglify:modules']);
 
     grunt.registerTask('build', ['build-css', 'angular-modules', 'angular-build']);

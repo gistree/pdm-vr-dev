@@ -6,7 +6,8 @@
         'LegendsModule',
         'MapInteractionsModule',
         'PrintingModule',
-        'SearchLocationModule'
+        'SearchLocationModule',
+        'BaseDocumentalModule'
     ]);
 
 })();

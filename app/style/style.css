@@ -59,6 +59,22 @@ input[type=number] {
     height: 100%;
 }
 
+.noselect {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
 
 /* JOKORD.MAP [START]*/
 
@@ -1042,6 +1058,66 @@ span.fancytree-node.fancytree-selected span.fancytree-expander:hover {
 
 
 /* JOKORD.Panel.BaseDocumental [Start] */
+
+#documental h5 {
+    font-family: Courier New, Courier, monospace;
+    font-weight: bold;
+    font-size: 1.1em;
+    text-align: center;
+    margin-top: 0.5em;
+    color: #333333;
+}
+
+#documental .bd-section {
+    font-size: 0.9em;
+    padding: 0.2em;
+    padding-left: 1em;
+    color: #18481A;
+    cursor: pointer;
+}
+
+#documental .bd-section:before {
+    content: "\002b"
+}
+
+#documental .bd-section:hover {
+    color: #4e7f10;
+}
+
+#documental .bd-section.active {
+    background-color: #67a926;
+    border-color: #b0e27e;
+    color: #fff;
+}
+
+#documental .bd-section.active:before {
+    content: "\2212"
+}
+
+#documental .content {
+    margin: 0.5em 1em;
+}
+
+#documental .bd-title {
+    font-size: 0.75em;
+    padding-left: 1.5em;
+    color: #4e7f10;
+    cursor: pointer;
+}
+
+#documental .bd-title:hover,
+#documental .bd-title.active {
+    color: #18481A;
+}
+
+#documental .subcategory-content {
+    padding: 0.5em;
+}
+
+#documental .float-my-children>* {
+    float: left;
+    margin-right: 5px;
+}
 
 
 /* JOKORD.Panel.BaseDocumental [End] */
