@@ -1112,11 +1112,16 @@ span.fancytree-node.fancytree-selected span.fancytree-expander:hover {
 
 #documental .subcategory-content {
     padding: 0.5em;
+    cursor: auto;
 }
 
 #documental .float-my-children>* {
     float: left;
     margin-right: 5px;
+}
+
+#documental .subcategory-content a {
+    cursor: pointer;
 }
 
 
