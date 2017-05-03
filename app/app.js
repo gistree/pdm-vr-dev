@@ -7,7 +7,9 @@
         'MapInteractionsModule',
         'PrintingModule',
         'SearchLocationModule',
-        'BaseDocumentalModule'
+        'BaseDocumentalModule',
+        'AuthenticationModule',
+        'ngDialog'
     ]);
 
 })();

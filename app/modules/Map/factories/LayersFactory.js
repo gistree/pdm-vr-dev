@@ -270,6 +270,28 @@
             });
             return l;
         };
+
+        function addLayer(grp) {
+            layers.forEach(function (l) {
+                if (l.title == grp.title) {
+                    grp.children.forEach(function (layer) {
+                        l.children.unshift(layer);
+                    });
+                }
+            });
+            $("#tree").fancytree('getTree').reload(setLayerOrder(layers));
+        }
+
+        function removeProtectedLayers() {
+            $("#tree").fancytree("getTree").visit(function (node) {
+                if (!node.isFolder()) {
+                    if (node.data.protected) {
+                        node.remove();
+                    }
+                }
+            });
+        }
+
         return {
             glyph_opts: {
                 map: {
@@ -287,7 +309,9 @@
                     loading: "fa fa-spinner"
                 }
             },
-            source: setLayerOrder(layers)
+            source: setLayerOrder(layers),
+            addLayer: addLayer,
+            removeProtectedLayers: removeProtectedLayers
         }
     };
 })();

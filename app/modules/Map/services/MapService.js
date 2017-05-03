@@ -4,7 +4,9 @@
         .module('MapModule')
         .factory('MapService', MapService)
 
-    function MapService() {
+    MapService.$inject = ['$http'];
+
+    function MapService($http) {
         var _layers = {};
         var _userFeatures = {};
         if (!ol) return {};

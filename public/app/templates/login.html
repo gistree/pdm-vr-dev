@@ -1,0 +1,22 @@
+<div class="panel panel-default" style="background: #fff" id="login">
+    <div class="panel-heading" style="text-align: center;">
+        <img src="/app/icons/cmvr.png" width="200" height="45">
+    </div>
+    <div class="panel-body">
+        <form name="credForm" novalidate accept-charset="UTF-8" class="my-form" role="form">
+            <fieldset>
+                <div class="form-group">
+                    <input style="padding:1em 0.75em;" ng-class="{invalid: credForm.$submitted}" data-ng-model="dialogCtrl.username" class="form-control" placeholder="Nome de Utilizador"
+                        name="username" type="text">
+                </div>
+                <div class="form-group">
+                    <input style="padding:1em 0.75em;" ng-class="{invalid: credForm.$submitted}" data-ng-model="dialogCtrl.password" class="form-control" placeholder="Password" name="password"
+                        type="password" value="">
+                </div>
+                <button style="margin-top: 1em;" ng-click="dialogCtrl.submit(credForm)" class="btn btn-block">Entrar</button>
+                <div style="font-size: 0.6em; padding: 0.4em; text-align: center; margin-top: 1em;" class="alert alert-danger" data-ng-show="dialogCtrl.message"
+                    data-ng-bind="dialogCtrl.message"></div>
+            </fieldset>
+        </form>
+    </div>
+</div>

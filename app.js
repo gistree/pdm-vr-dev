@@ -20,21 +20,41 @@ app.set('view engine', 'jade');
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 
+var httpProxy = require('http-proxy');
+var apiProxy = httpProxy.createProxyServer();
+var geoserver = 'http://gistree.espigueiro.pt/geoserver/';
+
+apiProxy.on('proxyReq', function (proxyReq, req, res, options) {
+    proxyReq.setHeader('X-Credentials', 'user=' + res.locals.username + '&pw=' + res.locals.pw);
+});
+
+app.use('/proxy/geoserver', function (req, res, next) {
+    res.locals.username = "jokord";
+    res.locals.pw = "12345";
+    next();
+}, function (req, res) {
+    apiProxy.web(req, res, {
+        target: geoserver
+    });
+});
+
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
     next(err);
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
     // set locals, only providing error in development
     res.locals.message = err.message;
     res.locals.error = req.app.get('env') === 'development' ? err : {};

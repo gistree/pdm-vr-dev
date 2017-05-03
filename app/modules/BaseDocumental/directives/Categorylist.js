@@ -34,7 +34,6 @@
         }
 
         function activate() {
-            console.log(BaseDocumentalService);
             catCtrl.isActive = false;
             catCtrl.baseAddress = BaseDocumentalService.getBaseAddress();
             catCtrl.items = BaseDocumentalService.getData();

@@ -13,10 +13,17 @@ html(lang='en' ng-app='pdmApp')
     
     link(rel="shortcut icon" href="app/icons/favicon.ico")
     
-  body
+  body(ng-cloak)
     nav.navbar.navbar-toggleable-md.fixed-top
         a.navbar-brand(href='#')
-            img(src="/app/icons/cmvr.png" width="200" height="45")    
+            img(src="/app/icons/cmvr.png" width="200" height="45")
+        div.collapse.navbar-collapse(id="login" ng-controller="LoginController as lgCtrl")
+            ul.navbar-nav.ml-auto
+                li.nav-item
+                    button.btn.btn-login(ng-click="lgCtrl.login()" ng-hide="lgCtrl.isLogged") &nbsp;Log in&nbsp;
+                    span(ng-show="lgCtrl.isLogged")
+                        span.wellcome Bem-vindo, {{lgCtrl.username}}! 
+                        button.btn.btn-login(ng-click="lgCtrl.logout()") &nbsp;Log out&nbsp; 
     .container-fluid.no-padding.full_height
         .row.no-gutters.full_height
             #menu-container.col-3.full_height(ng-hide="menuIsHidden")
@@ -34,6 +41,7 @@ html(lang='en' ng-app='pdmApp')
     script(src="vendor/bootstrap.min.js")
     script(src="vendor/angular.min.js")
     script(src="vendor/angular-sanitize.min.js")
+    script(src="vendor/ngDialog.min.js")
     script(src="vendor/select.min.js")
 
     script(src="app/app-#{version}.js")

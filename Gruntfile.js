@@ -23,7 +23,9 @@ module.exports = function (grunt) {
                     'app/style/min/bootstrap.min.css',
                     'app/style/min/ol.min.css',
                     'app/style/min/selectize.min.css',
-                    'app/style/min/select.min.css'
+                    'app/style/min/select.min.css',
+                    'app/style/min/ngDialog.min.css',
+                    'app/style/min/ngDialog-theme-default.min.css'
                 ],
                 dest: 'public/style/vendor.css',
             },
@@ -128,6 +130,17 @@ module.exports = function (grunt) {
                     ]
                 }
             },
+            authentication: {
+                files: {
+                    'app/modules/Authentication/build/build.js': [
+                        'app/modules/Authentication/*.js',
+                        'app/modules/Authentication/services/*.js',
+                        'app/modules/Authentication/filters/*.js',
+                        'app/modules/Authentication/controllers/*.js',
+                        'app/modules/Authentication/directives/*.js'
+                    ]
+                }
+            },
             modules: {
                 files: {
                     'public/app/app-<%=version%>.js': [
@@ -146,7 +159,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('build-css', ['cssmin', 'concat', 'copy:css']);
     grunt.registerTask('fancytree_min', ['uglify:fancytree']);
-    grunt.registerTask('angular-modules', ['uglify:map', 'uglify:mapInteractions', 'uglify:drawing', 'uglify:legends', 'uglify:printing', 'uglify:searchlocation','uglify:basedocumental', 'copy:modules']);
+    grunt.registerTask('angular-modules', ['uglify:map', 'uglify:mapInteractions', 'uglify:drawing', 'uglify:legends', 'uglify:printing', 'uglify:searchlocation', 'uglify:basedocumental', 'uglify:authentication', 'copy:modules']);
     grunt.registerTask('angular-build', ['uglify:modules']);
 
     grunt.registerTask('build', ['build-css', 'angular-modules', 'angular-build']);
