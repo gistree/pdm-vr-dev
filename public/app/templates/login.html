@@ -6,11 +6,11 @@
         <form name="credForm" novalidate accept-charset="UTF-8" class="my-form" role="form">
             <fieldset>
                 <div class="form-group">
-                    <input style="padding:1em 0.75em;" ng-class="{invalid: credForm.$submitted}" data-ng-model="dialogCtrl.username" class="form-control" placeholder="Nome de Utilizador"
+                    <input style="padding:1em 0.75em;" ng-blur="dialogCtrl.reset('invalidUser')" ng-class="{invalid: credForm.$submitted && dialogCtrl.invalidUser}" data-ng-model="dialogCtrl.username" class="form-control" placeholder="Nome de Utilizador"
                         name="username" type="text">
                 </div>
                 <div class="form-group">
-                    <input style="padding:1em 0.75em;" ng-class="{invalid: credForm.$submitted}" data-ng-model="dialogCtrl.password" class="form-control" placeholder="Password" name="password"
+                    <input style="padding:1em 0.75em;" ng-blur="dialogCtrl.reset('invalidPass')" ng-class="{invalid: credForm.$submitted && dialogCtrl.invalidPass}" data-ng-model="dialogCtrl.password" class="form-control" placeholder="Password" name="password"
                         type="password" value="">
                 </div>
                 <button style="margin-top: 1em;" ng-click="dialogCtrl.submit(credForm)" class="btn btn-block">Entrar</button>

@@ -272,24 +272,26 @@
         };
 
         function addLayer(grp) {
-            layers.forEach(function (l) {
-                if (l.title == grp.title) {
+            $('#tree').fancytree("getTree").visit(function (node) {
+                if (node.isFolder() && node.title == grp.title) {
                     grp.children.forEach(function (layer) {
-                        l.children.unshift(layer);
+                        node.addChildren(layer, 0);
                     });
                 }
             });
-            $("#tree").fancytree('getTree').reload(setLayerOrder(layers));
         }
 
         function removeProtectedLayers() {
-            $("#tree").fancytree("getTree").visit(function (node) {
-                if (!node.isFolder()) {
-                    if (node.data.protected) {
-                        node.remove();
-                    }
+            var remove = [];
+            $('#tree').fancytree("getTree").visit(function (node) {
+                if (!node.isFolder() && node.data.protected) {
+                    remove.push(node.key);
                 }
             });
+            for (var i = 0; i < remove.length; i++) {
+                var node = $('#tree').fancytree("getTree").getNodeByKey(remove[i]);
+                node.remove();
+            }
         }
 
         return {

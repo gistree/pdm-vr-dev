@@ -42,5 +42,8 @@ module.exports = {
     locations: {
         findFreguesias: sql('locations/findFreguesias.sql'),
         findLocalidades: sql('locations/findLocalidades.sql')
+    },
+    user: {
+        find: sql('user/find.sql')
     }
 };

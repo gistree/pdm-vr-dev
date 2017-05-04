@@ -20,7 +20,7 @@
 
         function login(username, password) {
             return $http({
-                url: '/proxy/login',
+                url: '/credentials/login',
                 method: "POST",
                 data: {
                     'username': username,
@@ -31,7 +31,7 @@
 
         function logout() {
             return $http({
-                url: '/proxy/logout',
+                url: '/credentials/logout',
                 method: "POST",
             });
         }
