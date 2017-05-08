@@ -6,6 +6,8 @@ const dbUser = require('../db/dbCon/user');
 router.post('/login', dbUser.find, function (req, res) {
     req.session.username = res.locals.login.username;
     req.session.pw = res.locals.login.pw;
+    console.log("::::LOGIN::::");
+    console.log(req.session);
     res.status(200).json({
         username: res.locals.login.username,
         data: [{
