@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var router = express.Router();
+var fs = require('fs');
 
 // Proxy Server Definition
 var httpProxy = require('http-proxy');

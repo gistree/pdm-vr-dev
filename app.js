@@ -4,9 +4,7 @@ const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-
 const app = express();
-
 // Aplication Version
 app.set("version", process.env.npm_package_version);
 // view engine setup
@@ -21,9 +19,17 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
 // Session Definition
 app.use(require('./config/session'));
+// CORS ENABLING
+app.use('*', require('./config/cors'));
+// USE HTTPS SERVER
+app.all('*', function (req, res, next) {
+    if (req.secure) {
+        return next();
+    };
+    res.redirect('https://' + req.hostname + ':' + 443 + req.url);
+});
 // Routing Definition
 app.use('/', require('./routes/index'));
 app.use('/credentials/', require('./routes/credentials'));

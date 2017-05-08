@@ -25,7 +25,10 @@
                 data: {
                     'username': username,
                     'password': password
-                }
+                },
+                xhrFields: {
+                    withCredentials: true
+                },
             });
         };
 
