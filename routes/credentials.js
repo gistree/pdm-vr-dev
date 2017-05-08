@@ -22,7 +22,7 @@ router.post('/login', dbUser.find, function (req, res) {
                     workspace: "cmvrpostgis",
                     name: "limite_do_parque_natural_do_alvao",
                     type: "TileWMS",
-                    extent: [18766.638671875, 169217.796875, 43913.2890625, 193993.140625],
+                    extent: [24565.8138696318, 183894.59376334, 32871.2498912235, 193759.879997275],
                     opacity: 1,
                     queryable: true
                 }
