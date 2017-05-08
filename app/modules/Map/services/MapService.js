@@ -120,7 +120,7 @@
             if (_checkLayer(layerData.key)) {
                 var url;
                 if (layerData.protected) {
-                    url = "http://localhost:3000/proxy";
+                    url = "http://gistree.espigueiro.pt:3000/proxy";
                 } else {
                     url = "http://gistree.espigueiro.pt/geoserver/wms";
                 }
