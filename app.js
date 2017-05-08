@@ -19,6 +19,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
 // Session Definition
 app.use(require('./config/session'));
 // CORS ENABLING

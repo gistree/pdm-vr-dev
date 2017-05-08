@@ -40,4 +40,4 @@ data
 
 /QGIS
 # Database Configuration
-/config
+#/config
