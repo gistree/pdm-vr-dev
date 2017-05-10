@@ -13,8 +13,6 @@ apiProxy.on('proxyReq', function (proxyReq, req, res, options) {
 });
 
 router.get('/', function (req, res, next) {
-    console.log("::::PROXY::::");
-    console.log(req.session);
     res.locals.username = req.session.username || "";
     res.locals.pw = req.session.pw || "";
     next();

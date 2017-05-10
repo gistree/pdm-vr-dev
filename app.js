@@ -33,7 +33,7 @@ app.all('*', function (req, res, next) {
 // Routing Definition
 app.use('/', require('./routes/index'));
 app.use('/credentials/', require('./routes/credentials'));
-app.use('/proxy/', require('./routes/proxy'));
+app.use('/wms/', require('./routes/proxy'));
 app.use('/api/', require('./routes/resources'));
 // Error Handling
 app.use(function (req, res, next) {

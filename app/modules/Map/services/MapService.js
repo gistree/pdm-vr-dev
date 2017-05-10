@@ -22,7 +22,7 @@
                     layers: [
                         new ol.layer.Image({
                             source: new ol.source.ImageWMS({
-                                url: 'http://gistree.espigueiro.pt/geoserver/wms',
+                                url: 'https://gistree.espigueiro.pt:3001/wms',
                                 params: {
                                     'LAYERS': 'cmvrpostgis:limite_freguesias'
                                 },
@@ -31,7 +31,7 @@
                         }),
                         new ol.layer.Image({
                             source: new ol.source.ImageWMS({
-                                url: 'http://gistree.espigueiro.pt/geoserver/wms',
+                                url: 'https://gistree.espigueiro.pt:3001/wms',
                                 params: {
                                     'LAYERS': 'cmvrpostgis:limite_concelho'
                                 },
@@ -118,16 +118,16 @@
 
         function addTiledWMSLayer(layerData) {
             if (_checkLayer(layerData.key)) {
-                var url;
+                /*var url;
                 if (layerData.protected) {
                     url = "http://gistree.espigueiro.pt:3000/proxy";
                 } else {
                     url = "http://gistree.espigueiro.pt/geoserver/wms";
-                }
+                }*/
                 var wmsLayer = new ol.layer.Tile({
                     opacity: layerData.opacity,
                     source: new ol.source.TileWMS({
-                        url: url,
+                        url: 'https://gistree.espigueiro.pt:3001/wms',
                         params: {
                             'LAYERS': layerData.workspace + ":" + layerData.name
                         },
@@ -154,7 +154,7 @@
                 var wmsLayer = new ol.layer.Image({
                     opacity: layerData.opacity,
                     source: new ol.source.ImageWMS({
-                        url: 'http://gistree.espigueiro.pt/geoserver/wms',
+                        url: 'https://gistree.espigueiro.pt:3001/wms',
                         params: {
                             'LAYERS': layerData.workspace + ":" + layerData.name
                         },
