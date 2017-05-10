@@ -46,7 +46,7 @@
                         <li class="list-group-item legends-item" ng-repeat="legend in group.data">
                             <div>{{legend.title}}</div>
                             <div class="image-container">
-                                <img ng-src="http://gistree.espigueiro.pt/geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.1.1&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER={{legend.workspace}}:{{legend.name}}&LEGEND_OPTIONS=forceLabels:on;fontSize:11&SCALE=1000000">
+                                <img ng-src="https://gistree.espigueiro.pt/wms?REQUEST=GetLegendGraphic&VERSION=1.1.1&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER={{legend.workspace}}:{{legend.name}}&LEGEND_OPTIONS=forceLabels:on;fontSize:11&SCALE=1000000">
                             </div>
                         </li>
                     </ul>
