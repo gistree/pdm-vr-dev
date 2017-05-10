@@ -27,7 +27,9 @@
                 glyph: LayersFactory.glyph_opts,
                 clickFolderMode: 4,
                 selectMode: 3,
-                source: LayersFactory.source,
+                source: {
+                    url: '/api/layers',                    
+                },
                 toggleEffect: {
                     effect: "drop",
                     options: {
@@ -103,5 +105,4 @@
             scope.tree = element.find("#tree").fancytree('getTree');
         }
     }
-
 })();

@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 // Session Definition
-app.use(require('./config/session'));
+app.use(require('./config/session').sessionOptions);
 // CORS ENABLING
 app.use('*', require('./config/cors'));
 // USE HTTPS SERVER

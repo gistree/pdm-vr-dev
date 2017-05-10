@@ -18,7 +18,7 @@
             CredentialsService
                 .login(dialogCtrl.username, dialogCtrl.password)
                 .then(function (res) {
-                    res.data.data.forEach(function (grp) {
+                    res.data.layers.forEach(function (grp) {
                         layFac.addLayer(grp);
                     });
                     CredentialsService.loginUser(res.data.username);

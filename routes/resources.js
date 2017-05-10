@@ -1,16 +1,12 @@
 var express = require('express');
 var app = express();
 var router = express.Router();
-const db_locations = require('../db/dbCon/locations');
-const GeoserverREST = require('../utilities/geoserver');
-const gj = require('../utilities/geojson');
 
-router.get('/layers', function (req, res, next) {
-    GeoserverREST.getLayers({}, function (status, layers) {
-        res.locals.data = layers;
-        next();
-    });
-}, response);
+const db_locations = require('../db/dbCon/locations');
+const gj = require('../utilities/geojson');
+const Layers = require('../utilities/layers');
+
+router.get('/layers', Layers.getLayers, response);
 
 router.get('/freguesias', db_locations.findFreguesias, response);
 

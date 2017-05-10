@@ -1,7 +1,6 @@
-module.exports = function (req, res, next) {
-    // CORS headers
+'use strict';
 
-    console.log("CORS USED");
+module.exports = function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // restrict it to the required domain
     res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
     // Set custom headers for CORS
@@ -10,5 +9,4 @@ module.exports = function (req, res, next) {
         return res.status(200).end(); 
     }
     return next();
-    
 };
