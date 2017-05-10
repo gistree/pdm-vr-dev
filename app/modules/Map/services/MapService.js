@@ -118,12 +118,6 @@
 
         function addTiledWMSLayer(layerData) {
             if (_checkLayer(layerData.key)) {
-                /*var url;
-                if (layerData.protected) {
-                    url = "http://gistree.espigueiro.pt:3000/proxy";
-                } else {
-                    url = "http://gistree.espigueiro.pt/geoserver/wms";
-                }*/
                 var wmsLayer = new ol.layer.Tile({
                     opacity: layerData.opacity,
                     source: new ol.source.TileWMS({
