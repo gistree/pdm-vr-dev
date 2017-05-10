@@ -30,7 +30,7 @@ build/Release
 node_modules
 jspm_packages
 bower_components
-data
+#data
 
 # Optional npm cache directory
 .npm
@@ -38,6 +38,8 @@ data
 # Optional REPL history
 .node_repl_history
 
-/QGIS
 # Database Configuration
 #/config
+
+# Certificates
+/ssl
