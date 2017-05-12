@@ -8,7 +8,7 @@ var httpProxy = require('http-proxy');
 var apiProxy = httpProxy.createProxyServer();
 var geoserverPrint = 'http://localhost:8081/geoserver/';
 
-router.get('/', function (req, res) {
+router.post('/', function (req, res) {
     apiProxy.web(req, res, {
         target: geoserverPrint
     });
