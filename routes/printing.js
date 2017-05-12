@@ -14,9 +14,9 @@ apiProxy.on('proxyReq', function (proxyReq, req, res, options) {
 });
 router.post('/', function (req, res) {
     console.log("REACHED HERE");
-    /*apiProxy.web(req, res, {
+    apiProxy.web(req, res, {
         target: geoserverPrint
-    });*/
+    });
 });
 
 module.exports = router;
