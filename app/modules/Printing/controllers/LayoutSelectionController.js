@@ -19,7 +19,7 @@
             var printConfigs = [];
             layoutCtrl.layouts.forEach(function (layout) {
                 if (layout.selected) {
-                    printConfigs.push($http.post("https://gistree.espigueiro.pt:3001/printing", PrintDetailsService.getPrintSpec(layout.name, layout.type)));
+                    printConfigs.push($http.post("https://gistree.espigueiro.pt:3001/geoserver/pdf/create.json", PrintDetailsService.getPrintSpec(layout.name, layout.type)));
                 }
             });
             $q.all(printConfigs).then(function (results) {

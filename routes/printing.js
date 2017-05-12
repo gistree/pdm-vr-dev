@@ -6,10 +6,9 @@ var fs = require('fs');
 // Proxy Server Definition
 var httpProxy = require('http-proxy');
 var apiProxy = httpProxy.createProxyServer();
-var geoserverPrint = 'http://localhost:8081/geoserver/pdf/create.json';
+var geoserverPrint = 'http://localhost:8081';
 
 router.get('/', function (req, res) {
-    console.log(req.baseUrl);
     apiProxy.web(req, res, {
         target: geoserverPrint
     });
