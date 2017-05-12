@@ -9,6 +9,7 @@ var apiProxy = httpProxy.createProxyServer();
 var geoserverPrint = 'http://localhost:8081/';
 
 router.post('/', function (req, res) {
+    console.log("REACHED HERE");
     apiProxy.web(req, res, {
         target: geoserverPrint
     });
