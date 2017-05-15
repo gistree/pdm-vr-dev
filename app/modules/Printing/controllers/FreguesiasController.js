@@ -5,16 +5,16 @@
         .module('PrintingModule')
         .controller('FreguesiasController', FreguesiasController);
 
-    FreguesiasController.$inject = ['LocationsFactory']
+    FreguesiasController.$inject = ['LocationsFactory', '$scope']
 
-    function FreguesiasController(LocationsFactory) {
+    function FreguesiasController(LocationsFactory, $scope) {
         var frCtrl = this;
         activate();
 
         frCtrl.setFreguesia = function (freguesia) {
             frCtrl.selected = true;
             frCtrl.freguesia = freguesia.name;
-            console.log($scope.$parent);
+            console.log($scope.$parent); 
         }
 
         frCtrl.isSelected = function () {
