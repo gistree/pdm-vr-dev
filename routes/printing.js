@@ -20,18 +20,14 @@ apiProxy.on('proxyReq', function (proxyReq, req, res, options) {
     }
 });
 
-apiProxy.on('proxyRes', function (proxyRes, req, res) {
-    proxyRes.on("data", (msg) => {
-        console.log("msg", msg)
-    })
-    proxyRes.on("end", () => {
-        console.log("end")
-    })
-    proxyRes.on("finish", (data) => {
-        console.log("finish", data)
-    })
+proxy.on('proxyRes', function (proxyRes, req, res) {
+  console.log('RAW Response from the target', JSON.stringify(proxyRes.headers, true, 2));
 });
 
+/*apiProxy.on('proxyRes', function (proxyRes, req, res) {
+    
+});
+*/
 apiProxy.on('error', function (err, req, res) {
     console.log(err);
 });
