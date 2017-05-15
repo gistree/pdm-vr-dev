@@ -27,6 +27,7 @@ apiProxy.on('proxyRes', function (proxyRes, req, res) {
 apiProxy.on('open', function (proxySocket) {
   // listen for messages coming FROM the target here
   proxySocket.on('data', function(a,b,c,d){
+    console.log("DATA");
     console.log(a);
     console.log(b);
     console.log(c);
