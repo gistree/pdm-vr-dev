@@ -18,7 +18,6 @@ apiProxy.on('proxyReq', function (proxyReq, req, res, options) {
         // stream the content
         proxyReq.write(bodyData);
     }else{
-        console.log(proxyReq.path);
         proxyReq.path = proxyReq.path + req.query._doc;
     }
 });
