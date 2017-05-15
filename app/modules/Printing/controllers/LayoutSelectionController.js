@@ -24,9 +24,10 @@
             });
             $q.all(printConfigs).then(function (results) {
                 results.forEach(function (res) {
+                    var url = "https://gistree.espigeuiro.pt/geoserver/" + res.data.getURL.split("/").pop();
                     PrintDetailsService.addNewResult({
                         title: res.config.data.mapTitle,
-                        url: res.data.getURL.split("/").pop()
+                        url: url
                     });
                 });
             });
