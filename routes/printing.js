@@ -13,6 +13,7 @@ apiProxy.on('proxyReq', function (proxyReq, req, res, options) {
 });
 
 apiProxy.on('error', function (err, req, res) {
+    console.log("IM IN ERROR");
     console.log(err);
 });
 
