@@ -13,7 +13,7 @@
 
         frCtrl.setFreguesia = function (freguesia) {
             frCtrl.selected = true;
-            frCtrl.freguesia = freguesia.name;
+            frCtrl.$parent.freguesia = freguesia.name;
         }
 
         frCtrl.isSelected = function () {
