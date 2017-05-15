@@ -9,11 +9,14 @@ var apiProxy = httpProxy.createProxyServer();
 var geoserverPrint = 'http://gistree.espigueiro.pt:8081/geoserver/pdf/create.json';
 
 apiProxy.on('proxyReq', function (proxyReq, req, res, options) {
-    console.log("::::PROXY REQUEST::::");
-    console.log(proxyReq);
-    console.log("::::REQUEST::::");
-    console.log(req);
+
 });
+
+apiProxy.on('proxyRes', function(proxyRes, req, res, options){
+    console.log("In Response");
+    console.log(proxyRes);
+});
+
 
 apiProxy.on('error', function (err, req, res) {
     console.log("IM IN ERROR");
@@ -22,7 +25,6 @@ apiProxy.on('error', function (err, req, res) {
 
 
 router.post('/', function (req, res) {
-    console.log("IM IN THE PROXY!");
     apiProxy.web(req, res, {
         target: geoserverPrint
     });
