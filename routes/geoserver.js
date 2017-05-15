@@ -9,8 +9,7 @@ var apiProxy = httpProxy.createProxyServer();
 var geoserverPrint = 'http://localhost:8081/geoserver/pdf/';
 
 apiProxy.on('proxyReq', function (proxyReq, req, res, options) {
-    console.log(req.method);
-    if (req.body) {
+    if (req.method != "GET") {
         proxyReq.path = proxyReq.path + "create.json";
         let bodyData = JSON.stringify(req.body);
         // incase if content-type is application/x-www-form-urlencoded -> we need to change to application/json
