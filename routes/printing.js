@@ -10,6 +10,8 @@ var geoserverPrint = 'http://localhost:8081/geoserver/pdf/';
 
 apiProxy.on('proxyReq', function (proxyReq, req, res, options) {
     console.log(proxyReq.path);
+    proxyReq.path = proxyReq.path + "create.json";
+    console.log(proxyReq.path);
 });
 
 apiProxy.on('error', function (err, req, res) {
