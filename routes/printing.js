@@ -19,6 +19,7 @@ apiProxy.on('error', function (err, req, res) {
 
 
 router.post('/', function (req, res) {
+    console.log("IM IN THE PROXY!");
     apiProxy.web(req, res, {
         target: geoserverPrint
     });
