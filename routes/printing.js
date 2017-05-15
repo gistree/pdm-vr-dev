@@ -20,7 +20,7 @@ apiProxy.on('proxyReq', function (proxyReq, req, res, options) {
     }
 });
 
-proxy.on('proxyRes', function (proxyRes, req, res) {
+apiProxy.on('proxyRes', function (proxyRes, req, res) {
   console.log('RAW Response from the target', JSON.stringify(proxyRes.headers, true, 2));
 });
 
