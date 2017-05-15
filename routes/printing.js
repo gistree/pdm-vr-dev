@@ -9,7 +9,10 @@ var apiProxy = httpProxy.createProxyServer();
 var geoserverPrint = 'http://localhost:8081/geoserver/pdf/create.json';
 
 apiProxy.on('proxyReq', function (proxyReq, req, res, options) {
-    
+    console.log("::::PROXY REQUEST::::");
+    console.log(proxyReq);
+    console.log("::::REQUEST::::");
+    console.log(req);
 });
 
 apiProxy.on('error', function (err, req, res) {
