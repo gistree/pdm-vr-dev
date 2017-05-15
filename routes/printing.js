@@ -7,7 +7,6 @@ var fs = require('fs');
 var httpProxy = require('http-proxy');
 var apiProxy = httpProxy.createProxyServer();
 var geoserverPrint = 'http://localhost:8081/geoserver/pdf/';
-//var geoserverPrintPage = 'http://localhost:8081/geoserver/'
 
 apiProxy.on('proxyReq', function (proxyReq, req, res, options) {
     if (req.body) {
@@ -29,12 +28,6 @@ router.post('/', function (req, res) {
     apiProxy.web(req, res, {
         target: geoserverPrint,
         ignorePath: true
-    });
-});
-
-router.get('/', function (req, res) {
-    apiProxy.web(req,res, {
-        target: geoserverPrintPage
     });
 });
 
