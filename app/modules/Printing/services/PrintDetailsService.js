@@ -99,6 +99,7 @@
                     "geoJson": JSON.parse(MapService.userFeatures)
                 });
             }
+            console.log(_details);
             angular.extend(defaultLayout.pages[0], _details);
             return defaultLayout;
         }
