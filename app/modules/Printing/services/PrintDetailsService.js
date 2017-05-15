@@ -20,7 +20,7 @@
                     "cmvrpostgis:outras_instalacoes",
                     "cmvrpostgis:zonas_de_protecao_ao_aerodromo"
                 ],
-                baseURL: "https://gistree.espigueiro.pt:3001/wms",
+                baseURL: "http://gistree.espigueiro.pt:8081/geoserver/wms",
                 customParams: {
 
                 }
@@ -42,7 +42,7 @@
                     "cmvrpostgis:rede_ferroviaria",
                     "cmvrpostgis:vertices_geodesicos"
                 ],
-                baseURL: "https://gistree.espigueiro.pt:3001/wms",
+                baseURL: "http://gistree.espigueiro.pt:8081/geoserver/wms",
                 customParams: {
 
                 }
