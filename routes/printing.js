@@ -21,13 +21,13 @@ apiProxy.on('proxyReq', function (proxyReq, req, res, options) {
 });
 
 apiProxy.on('proxyRes', function (proxyRes, req, res) {
-    res.on("data", (msg) => {
+    proxyRes.on("data", (msg) => {
         console.log("msg", msg)
     })
-    res.on("end", () => {
+    proxyRes.on("end", () => {
         console.log("end")
     })
-    res.on("finish", (data) => {
+    proxyRes.on("finish", (data) => {
         console.log("finish", data)
     })
 });
