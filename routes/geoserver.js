@@ -35,6 +35,7 @@ router.post('/', function (req, res) {
 });
 
 router.get('/pdf/*', function(req,res){
+    console.log("GOT IT");
     apiProxy.web(req, res, {
         target: geoserverPrint
     });
