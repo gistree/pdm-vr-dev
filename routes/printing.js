@@ -12,19 +12,15 @@ apiProxy.on('proxyReq', function (proxyReq, req, res, options) {
 
 });
 
-apiProxy.on('proxyRes', function(proxyRes, req, res, options){
-    console.log("In Response");
-    console.log(proxyRes);
-});
-
-
 apiProxy.on('error', function (err, req, res) {
     console.log("IM IN ERROR");
     console.log(err);
 });
 
-
 router.post('/', function (req, res) {
+    console.log(req.path);
+    req.path = req.path + "create.json";
+    console.log(req.path);
     apiProxy.web(req, res, {
         target: geoserverPrint
     });
