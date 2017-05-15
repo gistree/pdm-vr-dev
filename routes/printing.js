@@ -21,24 +21,23 @@ apiProxy.on('proxyReq', function (proxyReq, req, res, options) {
 });
 
 apiProxy.on('proxyRes', function (proxyRes, req, res) {
-  console.log('RAW Response from the target', JSON.stringify(proxyRes.headers, true, 2));
+    var _write = res.write;
+    var output;
+    var body = "";
+    proxyRes.on('data', function (data) {
+        data = data.toString('utf-8');
+        body += data;
+    });
+    res.write = function (data) {
+        try {
+            eval("output=" + body)
+            output = mock.mock(output)
+            console.log(JSON.stringify(output));
+            _write.call(res, JSON.stringify(output));
+        } catch (err) {}
+    }
 });
 
-apiProxy.on('open', function (proxySocket) {
-  // listen for messages coming FROM the target here
-  proxySocket.on('data', function(a,b,c,d){
-    console.log("DATA");
-    console.log(a);
-    console.log(b);
-    console.log(c);
-    console.log(d);    
-  });
-});
-
-/*apiProxy.on('proxyRes', function (proxyRes, req, res) {
-    
-});
-*/
 apiProxy.on('error', function (err, req, res) {
     console.log(err);
 });
