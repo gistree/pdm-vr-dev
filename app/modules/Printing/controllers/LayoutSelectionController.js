@@ -24,10 +24,9 @@
             });
             $q.all(printConfigs).then(function (results) {
                 results.forEach(function (res) {
-                    console.log(res);
                     PrintDetailsService.addNewResult({
                         title: res.config.data.mapTitle,
-                        url: res.data.getURL
+                        url: res.data.getURL.split("/").pop()
                     });
                 });
             });
