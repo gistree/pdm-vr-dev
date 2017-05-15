@@ -12,6 +12,11 @@ apiProxy.on('proxyReq', function (proxyReq, req, res, options) {
     proxyReq.path = proxyReq.path + "create.json";
 });
 
+apiProxy.on('proxyRes', function(res, a,b){
+    console.log("IN RESPONSE");
+    console.log(res);
+});
+
 apiProxy.on('error', function (err, req, res) {
     console.log(err);
 });
