@@ -20,9 +20,8 @@ apiProxy.on('proxyReq', function (proxyReq, req, res, options) {
     }
 });
 
-apiProxy.on('proxyRes', function(res, a,b){
-    console.log("IN RESPONSE");
-    console.log(res);
+apiProxy.on('proxyRes', function(res){
+    console.log(res.body);
 });
 
 apiProxy.on('error', function (err, req, res) {
