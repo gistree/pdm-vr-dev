@@ -24,6 +24,16 @@ apiProxy.on('proxyRes', function (proxyRes, req, res) {
   console.log('RAW Response from the target', JSON.stringify(proxyRes.headers, true, 2));
 });
 
+apiProxy.on('open', function (proxySocket) {
+  // listen for messages coming FROM the target here
+  proxySocket.on('data', function(a,b,c,d){
+    console.log(a);
+    console.log(b);
+    console.log(c);
+    console.log(d);    
+  });
+});
+
 /*apiProxy.on('proxyRes', function (proxyRes, req, res) {
     
 });
