@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // restrict it to the required domain
+    res.header("Access-Control-Allow-Origin", "*"); // restrict it to the required domain
     res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
     // Set custom headers for CORS
     res.header("Access-Control-Allow-Headers", "Content-type,Accept,X-Custom-Header");
