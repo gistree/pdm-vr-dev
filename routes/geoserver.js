@@ -34,7 +34,7 @@ router.post('/', function (req, res) {
     });
 });
 
-router.get('/', function(req,res){
+router.get('/pdf/*', function(req,res){
     apiProxy.web(req, res, {
         target: geoserverPrint
     });
