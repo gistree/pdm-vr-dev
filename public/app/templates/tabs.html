@@ -99,11 +99,11 @@
                                 <div class="row no-gutters form-line" ng-controller="FreguesiasController as frCtrl">
                                     <label class="col-4" for="freguesia">Freguesia:</label>
                                     <span class="col-7 dropdown">
-                                        <button id="freguesia" ng-class="{'fr-selected': frCtrl.isSelected()}" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <button id="freguesia" ng-model="formCtrl.userData.freguesia" ng-class="{'fr-selected': frCtrl.isSelected()}" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             {{frCtrl.freguesia}}
                                         </button>
                                         <div class="dropdown-menu">
-                                            <a class="dropdown-item" ng-repeat="freguesia in frCtrl.freguesias" ng-model="formCtrl.userData.freguesia" ng-click="frCtrl.setFreguesia(freguesia)">{{freguesia.name}}</a>
+                                            <a class="dropdown-item" ng-repeat="freguesia in frCtrl.freguesias" ng-click="frCtrl.setFreguesia(freguesia)">{{freguesia.name}}</a>
                                         </div>
                                     </span>
                                 </div>
