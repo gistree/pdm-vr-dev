@@ -17,6 +17,8 @@ apiProxy.on('proxyReq', function (proxyReq, req, res, options) {
         proxyReq.setHeader('Content-Length', Buffer.byteLength(bodyData));
         // stream the content
         proxyReq.write(bodyData);
+    }else{
+        console.log(req.query._doc);
     }
 });
 
@@ -32,11 +34,10 @@ router.post('/', function (req, res) {
 });
 
 router.get('/pdf', function(req,res){
-    console.log("GOT IT");
-    console.log(req.query);
-    //apiProxy.web(req, res, {
-    //    target: geoserverPrint
-    //});
+    apiProxy.web(req, res, {
+        target: geoserverPrint,
+        ignorePath: true
+    });
 });
 
 module.exports = router;
