@@ -24,7 +24,7 @@
             });
             $q.all(printConfigs).then(function (results) {
                 results.forEach(function (res) {
-                    var url = "https://gistree.espigueiro.pt:3001/geoserver/pdf?" + res.data.getURL.split("/").pop();
+                    var url = "https://gistree.espigueiro.pt:3001/geoserver/pdf?_doc=" + res.data.getURL.split("/").pop();
                     PrintDetailsService.addNewResult({
                         title: res.config.data.mapTitle,
                         url: url
