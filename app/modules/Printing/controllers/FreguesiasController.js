@@ -14,7 +14,7 @@
         frCtrl.setFreguesia = function (freguesia) {
             frCtrl.selected = true;
             frCtrl.freguesia = freguesia.name;
-            console.log(frCtrl.$parent);
+            console.log($scope.$parent);
         }
 
         frCtrl.isSelected = function () {
