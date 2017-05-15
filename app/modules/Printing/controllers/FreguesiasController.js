@@ -14,12 +14,16 @@
         frCtrl.setFreguesia = function (freguesia) {
             frCtrl.selected = true;
             frCtrl.freguesia = freguesia.name;
-            $scope.$parent.formCtrl.userData.freguesia = freguesia.name; 
+            $scope.$parent.formCtrl.userData.freguesia = freguesia.name;
         }
 
         frCtrl.isSelected = function () {
             return frCtrl.selected;
         }
+        
+        $scope.$on('resetPrinting', function () {
+            activate();
+        });
 
         function activate() {
             frCtrl.selected = false;
