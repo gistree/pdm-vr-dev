@@ -20,7 +20,8 @@ apiProxy.on('proxyReq', function (proxyReq, req, res, options) {
     }
 });
 
-apiProxy.on('proxyRes', function(res){
+apiProxy.on('proxyRes', function(proxyRes, req, res){
+    console.log(res);
     console.log(res.body);
 });
 
