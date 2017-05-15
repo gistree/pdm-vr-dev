@@ -34,7 +34,7 @@ app.all('*', function (req, res, next) {
 app.use('/', require('./routes/index'));
 app.use('/credentials/', require('./routes/credentials'));
 app.use('/wms/', require('./routes/proxy'));
-app.use('/geoserver', require('./routes/geoserver'));
+app.use('/geoserver/', require('./routes/geoserver'));
 app.use('/api/', require('./routes/resources'));
 // Error Handling
 app.use(function (req, res, next) {
