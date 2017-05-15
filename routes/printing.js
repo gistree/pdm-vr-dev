@@ -8,11 +8,7 @@ var httpProxy = require('http-proxy');
 var apiProxy = httpProxy.createProxyServer();
 var geoserverPrint = 'http://localhost:8081/geoserver/pdf/create.json';
 
-apiProxy.on('proxyReq', function (proxyReq, req, res, options) {
-    
-});
 router.post('/', function (req, res) {
-    console.log("REACHED HERE");
     apiProxy.web(req, res, {
         target: geoserverPrint
     });
