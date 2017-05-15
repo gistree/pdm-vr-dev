@@ -21,7 +21,11 @@ apiProxy.on('proxyReq', function (proxyReq, req, res, options) {
 });
 
 apiProxy.on('proxyRes', function(proxyRes, req, res){
+    console.log("::::PROXY RES::::");
+    console.log(proxyRes);
+    console.log("::::SERVER RESPONSE::::");
     console.log(res);
+    console.log("::::RES BODY::::");
     console.log(res.body);
 });
 
