@@ -15,6 +15,8 @@ apiProxy.on('proxyReq', function (proxyReq, req, res, options) {
         // incase if content-type is application/x-www-form-urlencoded -> we need to change to application/json
         proxyReq.setHeader('Content-Type', 'application/json');
         proxyReq.setHeader('Content-Length', Buffer.byteLength(bodyData));
+        console.log(req.body);
+        console.log(res.body);
         // stream the content
         proxyReq.write(bodyData);
     }
